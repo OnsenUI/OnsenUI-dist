@@ -1,6 +1,6 @@
-/*! onsenui - v1.3.0-beta - 2015-10-20 */
+/*! onsenui - v1.2.2-beta - 2015-10-20 */
 /*
-Copyright 2013-2015 ASIAL CORPORATION
+Copyright 2013-2014 ASIAL CORPORATION
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -57,7 +57,6 @@ input, textarea {
 .page__content {
   background-color: transparent !important;
   background: transparent !important;
-  -ms-touch-action: none;
 }
 
 .page__status-bar-fill ~ .page__content {
@@ -122,7 +121,7 @@ ons-pull-hook {
 
 
 /*
-Copyright 2013-2015 ASIAL CORPORATION
+Copyright 2013-2014 ASIAL CORPORATION
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -609,7 +608,7 @@ ons-carousel[disabled] {
 }
 
 /*
-Copyright 2013-2015 ASIAL CORPORATION
+Copyright 2013-2014 ASIAL CORPORATION
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -722,7 +721,7 @@ ons-icon[fixed-width="true"] {
 }
 
 /*
-Copyright 2013-2015 ASIAL CORPORATION
+Copyright 2013-2014 ASIAL CORPORATION
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -750,7 +749,7 @@ limitations under the License.
 }
 
 /*
-Copyright 2013-2015 ASIAL CORPORATION
+Copyright 2013-2014 ASIAL CORPORATION
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -772,8 +771,8 @@ ons-sliding-menu {
   right: 0px;
   top: 0px;
   bottom: 0px;
+  overflow: hidden;
   z-index: 0;
-  overflow-x: hidden;
 }
 
 .onsen-sliding-menu__menu,
@@ -794,7 +793,7 @@ ons-sliding-menu {
 
 
 /*
-Copyright 2013-2015 ASIAL CORPORATION
+Copyright 2013-2014 ASIAL CORPORATION
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -833,5 +832,4 @@ ons-split-view {
   bottom: 0px;
   right: 0px;
   z-index: 0;
-  overflow-x: hidden; 
 }

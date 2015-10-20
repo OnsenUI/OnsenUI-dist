@@ -1,6 +1,4 @@
-# Onsen UI 
-
-[![Circle CI](https://circleci.com/gh/OnsenUI/OnsenUI.svg?style=svg)](https://circleci.com/gh/OnsenUI/OnsenUI)
+# Onsen UI
 
 The best place to start with Onsen UI is our [Getting Started](http://onsen.io/guide/getting_started.html) page.
 
@@ -16,8 +14,8 @@ Our [Monaca IDE] fully supports Onsen UI plugin.
 
 Onsen UI is tested with the following browsers and mobile OS.
 
- * Android4.0.2+
- * iOS7+
+ * Android2.3.4+
+ * iOS6+
  * Google Chrome
  * Safari
 
@@ -40,18 +38,12 @@ See the [Onsen UI Getting Started](http://onsen.io/getting_started/) page.
 
 See the [Onsen UI Getting Started Page] and scroll down to the Using Onsen UI with Monaca section. 
 
-## Download the latest build
-
-A new build is generated every time the code changes. It can be downloaded on [this page](http://onsen.io/download.html#latest-build).
-
-Please use this with caution. However, we are very grateful if people try it out so we can find bugs and things to improve before the sharp releases.
-
 ## How to build
 
 * Clone this repository
 
 ```bash
-$ git clone https://github.com/OnsenUI/OnsenUI.git
+$ git clone https://github.com/monaca/OnsenUI.git
 ```
 
 * Open the terminal from OnsenUI directory
@@ -90,23 +82,6 @@ $ gulp serve
 
 * Then navigate your browser to [http://0.0.0.0:8000/demo/index.html](http://0.0.0.0:8000/demo/index.html)
 
-## Running the test suite
-
-Onsen UI has end-to-end testing using Protractor. Use the following command to run the tests:
-
-```bash
-$ npm install
-$ gulp test
-```
-
-It will take some time the because it will download a stand-alone Selenium Server and a Chrome webdriver the first time it's executed.
-
-To run a single test or a group of tests use the `--specs` parameter and provide a comma-separated list of spec files:
-
-```bash
-$ gulp test --specs test/e2e/lazyRepeat/scenarios.js
-```
-
 ## Developing your app
 
 Our [Monaca IDE] makes it super easy to create Onsen UI project, but if you want to use other IDEs, we provide project templates for you in the `project_templates` folder. You will see the instruction on how to run the project there.
@@ -123,14 +98,6 @@ Run gulp task to develop Onsen UI itself with livereload.
 
 Access [http://0.0.0.0:8000/demo/index.html](http://0.0.0.0:8000/demo/index.html) and your code changes will be reloaded.
 
-## Current Roadmap
-
-Please see the following file for information about upcoming releases and what will be included.
-
-* [Onsen UI Roadmap](https://github.com/OnsenUI/OnsenUI/blob/master/ROADMAP.md)
-
-Please tell us if you have any suggestions for features that you would like to see included.
-
 ## How to contribute
 
 We will happily accept contributions to Onsen UI. It can be both fixes for bugs or typos or even new features that extend Onsen UI.
@@ -142,10 +109,6 @@ The basic workflow when making contributions is the following:
 * Make a [pull request](https://help.github.com/articles/using-pull-requests) to **master** branch.
 
 After you've made a pull request we will review it. If everything is fine and we like the change the contribution will be pulled into the main Onsen UI repository. In the case where there are some issues with the code or we disagree with how it's been implemented we will describe the issues in the comments so they can be corrected.
-
-## Contributors
-
-Please see the full [list of contributors](https://github.com/OnsenUI/OnsenUI/blob/master/CONTRIBUTORS.md).
 
 ### Code style
 
