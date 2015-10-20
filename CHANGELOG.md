@@ -2,6 +2,22 @@
 CHANGELOG
 ====
 
+v1.1.3
+----
+
+ * Added task automation with gulp.js in project templates.
+ * core: Added ons.disableAutoStatusBarFill() and ons.enableAutoStatusBarFill().
+ * core: Changed to write warning message on loading if angular.element is not JQLite.
+ * core: Added ons.orientation for dealing with device orientation.
+ * navigator: Fixed [#208](https://github.com/OnsenUI/OnsenUI/issues/208).
+ * ons-switch: Implemented [#199](https://github.com/OnsenUI/OnsenUI/issues/199). Changed switch component 'change' event to have 'isInteractive' property.
+ * ons-tabbar: Renamed 'ons-tabbar-item' to 'ons-tab'.
+ * ons-tabbar: Changed 'ons-tab' to accept child html contents.
+ * ons-tabbar: Added 'ons-tab-active' and 'ons-tab-inactive' attributes on child elements of 'ons-tab'.
+ * ons-tabbar: Added 'position' attribute on 'ons-tabbar' to put tabbar on screen top or screen bottom.
+ * ons-tabbar: Added 'ons-tab-active', 'ons-tab-inactive' attribute on 'ons-tab'.
+ * css-components: Rewritten all patterns completely with Onsen UI.
+
 v1.1.2
 ----
 

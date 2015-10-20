@@ -72,6 +72,7 @@ h6 {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  margin-top: -1px;
 }
 .content-padded {
   padding: 8px;
@@ -379,8 +380,7 @@ h6 {
   -ms-user-select: none;
   user-select: none;
   z-index: 2;
-  display: table;
-  table-layout: fixed;
+  display: block;
   height: 44px;
   padding-left: 0;
   padding-right: 0;
@@ -392,7 +392,7 @@ h6 {
   font-weight: 400;
   width: 100%;
   white-space: nowrap;
-  overflow: hidden;
+  overflow: visible;
 }
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
   .navigation-bar {
@@ -431,43 +431,44 @@ h6 {
   background: transparent;
   border: none;
   line-height: normal;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
   height: 44px;
   vertical-align: top;
-  overflow: hidden;
-  display: table-cell;
+  overflow: visible;
+  display: block;
   vertical-align: middle;
+  float: left;
 }
 .navigation-bar__left {
   max-width: 50%;
+  width: 27%;
   text-align: left;
 }
 .navigation-bar__right {
   max-width: 50%;
+  width: 27%;
   text-align: right;
 }
 .navigation-bar__center {
-  width: 45%;
+  width: 46%;
   text-align: center;
   line-height: 44px;
   font-size: 17px;
   font-weight: 500;
-}
-.navigation-bar__center:first-child:last-child {
-  width: 100%;
 }
 .navigation-bar__title {
   line-height: 44px;
   font-size: 17px;
   font-weight: 500;
   color: #1f1f21;
+  width: 46%;
   margin: 0;
   padding: 0;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+}
+.navigation-bar__center:first-child:last-child {
+  width: 100%;
 }
 /* topdoc
   name: Navigation Bar Item
@@ -1516,7 +1517,6 @@ h6 {
   text-decoration: none;
   padding: 0;
   height: 49px;
-  line-height: 49px;
   letter-spacing: 0;
   color: #888;
   text-shadow: 0 1px none;
@@ -1527,13 +1527,14 @@ h6 {
   border-top: none;
   width: 100%;
   font-weight: 400;
+  line-height: 49px;
 }
-@media (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5) {
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
   .tab-bar__button {
     border-top: none;
   }
 }
-.tab-bar__button > .tab-bar__icon {
+.tab-bar__icon {
   font-size: 24px;
   padding: 0;
   margin: 0;
@@ -1563,7 +1564,6 @@ h6 {
 .tab-bar__button {
   color: #888;
 }
-.tab-bar__button:active,
 :checked + .tab-bar__button {
   color: #1284ff;
   background-color: transparent;
@@ -1571,7 +1571,6 @@ h6 {
   box-shadow: none;
   border-top: none;
 }
-.tab-bar__button:active > .tab-bar__icon,
 :checked + .tab-bar__button > .tab-bar__icon {
   color: #1284ff;
 }
@@ -1586,6 +1585,14 @@ h6 {
   -webkit-box-shadow: none;
   box-shadow: none;
   outline: 0;
+}
+.tab-bar__content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 49px;
+  z-index: 0;
 }
 /* topdoc
   name: Icon Only Tab Bar
@@ -1632,6 +1639,99 @@ h6 {
       </label>
     </div>
 */
+/* topdoc
+  name: Top Tab Bar
+  class: tab-bar--top
+  use: Tab Bar
+  markup:
+    <div class="tab-bar tab-bar--top">
+      <label class="tab-bar__item">
+        <input type="radio" name="top-tab-bar-a" checked="checked">
+        <button class="tab-bar__button">
+          <i class="tab-bar__icon ion-stop"></i>
+        </button>
+      </label>
+
+      <label class="tab-bar__item">
+        <input type="radio" name="top-tab-bar-a">
+        <button class="tab-bar__button">
+          <i class="tab-bar__icon ion-record"></i>
+        </button>
+      </label>
+
+      <label class="tab-bar__item">
+        <input type="radio" name="top-tab-bar-a">
+        <button class="tab-bar__button">
+          <i class="tab-bar__icon ion-star"></i>
+        </button>
+      </label>
+    </div>
+*/
+.tab-bar--top {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: auto;
+  border-top: none;
+  border-bottom: 1px solid #ddd;
+}
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .tab-bar--top {
+    border-bottom: none;
+    -webkit-background-size: 100% 1px;
+    background-size: 100% 1px;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-image: -webkit-linear-gradient(90deg, #ddd, #ddd 50%, transparent 50%);
+    background-image: -moz-linear-gradient(90deg, #ddd, #ddd 50%, transparent 50%);
+    background-image: -o-linear-gradient(90deg, #ddd, #ddd 50%, transparent 50%);
+    background-image: linear-gradient(0deg, #ddd, #ddd 50%, transparent 50%);
+  }
+}
+.tab-bar--top__content {
+  top: 49px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+}
+/* topdoc
+  name: Bordered Top Tab Bar
+  class: tab-bar--top-border
+  use: Top Tab Bar
+  markup:
+    <div class="tab-bar tab-bar--top tab-bar--top-border">
+      <label class="tab-bar__item tab-bar--top-border__item">
+        <input type="radio" name="top-tab-bar-b" checked="checked">
+        <button class="tab-bar__button tab-bar--top-border__button">
+          Home
+        </button>
+      </label>
+
+      <label class="tab-bar__item tab-bar--top-border__item">
+        <input type="radio" name="top-tab-bar-b">
+        <button class="tab-bar__button tab-bar--top-border__button">
+          Comments
+        </button>
+      </label>
+
+      <label class="tab-bar__item tab-bar--top-border__item">
+        <input type="radio" name="top-tab-bar-b">
+        <button class="tab-bar__button tab-bar--top-border__button">
+          Activity
+        </button>
+      </label>
+    </div>
+*/
+.tab-bar--top-border__button {
+  background-color: transparent;
+  border-bottom: 4px solid transparent;
+}
+:checked + .tab-bar--top-border__button {
+  background-color: transparent;
+  border-bottom: 4px solid #1284ff;
+}
 /* topdoc
   name: Notification
   class: notification
@@ -2851,8 +2951,8 @@ input[type="search"].search-input::-webkit-search-cancel-button {
   color: #ccc;
 }
 .text-input:invalid {
-  border: 1px solid #f00;
-  color: #f00;
+  border: 1px solid #ddd;
+  color: #1f1f21;
 }
 /* topdoc
   name: Transparent Text Input
@@ -2919,8 +3019,8 @@ input[type="search"].search-input::-webkit-search-cancel-button {
   background-color: transparent;
 }
 .text-input--transparent:invalid {
-  border: 1px solid #f00;
-  color: #f00;
+  border: 1px solid #ddd;
+  color: #1f1f21;
   border: none;
   background-color: transparent;
 }
@@ -2991,11 +3091,11 @@ input[type="search"].search-input::-webkit-search-cancel-button {
   background-color: transparent;
 }
 .text-input--underbar:invalid {
-  border: 1px solid #f00;
-  color: #f00;
+  border: 1px solid #ddd;
+  color: #1f1f21;
   border: none;
   background-color: transparent;
-  border-bottom: 1px solid #f00;
+  border-bottom: 1px solid #ddd;
 }
 /* topdoc
   name: Textarea
