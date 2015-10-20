@@ -1,4 +1,4 @@
-/*! onsenui - v1.1.0 - 2015-10-20 */
+/*! onsenui - v1.1.1 - 2015-10-20 */
 /*
 Copyright 2013-2014 ASIAL CORPORATION
 
@@ -705,6 +705,7 @@ ons-split-view {
   top: 0px;
   bottom: 0px;
   z-index: 0;
+  overflow: hidden;
 }
 
 .onsen-split-view__secondary {
