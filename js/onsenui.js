@@ -1,4 +1,4 @@
-/*! onsenui - v1.3.11 - 2015-10-20 */
+/*! onsenui - v1.3.9 - 2015-10-20 */
 // Copyright (c) Microsoft Open Technologies, Inc.  All rights reserved.  Licensed under the Apache License, Version 2.0.  See License.txt in the project root for license information.
 // JavaScript Dynamic Content shim for Windows Store apps
 (function () {
@@ -7460,10 +7460,6 @@ limitations under the License.
         return this._deviceBackButtonHandler;
       },
 
-      _getMaskColor: function() {
-        return this._element[0].getAttribute('mask-color') || 'rgba(0, 0, 0, 0.2)';
-      },
-
       /**
        * Show dialog.
        *
@@ -7488,8 +7484,6 @@ limitations under the License.
 
             this._element.css('display', 'block');
             this._mask.css('opacity', 1);
-
-            this._mask.css('backgroundColor', this._getMaskColor());
 
             if (options.animation) {
               animation = DialogView._animatorDict[options.animation];
@@ -17313,10 +17307,7 @@ limitations under the License.
 
             element.data('ons-navigator', navigator);
 
-            element.data('_scope', scope);
-
             scope.$on('$destroy', function() {
-              element.data('_scope', undefined);
               navigator._events = undefined;
               element.data('ons-navigator', undefined);
               element = null;
@@ -18805,10 +18796,7 @@ limitations under the License.
           $onsen.declareVarAttribute(attrs, slidingMenu);
           element.data('ons-sliding-menu', slidingMenu);
 
-          element.data('_scope', scope);
-
-          scope.$on('$destroy', function() {
-            element.data('_scope', undefined);
+          scope.$on('$destroy', function(){
             slidingMenu._events = undefined;
             element.data('ons-sliding-menu', undefined);
           });
@@ -19183,10 +19171,8 @@ limitations under the License.
           $onsen.registerEventHandlers(splitView, 'update presplit precollapse postsplit postcollapse destroy');
 
           element.data('ons-split-view', splitView);
-          element.data('_scope', scope);
 
           scope.$on('$destroy', function() {
-            element.data('_scope', undefined);
             splitView._events = undefined;
             element.data('ons-split-view', undefined);
           });

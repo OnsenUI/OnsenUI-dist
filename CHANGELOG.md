@@ -2,15 +2,6 @@
 CHANGELOG
 ====
 
-v1.3.11
-----
-* ons-tabbar: Remove flickering when navigator is a child of tabbar.
-* ons-dialog: Fixed broken `mask-color` attribute.
-
-v1.3.10
-----
-* ons-tabbar: Fixed [#891](https://github.com/OnsenUI/OnsenUI/issues/891).
-
 v1.3.9
 ----
 * ons-carousel: Fixed [#844](https://github.com/OnsenUI/OnsenUI/issues/844).
