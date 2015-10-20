@@ -1708,14 +1708,14 @@ h6 {
       <label class="tab-bar__item">
         <input type="radio" name="tab-bar-b">
         <button class="tab-bar__button">
-          <i class="tab-bar__icon ion-ios-cloud-outline"></i>
+          <i class="tab-bar__icon ion-ios7-cloud-outline"></i>
         </button>
       </label>
 
       <label class="tab-bar__item">
         <input type="radio" name="tab-bar-b">
         <button class="tab-bar__button">
-          <i class="tab-bar__icon ion-ios-pie"></i>
+          <i class="tab-bar__icon ion-ios7-pie"></i>
         </button>
       </label>
     </div>
@@ -1916,8 +1916,7 @@ h6 {
   transition: none;
   opacity: 0.2;
 }
-.toolbar-button:disabled,
-.toolbar-button[disabled] {
+.toolbar-button:disabled {
   opacity: 0.3;
   cursor: default;
   pointer-events: none;
@@ -3736,7 +3735,6 @@ input[type="search"].search-input::-webkit-search-cancel-button {
   color: #fff;
   overflow: hidden;
   min-height: 100px;
-  height: 100%;
 }
 .popover__content > * {
   overflow: hidden;
