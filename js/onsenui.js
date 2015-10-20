@@ -1,4 +1,4 @@
-/*! onsenui - v1.3.6 - 2015-10-20 */
+/*! onsenui - v1.3.5 - 2015-10-20 */
 // Copyright (c) Microsoft Open Technologies, Inc.  All rights reserved.  Licensed under the Apache License, Version 2.0.  See License.txt in the project root for license information.
 // JavaScript Dynamic Content shim for Windows Store apps
 (function () {
@@ -12446,10 +12446,6 @@ limitations under the License.
         }.bind(this), 400);
 
         scope.$on('$destroy', this._destroy.bind(this));
-
-        if (!attrs.swipeable) {
-          this.setSwipeable(true);
-        }
       },
 
       getDeviceBackButtonHandler: function() {
