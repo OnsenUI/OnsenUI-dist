@@ -1,4 +1,4 @@
-/*! onsenui - v1.3.3 - 2015-10-20 */
+/*! onsenui - v1.3.2 - 2015-10-20 */
 // Copyright (c) Microsoft Open Technologies, Inc.  All rights reserved.  Licensed under the Apache License, Version 2.0.  See License.txt in the project root for license information.
 // JavaScript Dynamic Content shim for Windows Store apps
 (function () {
@@ -4964,7 +4964,7 @@ app.run(['$templateCache', function($templateCache) {
   $templateCache.put('templates/back_button.tpl',
     '<span \n' +
     '  class="toolbar-button--quiet {{modifierTemplater(\'toolbar-button--*\')}}" \n' +
-    '  ng-click="$root.ons.findParentComponentUntil(\'ons-navigator\', $event).popPage({cancelIfRunning: true})"\n' +
+    '  ng-click="$root.ons.findParentComponentUntil(\'ons-navigator\', $event).popPage()" \n' +
     '  ng-show="showBackButton"\n' +
     '  style="height: 44px; line-height: 0; padding: 0 10px 0 0; position: relative;">\n' +
     '  \n' +
@@ -7084,7 +7084,7 @@ limitations under the License.
           if (!waitForAction) {
             this._scrollToKillOverScroll();
           }
-        } else {
+        } else if (this._lastDragEvent !== null) {
           this._startMomemtumScroll(event);
         }
         this._lastDragEvent = null;
@@ -7110,7 +7110,7 @@ limitations under the License.
       },
 
       _startMomemtumScroll: function(event) {
-        if (this._lastDragEvent) {
+        if (this._lastDragEvent !== null) {
           var velocity = this._getScrollVelocity(this._lastDragEvent);
           var duration = 0.3;
           var scrollDelta = duration * 100 * velocity;
@@ -7181,14 +7181,18 @@ limitations under the License.
        * @return {Array}
        */
       _getCarouselItemElements: function() {
-        var nodeList = this._element[0].querySelectorAll('ons-carousel-item'),
-          rv = [];
-
-        for (var i = nodeList.length; i--; ) {
-          rv.unshift(nodeList[i]);
+        if (this._carouselItemElements && this._carouselItemElements.length) {
+          return this._carouselItemElements;
         }
 
-        return rv;
+        var nodeList = this._element[0].querySelectorAll('ons-carousel-item');
+
+        this._carouselItemElements = [];
+        for (var i = nodeList.length; i--; ) {
+          this._carouselItemElements.unshift(nodeList[i]);
+        }
+
+        return this._carouselItemElements;
       },
 
       /**
@@ -8818,7 +8822,7 @@ limitations under the License.
         this._renderedElements = {};
         this._addEventListeners();
 
-        this._scope.$watch(this._countItems.bind(this), this._onChange.bind(this));
+        this._scope.$watch(this._onChange.bind(this));
 
         this._scope.$on('$destroy', this._destroy.bind(this));
         this._onChange();
@@ -8993,7 +8997,7 @@ limitations under the License.
 
         var items = [];
         for (var i = startIndex; i < cnt && topPosition < 4 * window.innerHeight; i++) {
-          var h = this._getItemHeight(i);
+          var h = this._getItemHeight();
 
           if (i >= this._itemHeightSum.length) {
             this._itemHeightSum = this._itemHeightSum.concat(new Array(100));
@@ -9571,8 +9575,8 @@ limitations under the License.
           throw new Error('options must be an object. You supplied ' + options);
         }
 
-        if (index === this.pages.length) {
-          return this.pushPage.apply(this, [].slice.call(arguments, 1));
+        if (this.pages.length === 0) {
+          return this.pushPage.apply(this, arguments);
         }
 
         this._doorLock.waitUnlock(function() {
@@ -9640,10 +9644,6 @@ limitations under the License.
         }
 
         options = options || {};
-
-        if (options.cancelIfRunning && this._isPushing) {
-          return;
-        }
 
         if (options && typeof options != 'object') {
           throw new Error('options must be an object. You supplied ' + options);
@@ -9826,12 +9826,9 @@ limitations under the License.
        */
       _emitPrePopEvent: function() {
         var isCanceled = false;
-        var leavePage = this.getCurrentPage();
         var prePopEvent = {
           navigator: this,
-          currentPage: leavePage,
-          leavePage: leavePage,
-          enterPage: this.pages[this.pages.length - 2],
+          currentPage: this.getCurrentPage(),
           cancel: function() {
             isCanceled = true;
           }
@@ -9849,10 +9846,6 @@ limitations under the License.
        */
       popPage: function(options) {
         options = options || {};
-
-        if (options.cancelIfRunning && this._isPopping) {
-          return;
-        }
 
         this._doorLock.waitUnlock(function() {
           if (this.pages.length <= 1) {
@@ -12683,10 +12676,6 @@ limitations under the License.
           case 'swipeleft':
             event.gesture.preventDefault();
 
-            if (this._logic.isClosed() && !this._isInsideSwipeTargetArea(event)) {
-              return;
-            }
-
             if (this._isRightMenu) {
               this.open();
             } else {
@@ -12698,10 +12687,6 @@ limitations under the License.
 
           case 'swiperight':
             event.gesture.preventDefault();
-
-            if (this._logic.isClosed() && !this._isInsideSwipeTargetArea(event)) {
-              return;
-            }
 
             if (this._isRightMenu) {
               this.close();
@@ -13577,7 +13562,7 @@ limitations under the License.
         var previousTabItem = this._tabItems[this.getActiveTabIndex()];
         var selectedTabItem = this._tabItems[index];
 
-        if ((typeof selectedTabItem.noReload !== 'undefined' || selectedTabItem.isPersistent()) &&
+        if((typeof selectedTabItem.noReload !== 'undefined' || typeof selectedTabItem.isPersistent()) &&
             index === this.getActiveTabIndex()) {
           this.emit('reactive', {
             index: index,

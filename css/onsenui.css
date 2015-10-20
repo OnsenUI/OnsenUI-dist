@@ -1,4 +1,4 @@
-/*! onsenui - v1.3.3 - 2015-10-20 */
+/*! onsenui - v1.3.2 - 2015-10-20 */
 /*
 Copyright 2013-2015 ASIAL CORPORATION
 
@@ -865,21 +865,15 @@ limitations under the License.
 
 */
 
-ons-scroller {
+.ons-scroller {
   display: block;
-  height: 100%;
   overflow: scroll;
-  -webkit-overflow-scrolling: touch;
-  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;   
 }
 
-ons-scroller::-webkit-scrollbar {
+.ons-scroller::-webkit-scrollbar,
+.ons-scroller__content::-webkit-scrollbar {
   display: none;
-}
-
-.ons-scroller__content {
-  height: 100%;
-  overflow: scroll;
 }
 
 /*
