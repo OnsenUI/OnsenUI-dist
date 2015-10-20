@@ -552,7 +552,6 @@ h6 {
   float: left;
   text-align: left;
   width: auto;
-  max-width: 50%;
 }
 .navigation-bar--android__right {
   float: right;
@@ -3636,9 +3635,7 @@ input[type="search"].search-input::-webkit-search-cancel-button {
     <div class="popover-mask"></div>
     <div class="popover popover--up" style="bottom:20px;left:50px;">
       <div class="popover__bottom-arrow"></div>
-      <div class="popover__content">
-        <div style="text-align:center;opacity:0.4;margin-top:40px">Content</div>
-      </div>
+      <div style="text-align:center;opacity:0.4;margin-top:40px">Content</div>
     </div>
 */
 .popover-mask {
@@ -3675,19 +3672,12 @@ input[type="search"].search-input::-webkit-search-cancel-button {
   position: absolute;
   width: 220px;
   min-height: 100px;
-}
-.popover__content {
   background-color: #fff;
   -webkit-border-radius: 8px;
   border-radius: 8px;
   -webkit-box-shadow: 0 2px 16px rgba(0,0,0,0.1);
   box-shadow: 0 2px 16px rgba(0,0,0,0.1);
   color: #1f1f21;
-  overflow: hidden;
-  min-height: 100px;
-}
-.popover__content > * {
-  overflow: hidden;
 }
 .popover__bottom-arrow {
   content: '';
@@ -3804,9 +3794,7 @@ input[type="search"].search-input::-webkit-search-cancel-button {
     <div class="popover-mask"></div>
     <div class="popover popover--down" style="top:20px;left:50px;">
       <div class="popover__top-arrow"></div>
-      <div class="popover__content">
-        <div style="text-align:center;opacity:0.4;margin-top:40px">Content</div>
-      </div>
+      <div style="text-align:center;opacity:0.4;margin-top:40px">Content</div>
     </div>
 */
 /* topdoc
@@ -3816,9 +3804,7 @@ input[type="search"].search-input::-webkit-search-cancel-button {
     <div class="popover-mask"></div>
     <div class="popover popover--left" style="top:20px;right:20px;">
       <div class="popover__right-arrow"></div>
-      <div class="popover__content">
-        <div style="text-align:center;opacity:0.4;margin-top:40px">Content</div>
-      </div>
+      <div style="text-align:center;opacity:0.4;margin-top:40px">Content</div>
     </div>
 */
 /* topdoc
@@ -3828,9 +3814,7 @@ input[type="search"].search-input::-webkit-search-cancel-button {
     <div class="popover-mask"></div>
     <div class="popover popover--right" style="top:20px;left:20px;">
       <div class="popover__left-arrow"></div>
-      <div class="popover__content">
-        <div style="text-align:center;opacity:0.4;margin-top:40px">Content</div>
-      </div>
+      <div style="text-align:center;opacity:0.4;margin-top:40px">Content</div>
     </div>
 */
 /* topdoc
@@ -3838,13 +3822,11 @@ input[type="search"].search-input::-webkit-search-cancel-button {
   use: Popover
   markup:
     <div class="popover-mask"></div>
-    <div class="popover popover--up popover" style="top:10px;right:10px;">
-      <div class="popover__content popover__content--android">
-        <div style="text-align:center;opacity:0.4;margin-top:40px">Content</div>
-      </div>
+    <div class="popover popover--up popover--android" style="top:10px;right:10px;">
+      <div style="text-align:center;opacity:0.4;margin-top:40px">Content</div>
     </div>
 */
-.popover__content--android {
+.popover--android {
   -webkit-border-radius: 2px;
   border-radius: 2px;
 }
