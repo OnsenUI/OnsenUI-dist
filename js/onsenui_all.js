@@ -1,4 +1,4 @@
-/*! onsenui - v1.3.0 - 2015-10-20 */
+/*! onsenui - v1.3.0-beta - 2015-10-20 */
 // Copyright (c) Microsoft Open Technologies, Inc.  All rights reserved.  Licensed under the Apache License, Version 2.0.  See License.txt in the project root for license information.
 // JavaScript Dynamic Content shim for Windows Store apps
 (function () {
@@ -31069,6 +31069,10 @@ window.ons = (function(){
         throw new Error('Invalid initialization state.');
       }
 
+      if (document.querySelector('ons-alert-dialog')) {
+        console.warn('Invalid usage of <ons-alert-dialog>.');
+      }
+
       $rootScope.$on('$ons-ready', unlockOnsenUI);
     }]);
   }
@@ -32195,23 +32199,19 @@ limitations under the License.
       },
 
       _getElementSize: function() {
-        if (!this._currentElementSize) {
-          this._currentElementSize = this._element[0].getBoundingClientRect().height;
-        }
-
-        return this._currentElementSize;
+        return this._element[0].getBoundingClientRect().height;
       },
 
       _generateScrollTransform: function(scroll) {
         return 'translate3d(0px, ' + -scroll + 'px, 0px)';
       },
-
+      
       _layoutCarouselItems: function() {
         var children = this._getCarouselItemElements();
 
         var sizeAttr = this._getCarouselItemSizeAttr();
         var sizeInfo = this._decomposeSizeString(sizeAttr);
-
+        
         for (var i = 0; i < children.length; i++) {
           angular.element(children[i]).css({
             position: 'absolute',
@@ -32236,11 +32236,7 @@ limitations under the License.
       },
 
       _getElementSize: function() {
-        if (!this._currentElementSize) {
-          this._currentElementSize = this._element[0].getBoundingClientRect().width;
-        }
-
-        return this._currentElementSize;
+        return this._element[0].getBoundingClientRect().width;
       },
 
       _generateScrollTransform: function(scroll) {
@@ -32635,9 +32631,6 @@ limitations under the License.
       },
 
       _onDragEnd: function(event) {
-        this._currentElementSize = undefined;
-        this._carouselItemElements = undefined;
-
         if (!this.isSwipeable()) {
           return;
         }
@@ -32765,18 +32758,16 @@ limitations under the License.
        * @return {Array}
        */
       _getCarouselItemElements: function() {
-        if (this._carouselItemElements && this._carouselItemElements.length) {
-          return this._carouselItemElements;
+        var items = [];
+        var children = this._element.children();
+
+        for (var i = 0; i < children.length; i++) {
+          if (children[i].nodeName.toLowerCase() === 'ons-carousel-item') {
+            items.push(children[i]);
+          }
         }
 
-        var nodeList = this._element[0].querySelectorAll('ons-carousel-item');
-
-        this._carouselItemElements = [];
-        for (var i = nodeList.length; i--; ) {
-          this._carouselItemElements.unshift(nodeList[i]);
-        }
-
-        return this._carouselItemElements;
+        return items;
       },
 
       /**
@@ -33125,6 +33116,8 @@ limitations under the License.
         this._element.remove();
         this._deviceBackButtonHandler.destroy();
         this._mask.off();
+
+        this._scope.$destroy();
 
         this._deviceBackButtonHandler = this._scope = this._attrs = this._element = this._dialog = this._mask = null;
       },
@@ -34375,7 +34368,7 @@ limitations under the License.
   'use strict';
   var module = angular.module('onsen');
 
-  module.factory('LazyRepeatView', ['$onsen', '$document', '$compile', function($onsen, $document, $compile) {
+  module.factory('LazyRepeatView', ['$onsen', '$document', function($onsen, $document) {
 
     var LazyRepeatView = Class.extend({
 
@@ -34391,12 +34384,6 @@ limitations under the License.
         this._linker = linker;
 
         this._parentElement = element.parent();
-        this._pageContent = this._findPageContent();
-
-        if (!this._pageContent) {
-          throw new Error('ons-lazy-repeat must be a descendant of an <ons-page> object.');
-        }
-
         this._itemHeightSum = [];
         this._maxIndex = 0;
 
@@ -34406,7 +34393,11 @@ limitations under the License.
         this._renderedElements = {};
         this._addEventListeners();
 
-        this._scope.$watch(this._onChange.bind(this));
+        this._scope.$watch(
+          function() {
+            this._render();
+          }.bind(this)
+        );
 
         this._scope.$on('$destroy', this._destroy.bind(this));
         this._onChange();
@@ -34467,6 +34458,16 @@ limitations under the License.
           if (this._delegate.configureItemScope) {
             this._delegate.configureItemScope(item.index, currentItem.scope);
           }
+          else if (this._delegate.createItemContent) {
+            var oldContent = currentItem.element.children(),
+              newContent = angular.element(this._delegate.createItemContent(item.index, oldContent[0]));
+
+            if (newContent.html() !== oldContent.html()) {
+              currentItem.element
+                .append(newContent);
+              oldContent.remove();
+            }
+          }
 
           return;
         }
@@ -34480,7 +34481,6 @@ limitations under the License.
           }
           else if (this._delegate.createItemContent) {
             clone.append(this._delegate.createItemContent(item.index));
-            $compile(clone[0].firstChild)(childScope);
           }
 
           this._parentElement.append(clone);
@@ -34574,11 +34574,6 @@ limitations under the License.
           topPosition += this._itemHeightSum[startIndex - 1];
         }
 
-        if (cnt < this._itemHeightSum.length){
-          this._itemHeightSum = new Array(cnt);
-          this._maxIndex = cnt - 1;
-        }
-
         var items = [];
         for (var i = startIndex; i < cnt && topPosition < 4 * window.innerHeight; i++) {
           var h = this._getItemHeight();
@@ -34632,36 +34627,19 @@ limitations under the License.
         }.bind(this));
       },
 
-      _findPageContent: function() {
-        var e = this._element[0];
-
-        while(e.parentNode) {
-          e = e.parentNode;
-
-          if (e.className) {
-            if (e.className.split(/\s+/).indexOf('page__content') >= 0) {
-              break;
-            }
-          }
-        }
-
-        return e;
-      },
-
       _addEventListeners: function() {
-        this._boundOnChange = this._onChange.bind(this);
-
-        this._pageContent.addEventListener('scroll', this._boundOnChange, true);
-        $document[0].addEventListener('resize', this._boundOnChange, true);
+        this._bindedOnChange = this._onChange.bind(this); 
+        $document[0].addEventListener('scroll', this._bindedOnChange, true);
+        $document[0].addEventListener('resize', this._bindedOnChange, true);
       },
 
       _removeEventListeners: function() {
-        this._pageContent.removeEventListener('scroll', this._boundOnChange, true);
-        $document[0].removeEventListener('resize', this._boundOnChange, true);
+        $document[0].removeEventListener('scroll', this._bindedOnChange, true);
+        $document[0].removeEventListener('resize', this._bindedOnChange, true);
       },
-
+      
       _destroy: function() {
-        this._removeEventListeners();
+        this._removeEventListeners(); 
         this._removeAllElements();
         this._parentElement = this._renderedElements = this._element = this._scope = this._attrs = null;
       }
@@ -35093,7 +35071,7 @@ limitations under the License.
 
       _onDeviceBackButton: function(event) {
         if (this.pages.length > 1) {
-          this._scope.$evalAsync(this.popPage.bind(this));
+          this.popPage();
         } else {
           event.callParentHandler();
         }
@@ -35713,10 +35691,6 @@ limitations under the License.
           display: 'none',
           zIndex: 2
         });
-
-        // Fix for transparent menu page on iOS8.
-        menuPage.css('-webkit-transform', 'translate3d(0px, 0px, 0px)');
-
         mainPage.css({zIndex: 1});
 
         if (this._isRight) {
@@ -37930,6 +37904,7 @@ limitations under the License.
         this._menuPage = angular.element(element[0].querySelector('.onsen-sliding-menu__menu'));
         this._mainPage = angular.element(element[0].querySelector('.onsen-sliding-menu__main'));
 
+
         this._doorLock = new DoorLock();
 
         this._isRightMenu = attrs.side === 'right';
@@ -38348,15 +38323,13 @@ limitations under the License.
         options = options || {};
         options = typeof options == 'function' ? {callback: options} : options;
 
-        if (!this._logic.isClosed()) {
-          this.emit('preclose', {
-            slidingMenu: this
-          });
+        this.emit('preclose', {
+          slidingMenu: this
+        });
 
-          this._doorLock.waitUnlock(function() {
-            this._logic.close(options);
-          }.bind(this));
-        }
+        this._doorLock.waitUnlock(function() {
+          this._logic.close(options);
+        }.bind(this));
       },
 
       _close: function(options) {
@@ -38618,12 +38591,12 @@ limitations under the License.
 
         this._element.css('display', 'none');
 
-        if (attrs.mainPage) {
-          this.setMainPage(attrs.mainPage);
+        if (scope.mainPage) {
+          this.setMainPage(scope.mainPage);
         }
 
-        if (attrs.secondaryPage) {
-          this.setSecondaryPage(attrs.secondaryPage);
+        if (scope.secondaryPage) {
+          this.setSecondaryPage(scope.secondaryPage);
         }
 
         var unlock = this._doorLock.lock();
@@ -38778,8 +38751,8 @@ limitations under the License.
 
       _shouldCollapse: function() {
         var c = 'portrait';
-        if (typeof this._attrs.collapse === 'string') {
-          c = this._attrs.collapse.trim();
+        if (typeof this._scope.collapse === 'string') {
+          c = this._scope.collapse.trim();
         }
 
         if (c == 'portrait') {
@@ -38803,18 +38776,18 @@ limitations under the License.
 
       _setSize: function() {
         if (this._mode === SPLIT_MODE) {
-          if (!this._attrs.mainPageWidth) {
-            this._attrs.mainPageWidth = '70';
+          if (!this._scope.mainPageWidth) {
+            this._scope.mainPageWidth = '70';
           }
 
-          var secondarySize = 100 - this._attrs.mainPageWidth.replace('%', '');
+          var secondarySize = 100 - this._scope.mainPageWidth.replace('%', '');
           this._secondaryPage.css({
             width: secondarySize + '%',
             opacity: 1
           });
 
           this._mainPage.css({
-            width: this._attrs.mainPageWidth + '%'
+            width: this._scope.mainPageWidth + '%'
           });
 
           this._mainPage.css('left', secondarySize + '%');
@@ -40241,10 +40214,10 @@ limitations under the License.
  *   [ja]イベントが発火したCarouselオブジェクトです。[/ja]
  * @param {Number} event.activeIndex
  *   [en]Current active index.[/en]
- *   [ja]現在アクティブになっている要素のインデックス。[/ja]
+ *   [ja][/ja]
  * @param {Number} event.lastActiveIndex
  *   [en]Previous active index.[/en]
- *   [ja]以前アクティブだった要素のインデックス。[/ja]
+ *   [ja][/ja]
  */
 
 /**
@@ -40275,7 +40248,7 @@ limitations under the License.
  *   [ja]カルーセルが更新された時に発火します。[/ja]
  * @param {Number} event.activeIndex
  *   [en]Current active index.[/en]
- *   [ja]現在アクティブになっている要素のインデックス。[/ja]
+ *   [ja][/ja]
  * @param {String} event.direction
  *   [en]Can be one of either "up", "down", "left" or "right".[/en]
  *   [ja]オーバースクロールされた方向が得られます。"up", "down", "left", "right"のいずれかの方向が渡されます。[/ja]
@@ -40613,7 +40586,7 @@ limitations under the License.
  * @signature once(eventName, listener)
  * @description
  *  [en]Add an event listener that's only triggered once.[/en]
- *  [ja]一度だけ呼び出されるイベントリスナを追加します。[/ja]
+ *  [ja][/ja]
  * @param {String} eventName
  *   [en]Name of the event.[/en]
  *   [ja]イベント名を指定します。[/ja]
@@ -41092,7 +41065,7 @@ limitations under the License.
  * @signature getDeviceBackButtonHandler()
  * @return {Object}
  *   [en]Device back button handler.[/en]
- *   [ja]デバイスのバックボタンハンドラを返します。[/ja]
+ *   [ja][/ja]
  * @description
  *   [en]Retrieve the back button handler for overriding the default behavior.[/en]
  *   [ja]バックボタンハンドラを取得します。デフォルトの挙動を変更することができます。[/ja]
@@ -41117,7 +41090,7 @@ limitations under the License.
  *   [ja]このダイアログがキャンセル可能かどうかを返します。[/ja]
  * @return {Boolean}
  *   [en]true if the dialog is cancelable.[/en]
- *   [ja]ダイアログがキャンセル可能な場合trueを返します。[/ja]
+ *   [ja][/ja]
  */
 
 /**
@@ -41128,7 +41101,7 @@ limitations under the License.
  *   [ja]このダイアログをdisabled状態にするかどうかを設定します。[/ja]
  * @param {Boolean} disabled
  *   [en]If true the dialog will be disabled.[/en]
- *   [ja]trueを指定するとダイアログをdisabled状態になります。[/ja]
+ *   [ja][/ja]
  */
 
 /**
@@ -41139,7 +41112,7 @@ limitations under the License.
  *   [ja]このダイアログがdisabled状態かどうかを返します。[/ja]
  * @return {Boolean}
  *   [en]true if the dialog is disabled.[/en]
- *   [ja]ダイアログがdisabled状態の場合trueを返します。[/ja]
+ *   [ja][/ja]
  */
 
 /**
@@ -41150,10 +41123,10 @@ limitations under the License.
  *   [ja]イベントリスナーを追加します。[/ja]
  * @param {String} eventName
  *   [en]Name of the event.[/en]
- *   [ja]イベント名を指定します。[/ja]
+ *   [ja][/ja]
  * @param {Function} listener
  *   [en]Function to execute when the event is triggered.[/en]
- *   [ja]イベントが発火した際に呼び出される関数オブジェクトを指定します。[/ja]
+ *   [ja][/ja]
  */
 
 /**
@@ -41161,13 +41134,13 @@ limitations under the License.
  * @signature once(eventName, listener)
  * @description
  *  [en]Add an event listener that's only triggered once.[/en]
- *  [ja]一度だけ呼び出されるイベントリスナを追加します。[/ja]
+ *  [ja]一度だけ呼び出されるイベントリスナーを追加します。[/ja]
  * @param {String} eventName
  *   [en]Name of the event.[/en]
- *   [ja]イベント名を指定します。[/ja]
+ *   [ja][/ja]
  * @param {Function} listener
  *   [en]Function to execute when the event is triggered.[/en]
- *   [ja]イベントが発火した際に呼び出される関数オブジェクトを指定します。[/ja]
+ *   [ja][/ja]
  */
 
 /**
@@ -41175,13 +41148,13 @@ limitations under the License.
  * @signature off(eventName, [listener])
  * @description
  *  [en]Remove an event listener. If the listener is not specified all listeners for the event type will be removed.[/en]
- *  [ja]イベントリスナーを削除します。もしイベントリスナーが指定されなかった場合には、そのイベントに紐付いているイベントリスナーが全て削除されます。[/ja]
+ *  [ja]イベントリスナーを削除します。もしイベントリスナーを指定しなかった場合、そのイベントに紐付けられている全てのイベントリスナーが削除されます。[/ja]
  * @param {String} eventName
  *   [en]Name of the event.[/en]
- *   [ja]イベント名を指定します。[/ja]
+ *   [ja][/ja]
  * @param {Function} listener
  *   [en]Function to execute when the event is triggered.[/en]
- *   [ja]イベントが発火した際に呼び出される関数オブジェクトを指定します。[/ja]
+ *   [ja][/ja]
  */
 
 (function() {
@@ -42243,7 +42216,7 @@ limitations under the License.
             for (var i = element[0].childNodes.length - 1; i >= 0; i--){
               var e = element[0].childNodes[i];
               if (e !== div) {
-                element[0].removeChild(e);
+                e.remove();
               }
             }
 
@@ -42321,7 +42294,7 @@ limitations under the License.
  * @signature getDeviceBackButtonHandler()
  * @return {Object}
  *   [en]Device back button handler.[/en]
- *   [ja]デバイスのバックボタンハンドラを返します。[/ja]
+ *   [ja][/ja]
  * @description
  *   [en]Retrieve the back button handler.[/en]
  *   [ja]ons-modalに紐付いているバックボタンハンドラを取得します。[/ja]
@@ -42518,10 +42491,10 @@ limitations under the License.
  *   [ja]コンポーネントのオブジェクト。[/ja]
  * @param {Object} event.enterPage
  *   [en]Object of the next page.[/en]
- *   [ja]popされて表示されるページのオブジェクト。[/ja]
+ *   [ja][/ja]
  * @param {Object} event.leavePage
  *   [en]Object of the previous page.[/en]
- *   [ja]popされて消えるページのオブジェクト。[/ja]
+ *   [ja][/ja]
  */
 
 /**
@@ -42612,7 +42585,7 @@ limitations under the License.
  * @signature insertPage(index, pageUrl, [options])
  * @param {Number} index
  *   [en]The index where it should be inserted.[/en]
- *   [ja]スタックに挿入する位置のインデックスを指定します。[/ja]
+ *   [ja][/ja]
  * @param {String} pageUrl
  *   [en]Page URL. Can be either a HTML document or a <code>&lt;ons-template&gt;</code>.[/en]
  *   [ja]pageのURLか、もしくはons-templateで宣言したテンプレートのid属性の値を指定できます。[/ja]
@@ -42711,7 +42684,7 @@ limitations under the License.
  * @signature getDeviceBackButtonHandler()
  * @return {Object}
  *   [en]Device back button handler.[/en]
- *   [ja]デバイスのバックボタンハンドラを返します。[/ja]
+ *   [ja][/ja]
  * @description
  *   [en]Retrieve the back button handler for overriding the default behavior.[/en]
  *   [ja]バックボタンハンドラを取得します。デフォルトの挙動を変更することができます。[/ja]
@@ -42890,7 +42863,7 @@ limitations under the License.
  * @signature getDeviceBackButtonHandler()
  * @return {Object}
  *   [en]Device back button handler.[/en]
- *   [ja]デバイスのバックボタンハンドラを返します。[/ja]
+ *   [ja][/ja]
  * @description
  *   [en]Get the associated back button handler. This method may return null if no handler is assigned.[/en]
  *   [ja]バックボタンハンドラを取得します。このメソッドはnullを返す場合があります。[/ja]
@@ -43449,7 +43422,7 @@ limitations under the License.
  * @codepen WbJogM
  * @guide UsingPullHook 
  *   [en]How to use Pull Hook[/en]
- *   [ja]プルフックを使う[/ja]
+ *   [ja][/ja]
  * @example
  * <script>
  *   ons.bootstrap()
@@ -43566,7 +43539,7 @@ limitations under the License.
  * @signature setDisabled(disabled)
  * @param {Boolean} disabled
  *   [en]If true the pull hook will be disabled.[/en]
- *   [ja]trueを指定すると、プルフックがdisabled状態になります。[/ja]
+ *   [ja][/ja]
  * @description
  *   [en]Disable or enable the component.[/en]
  *   [ja]disabled状態にするかどうかを設定できます。[/ja]
@@ -43577,7 +43550,7 @@ limitations under the License.
  * @signature isDisabled()
  * @return {Boolean}
  *   [en]true if the pull hook is disabled.[/en]
- *   [ja]プルフックがdisabled状態の場合、trueを返します。[/ja]
+ *   [ja][/ja]
  * @description
  *   [en]Returns whether the component is disabled or enabled.[/en]
  *   [ja]dsiabled状態になっているかを得ることが出来ます。[/ja]
@@ -43588,7 +43561,7 @@ limitations under the License.
  * @signature setHeight(height)
  * @param {Number} height
  *   [en]Desired height.[/en]
- *   [ja]要素の高さを指定します。[/ja]
+ *   [ja][/ja]
  * @description
  *   [en]Specify the height.[/en]
  *   [ja]高さを指定できます。[/ja]
@@ -43599,7 +43572,7 @@ limitations under the License.
  * @signature setThresholdHeight(thresholdHeight)
  * @param {Number} thresholdHeight
  *   [en]Desired threshold height.[/en]
- *   [ja]プルフックのアクションを起こす閾値となる高さを指定します。[/ja]
+ *   [ja][/ja]
  * @description
  *   [en]Specify the threshold height.[/en]
  *   [ja]閾値となる高さを指定できます。[/ja]
@@ -43951,7 +43924,7 @@ limitations under the License.
 
 /**
  * @ngdoc event
- * @name postclose
+ * @name postopen
  * @description
  *   [en]Fired just after the sliding menu is closed.[/en]
  *   [ja]スライディングメニューが閉じ終わった後に発火します。[/ja]
@@ -44178,7 +44151,7 @@ limitations under the License.
  * @signature getDeviceBackButtonHandler()
  * @return {Object}
  *   [en]Device back button handler.[/en]
- *   [ja]デバイスのバックボタンハンドラを返します。[/ja]
+ *   [ja][/ja]
  * @description
  *   [en]Retrieve the back-button handler.[/en]
  *   [ja]ons-sliding-menuに紐付いているバックボタンハンドラを取得します。[/ja]
@@ -44625,7 +44598,12 @@ limitations under the License.
       restrict: 'E',
       replace: false,
       transclude: false,
-      scope: true,
+      scope: {
+        secondaryPage: '@',
+        mainPage: '@',
+        collapse: '@',
+        mainPageWidth: '@'
+      },
 
       compile: function(element, attrs) {
         var mainPage = element[0].querySelector('.main-page'),
@@ -47132,9 +47110,10 @@ window.animit = (function(){
             });
           });
 
-          if (elements.length) {
-            elements[0].offsetHeight;
-          }
+          elements.forEach(function(element) {
+            // force to update rendering
+            element.offsetHeight;
+          });
 
           if (window.requestAnimationFrame) {
             requestAnimationFrame(callback);
