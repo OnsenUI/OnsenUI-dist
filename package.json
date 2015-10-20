@@ -1,6 +1,6 @@
 {
   "name": "onsenui",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "private": false,
   "author": "@kruyvanna",
   "contributors": [
@@ -43,7 +43,10 @@
     "gulp-cached": "0.0.3",
     "gulp-if": "^1.2.1",
     "canonical-path": "0.0.2",
-    "lodash": "^2.4.1"
+    "lodash": "^2.4.1",
+    "gulp-ng-annotate": "^0.3.0",
+    "gulp-uglify": "^0.3.1",
+    "gulp-plumber": "^0.6.4"
   },
   "dependencies": {
     "gulp-shell": "^0.2.4",
