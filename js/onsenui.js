@@ -1,4 +1,4 @@
-/*! onsenui - v1.3.7 - 2015-10-20 */
+/*! onsenui - v1.3.6 - 2015-10-20 */
 // Copyright (c) Microsoft Open Technologies, Inc.  All rights reserved.  Licensed under the Apache License, Version 2.0.  See License.txt in the project root for license information.
 // JavaScript Dynamic Content shim for Windows Store apps
 (function () {
@@ -5456,6 +5456,7 @@ window.ons = (function(){
   waitDeviceReady();
   waitOnsenUILoad();
   initAngularModule();
+  changeHammerDefault();
 
   return ons;
 
@@ -5500,6 +5501,11 @@ window.ons = (function(){
 
       ons.$compile = $compile;
     }]);
+  }
+
+  //Change the default touchAction of Hammer.js, needed for Windows Phone app
+  function changeHammerDefault() {
+    Hammer.defaults.behavior.touchAction = 'none';
   }
 
   function initKeyboardEvents() {
