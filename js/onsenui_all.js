@@ -1,4 +1,4 @@
-/*! onsenui - v1.3.9 - 2015-10-20 */
+/*! onsenui - v1.3.8 - 2015-10-20 */
 // Copyright (c) Microsoft Open Technologies, Inc.  All rights reserved.  Licensed under the Apache License, Version 2.0.  See License.txt in the project root for license information.
 // JavaScript Dynamic Content shim for Windows Store apps
 (function () {
@@ -29045,7 +29045,7 @@ var minlengthDirective = function() {
 		this.touchStartY = touch.pageY;
 
 		// Prevent phantom clicks on fast double-tap (issue #36)
-		if ((event.timeStamp - this.lastClickTime) < this.tapDelay && (event.timeStamp - this.lastClickTime) > -1) {
+		if ((event.timeStamp - this.lastClickTime) < this.tapDelay) {
 			event.preventDefault();
 		}
 
@@ -29129,7 +29129,7 @@ var minlengthDirective = function() {
 		}
 
 		// Prevent phantom clicks on fast double-tap (issue #36)
-		if ((event.timeStamp - this.lastClickTime) < this.tapDelay && (event.timeStamp - this.lastClickTime) > -1) {
+		if ((event.timeStamp - this.lastClickTime) < this.tapDelay) {
 			this.cancelNextClick = true;
 			return true;
 		}
@@ -35562,16 +35562,12 @@ limitations under the License.
        * @return {Array}
        */
       _getCarouselItemElements: function() {
-        var nodeList = this._element[0].children,
+        var nodeList = this._element[0].querySelectorAll('ons-carousel-item'),
           rv = [];
 
         for (var i = nodeList.length; i--; ) {
           rv.unshift(nodeList[i]);
         }
-
-        rv = rv.filter(function(item) {
-          return item.nodeName.toLowerCase() === 'ons-carousel-item';
-        });
 
         return rv;
       },
@@ -37451,55 +37447,15 @@ limitations under the License.
         return e;
       },
 
-      _debounce: function(func, wait, immediate) {
-        var timeout;
-        return function() {
-          var context = this, args = arguments;
-          var later = function() {
-            timeout = null;
-            if (!immediate) {
-              func.apply(context, args);
-            }
-          };
-          var callNow = immediate && !timeout;
-          clearTimeout(timeout);
-          timeout = setTimeout(later, wait);
-          if (callNow) {
-            func.apply(context, args);
-          }
-        };
-      },
-
-      _doubleFireOnTouchend: function(){
-        this._render();
-        this._debounce(this._render.bind(this), 100);
-      },
-
       _addEventListeners: function() {
-        if (ons.platform.isIOS()) {
-          this._boundOnChange = this._debounce(this._onChange.bind(this), 30);
-        } else {
-          this._boundOnChange = this._onChange.bind(this);
-        }
+        this._boundOnChange = this._onChange.bind(this);
 
         this._pageContent.addEventListener('scroll', this._boundOnChange, true);
-
-        if (ons.platform.isIOS()) {
-          this._pageContent.addEventListener('touchmove', this._boundOnChange, true);
-          this._pageContent.addEventListener('touchend', this._doubleFireOnTouchend, true);
-        }
-
         $document[0].addEventListener('resize', this._boundOnChange, true);
       },
 
       _removeEventListeners: function() {
         this._pageContent.removeEventListener('scroll', this._boundOnChange, true);
-
-        if (ons.platform.isIOS()) {
-          this._pageContent.removeEventListener('touchmove', this._boundOnChange, true);
-          this._pageContent.removeEventListener('touchend', this._doubleFireOnTouchend, true);
-        }
-
         $document[0].removeEventListener('resize', this._boundOnChange, true);
       },
 
@@ -37826,7 +37782,7 @@ limitations under the License.
       this.element.on(this._pointerEvents, this._blockEvents);
     },
 
-    _pointerEvents: 'touchmove',
+    _pointerEvents: 'touchstart touchend touchmove click',
 
     /**
      * @return {PageView}
@@ -42169,13 +42125,13 @@ limitations under the License.
        * @param {Object} options
        * @param {Object} options.animation
        */
-      _switchPage: function(element, options) {
+      _switchPage: function(element, scope, options) {
         if (this._currentPageElement) {
           var oldPageElement = this._currentPageElement;
           var oldPageScope = this._currentPageScope;
 
           this._currentPageElement = element;
-          this._currentPageScope = element.data('_scope');
+          this._currentPageScope = scope;
 
           this._getAnimatorOption(options).apply(element, oldPageElement, function() {
             if (options._removeElement) {
@@ -42193,7 +42149,7 @@ limitations under the License.
 
         } else {
           this._currentPageElement = element;
-          this._currentPageScope = element.data('_scope');
+          this._currentPageScope = scope;
 
           if (options.callback instanceof Function) {
             options.callback();
@@ -42216,7 +42172,7 @@ limitations under the License.
 
         pageScope.$evalAsync();
 
-        this._switchPage(pageContent, options);
+        this._switchPage(pageContent, pageScope, options);
       },
 
       /**
@@ -42228,7 +42184,7 @@ limitations under the License.
         options = options || {};
 
         element.css('display', 'block');
-        this._switchPage(element, options);
+        this._switchPage(element, element.scope(), options);
       },
 
       /**
@@ -45088,7 +45044,7 @@ limitations under the License.
       replace: false,
       transclude: false,
       scope: false,
-      link: function(scope, element, attrs) {
+      compile: function(element, attrs) {
         if (!attrs.onsLoadingPlaceholder.length) {
           throw Error('Must define page to load.');
         }
@@ -45109,7 +45065,7 @@ limitations under the License.
             newElement.css('display', 'none');
 
             element.append(newElement);
-            $compile(newElement)(scope);
+            ons.compile(newElement[0]);
 
             for (var i = element[0].childNodes.length - 1; i >= 0; i--){
               var e = element[0].childNodes[i];
@@ -45839,10 +45795,7 @@ limitations under the License.
       pageBackground.addClass(modifierTemplater('page--*__background'));
       pageBackground = null;
 
-      element.data('_scope', scope);
-
       $onsen.cleaner.onDestroy(scope, function() {
-        element.data('_scope', undefined);
         page._events = undefined;
         $onsen.removeModifierMethods(page);
         element.data('ons-page', undefined);
@@ -50348,8 +50301,7 @@ window.ons.notification = (function() {
     dialogEl.append(footerEl);
 
     angular.element(document.body).append(dialogEl);
-
-    ons.$compile(dialogEl)(dialogEl.injector().get('$rootScope'));
+    ons.compile(dialogEl[0]);
     var alertDialog = dialogEl.data('ons-alert-dialog');
 
     if (buttonLabels.length <= 2) {
