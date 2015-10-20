@@ -1,4 +1,4 @@
-/*! onsenui - v1.3.4 - 2015-10-20 */
+/*! onsenui - v1.3.3 - 2015-10-20 */
 // Copyright (c) Microsoft Open Technologies, Inc.  All rights reserved.  Licensed under the Apache License, Version 2.0.  See License.txt in the project root for license information.
 // JavaScript Dynamic Content shim for Windows Store apps
 (function () {
@@ -31358,10 +31358,8 @@ window.ons = (function(){
           }
           alertDialog.html(el.html());
 
-          var parentScope;
           if (options.parentScope) {
-            parentScope = options.parentScope.$new();
-            ons.$compile(alertDialog)(parentScope);
+            ons.$compile(alertDialog)(options.parentScope.$new());
           }
           else {
             ons.compile(alertDialog[0]);
@@ -31369,10 +31367,6 @@ window.ons = (function(){
 
           if (el.attr('disabled')) {
             alertDialog.attr('disabled', 'disabled');
-          }
-
-          if (parentScope) {
-            alertDialog.data('ons-alert-dialog')._parentScope = parentScope;
           }
 
           return  alertDialog.data('ons-alert-dialog');
@@ -31410,10 +31404,8 @@ window.ons = (function(){
           }
           dialog.html(el.html());
 
-          var parentScope;
           if (options.parentScope) {
-            parentScope = options.parentScope.$new();
-            ons.$compile(dialog)(parentScope);
+            ons.$compile(dialog)(options.parentScope.$new());
           }
           else {
             ons.compile(dialog[0]);
@@ -31439,10 +31431,6 @@ window.ons = (function(){
               })(parentStyle, childStyle);
 
               child.setAttribute('style', newStyle);
-            }
-
-            if (parentScope) {
-              e.component._parentScope = parentScope;
             }
 
             deferred.resolve(e.component);
@@ -31483,10 +31471,8 @@ window.ons = (function(){
           }
           popover.html(el.html());
 
-          var parentScope;
           if (options.parentScope) {
-            parentScope = options.parentScope.$new();
-            ons.$compile(popover)(parentScope);
+            ons.$compile(popover)(options.parentScope.$new());
           }
           else {
             ons.compile(popover[0]);
@@ -31512,10 +31498,6 @@ window.ons = (function(){
               })(parentStyle, childStyle);
   
               child.setAttribute('style', newStyle);
-            }
-
-            if (parentScope) {
-              e.component._parentScope = parentScope;
             }
 
             deferred.resolve(e.component);
@@ -31679,12 +31661,7 @@ limitations under the License.
        * Destroy alert dialog.
        */
       destroy: function() {
-        if (this._parentScope) {
-          this._parentScope.$destroy();
-          this._parentScope = null;
-        } else {
-          this._scope.$destroy();
-        }
+        this._scope.$destroy();
       },
 
       _destroy: function() {
@@ -33135,12 +33112,7 @@ limitations under the License.
        * Destroy dialog.
        */
       destroy: function() {
-        if (this._parentScope) {
-          this._parentScope.$destroy();
-          this._parentScope = null;
-        } else {
-          this._scope.$destroy();
-        }
+        this._scope.$destroy();
       },
 
       _destroy: function() {
@@ -36507,12 +36479,7 @@ limitations under the License.
        * Destroy the popover and remove it from the DOM tree.
        */
       destroy: function() {
-        if (this._parentScope) {
-          this._parentScope.$destroy();
-          this._parentScope = null;
-        } else {
-          this._scope.$destroy();
-        }
+        this._scope.$destroy();
       },
 
       _destroy: function() {

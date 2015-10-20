@@ -2,12 +2,6 @@
 CHANGELOG
 ====
 
-v1.3.4
-----
- * ons-dialog: Fixed a memory leak when using parentScope. Closes [#735](https://github.com/OnsenUI/OnsenUI/issues/735).
- * ons-alert-dialog: Fixed a memory leak when using parentScope.
- * ons-popover: Fixed a memory leak when using parentScope.
-
 v1.3.3
 ----
  * ons-lazy-repeat: Fixed [#678](https://github.com/OnsenUI/OnsenUI/issues/678).
