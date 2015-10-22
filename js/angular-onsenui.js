@@ -1,4 +1,4 @@
-/*! angular-onsenui.js for onsenui - v2.0.0-alpha.4 - 2015-10-22 */
+/*! angular-onsenui.js for onsenui - v2.0.0-alpha.1 - 2015-10-22 */
 (function(module) {
 try { module = angular.module('templates-main'); }
 catch(err) { module = angular.module('templates-main', []); }
@@ -3854,14 +3854,10 @@ limitations under the License.
 
         this._clearDerivingMethods = $onsen.deriveMethods(this, this._element[0], [
           'getDeviceBackButtonHandler',
-          'openRight',
-          'openLeft',
-          'closeRight',
-          'closeLeft',
-          'toggleRight',
-          'toggleLeft',
-          'rightIsOpened',
-          'leftIsOpened'
+          'show',
+          'hide',
+          'isShown',
+          'destroy'
         ]);
 
         scope.$on('$destroy', this._destroy.bind(this));
@@ -8080,7 +8076,7 @@ limitations under the License.
  * </script>
  *
  * <ons-page ng-controller="MyController">
- *   <ons-pull-hook var="loader" ng-action="load($done)">
+ *   <ons-pull-hook var="loaded" ng-action="load($done)">
  *     <span ng-switch="loader.getCurrentState()">
  *       <span ng-switch-when="initial">Pull down to refresh</span>
  *       <span ng-switch-when="preaction">Release to refresh</span>

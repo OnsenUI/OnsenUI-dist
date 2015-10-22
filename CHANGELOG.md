@@ -2,7 +2,7 @@
 CHANGELOG
 ====
 
-v2.0.0-alpha
+v2.0.0-alpha.1
 ----
  * core: Added more customizable animations.
  * core: [BC Break] Changed interfaces for registering custom animators on `ons-navigator`, `ons-dialog`, `ons-alert-dialog`, `ons-dialog`, `ons-sliding-menu`, `ons-popover` and `ons-tabbar`.
@@ -58,7 +58,7 @@ v2.0.0-alpha
  * ons-switch: Added "material" modifier.
  * ons-toolbar-button: Added "material" modifier.
  * ons-toolbar: Added "material" modifier.
-
+ * ons-back-button: Change style when parent toolbar has modifier "material".
 
 v1.3.11
 ----
