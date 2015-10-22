@@ -2,7 +2,7 @@
 CHANGELOG
 ====
 
-v2.0.0-alpha.2
+v2.0.0-alpha.3
 ----
  * core: Added more customizable animations.
  * core: [BC Break] Changed interfaces for registering custom animators on `ons-navigator`, `ons-dialog`, `ons-alert-dialog`, `ons-dialog`, `ons-sliding-menu`, `ons-popover` and `ons-tabbar`.
@@ -60,6 +60,8 @@ v2.0.0-alpha.2
  * ons-toolbar: Added "material" modifier.
  * ons-back-button: Change style when parent toolbar has modifier "material".
  * ons-list: Added "material" modifier.
+ * ons-page: Fixed [#950](https://github.com/OnsenUI/OnsenUI/issues/950)
+ * dependencies: Fixed [#936](https://github.com/OnsenUI/OnsenUI/issues/936).
 
 v1.3.11
 ----
