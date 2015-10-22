@@ -1,5 +1,5 @@
 {
-  "name": "onsen_ui",
+  "name": "onsenui",
   "version": "0.6.0",
   "devDependencies": {
     "grunt": "~0.4.1",
