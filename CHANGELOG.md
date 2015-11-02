@@ -2,70 +2,9 @@
 CHANGELOG
 ====
 
-v2.0.0-alpha.7
+v1.3.12
 ----
- * core: Added more customizable animations.
- * core: [BC Break] Changed interfaces for registering custom animators on `ons-navigator`, `ons-dialog`, `ons-alert-dialog`, `ons-dialog`, `ons-sliding-menu`, `ons-popover` and `ons-tabbar`.
- * core: Removed unneeded iScroll library.
- * ons-scroller: [BC Break] Removed undocumented attributes and simplified DOM structure in ons-scroller elements.
- * ons-button: [BC Break] Removed animation feature and related attributes.
- * ons-modal: Added animations and animation options.
- * ons-alert-dialog: Added `submitOnEnter` parameter for `ons.notification.prompt()`.
- * ons-list-item: Added `tight` modifier.
- * ons-if-platform: Supports multiple space separated values.
- * ons-pull-hook: Added `getPullDistance`, `getHeight`, `getThresholdHeight` methods.
- * ons-pull-hook: Added `fixed-content` attribute.
- * ons.platform: Added `select` method to force a rendering platform.
- * ons-sliding-menu: Now supports `ngController` directive.
- * ons-split-view: Now support `ngController` directive.
- * ons-tabbar: Added `'slide'` animation.
- * ons: Added `disableAnimations` and `enableAnimations` to control animations display.
- * ons-loading-placeholder: Added `ons.resolveLoadingPlaceholder()` to delay resolving the placeholder.
- * ons-page: [BC Break] Removed undocumented several methods on `ons-page` component.
- * css-components: Stylus components don't rely on custom functions anymore.
- * ons-navigator: Added `options.refresh` parameter for `popPage()`.
- * ons-carousel: Carousel will now apply the specified padding to the items.
- * ons-icon: Fixed [#687](https://github.com/OnsenUI/OnsenUI/issues/687).
- * ons-icon: Fixed [#688](https://github.com/OnsenUI/OnsenUI/issues/688).
- * ons-page: Added page life cycle events.
- * ons-list-item: Added `lock-on-drag` attribute to prevent vertical scrolling when user pans left or right.
- * ons-modal: Added `isShown()` method.
- * ons-navigator: Fixed `insertPage()` behaviour with high or low indexes.
- * ons-tabbar: Fixed callback in `setActiveTab()` method.
- * ons-tabbar: persistent tabs only throw 'init' event once.
- * core: every child element will be wrapped inside an ons-page.
- * ons-page: added page lifecycle events API
- * ons-splitter: Added `ons-splitter`, `ons-splitter-side`, `ons-splitter-content` and `ons-splitter-mask` custom elements.
- * ons-fab: Implemented 'fab' component.
- * core: Added page attribute expressions.
- * ons.notification: Added `defaultValue`, `placeholder` and `autofocus` options to prompt.
- * ons-popover: Fixed [#880](https://github.com/OnsenUI/OnsenUI/issues/880).
- * ons-sliding-menu: Fixed [#879](https://github.com/OnsenUI/OnsenUI/issues/879)
- * ons-navigator: Added `bringPageTop()` method.
- * ons-carousel: Added `getCarouselItemCount()` method.
- * ons-carousel: Fixed [#929](https://github.com/OnsenUI/OnsenUI/issues/929).
- * core: Add `ons-scope` Angular directive to allow not binding component to `$rootScope`.
- * ons-lazy-repeat: Add `reload()` method to delegate object to enable manual reloading.
- * ons-lazy-repeat: Fix layout of list when it's not placed on top of page.
- * ons-speed-dial: Implemented `<ons-speed-dial>` component.
- * ons-alert-dialog: Added "material" modifier.
- * ons-button: Added "material" modifier.
- * ons-dialog: Added "material" modifier.
- * ons-icon: Added "md-" prefix and support for material icon font.
- * ons-material-input: Added material input component with floating label.
- * ons-progress: Added Material progress bar and circular loader.
- * ons-ripple: Added Material Design ripple effect component.
- * ons-switch: Added "material" modifier.
- * ons-toolbar-button: Added "material" modifier.
- * ons-toolbar: Added "material" modifier.
- * ons-back-button: Change style when parent toolbar has modifier "material".
- * ons-list: Added "material" modifier.
- * ons-tabbar: Fixed [#929](https://github.com/OnsenUI/OnsenUI/issues/948)
- * dependencies: Fixed [#936](https://github.com/OnsenUI/OnsenUI/issues/936).
- * ons-splitter: Fixed [#952](https://github.com/OnsenUI/OnsenUI/issues/952).
- * ons-lazy-repeat: Fixed [#966](https://github.com/OnsenUI/OnsenUI/issues/966).
- * ons-pull-hook: Fixed [#969](https://github.com/OnsenUI/OnsenUI/issues/966).
- * core: Add support for Browserify.
+* ons-page: Fix status bar fill for iOS9.
 
 v1.3.11
 ----
@@ -91,7 +30,7 @@ v1.3.8
 
 v1.3.7
 ----
- * core: Fixed [#632](https://github.com/OnsenUI/OnsenUI/issues/632).
+* core: Fixed [#632](https://github.com/OnsenUI/OnsenUI/issues/632).
 
 v1.3.6
 ----
@@ -99,9 +38,9 @@ v1.3.6
 
 v1.3.5
 ----
-* core: Updated AngularJS to version 1.4.3.
-* core: Fixed [#777](https://github.com/OnsenUI/OnsenUI/issues/777).
-* core: Fixed [#767](https://github.com/OnsenUI/OnsenUI/issues/767).
+ * core: Updated to AngularJS version 1.4.3.
+ * core: Fixed [#777](https://github.com/OnsenUI/OnsenUI/issues/777).
+ * core: Fixed [#767](https://github.com/OnsenUI/OnsenUI/issues/767).
 
 v1.3.4
 ----
@@ -124,11 +63,11 @@ v1.3.3
 
 v1.3.2
 ----
- * ons-carousel: Fixed `postchange` event for carousel on IE11. Fixed [#646](https://github.com/OnsenUI/OnsenUI/issues/646).
+ * Fixed postchange event for carousel on IE11. Fixed [#646](https://github.com/OnsenUI/OnsenUI/issues/646).
 
 v1.3.1
 ----
- * ons-page: Fixed scrolling on Windows Phone. Fixed [#618](https://github.com/OnsenUI/OnsenUI/issues/618).
+ * Fixed scrolling in Windows Phone. Fixed [#618](https://github.com/OnsenUI/OnsenUI/issues/618).
 
 v1.3.0
 ----
@@ -162,7 +101,6 @@ v1.3.0
  * ons-lazy-repeat: Improved behavior when items are removed.
  * ons-sliding-menu: Fixed [#577](https://github.com/OnsenUI/OnsenUI/issues/577).
  * core: Windows Universal (Windows Phone 8.1, Windows 8.1 and IE 11)  partial support.
- * core: FastClick library updated to 1.0.6. This adds support for iOS 8.4+, earlier versions of Onsen UI will not work with iOS 8.4+.
 
 v1.2.2
 ----
@@ -248,7 +186,7 @@ v1.2.0
 v1.1.4
 ----
 
- * core: Fixed broken navigation-bar layout on running with iOS Cordova in some cases.
+ * core: Fixed broken navigation-bar layout on runninng with iOS Cordova in some cases.
  * css-components: Fixed [#217](https://github.com/OnsenUI/OnsenUI/issues/217).
 
 v1.1.3
