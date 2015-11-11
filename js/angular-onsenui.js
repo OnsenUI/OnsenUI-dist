@@ -1,4 +1,4 @@
-/*! angular-onsenui.js for onsenui - v2.0.0-alpha.15 - 2015-11-10 */
+/*! angular-onsenui.js for onsenui - v2.0.0-beta - 2015-11-11 */
 (function(module) {
 try { module = angular.module('templates-main'); }
 catch(err) { module = angular.module('templates-main', []); }
@@ -5814,7 +5814,7 @@ limitations under the License.
  * @guide UsingIcons [en]Using icons[/en][ja]アイコンを使う[/ja]
  * @example
  * <ons-icon
- *   icon="fa-twitter"
+ *   icon="md-car"
  *   size="20px"
  *   fixed-width="false"
  *   style="color: red">
@@ -5826,7 +5826,7 @@ limitations under the License.
  * @name icon
  * @type {String}
  * @description
- *   [en]The icon name. <code>fa-</code> prefix for Font Awesome, <code>ion-</code> prefix for Ionicons icons. See all icons at http://fontawesome.io/icons/ and http://ionicons.com.[/en]
+ *   [en]The icon name. "md-" prefix for Material Icons, "fa-" for Font Awesome and "ion-" prefix for Ionicons icons. See all icons at http://zavoloklom.github.io/material-design-iconic-font/icons.html, http://fontawesome.io/icons/ and http://ionicons.com.[/en]
  *   [ja]アイコン名を指定します。<code>fa-</code>で始まるものはFont Awesomeとして、<code>ion-</code>で始まるものはIoniconsとして扱われます。使用できるアイコンはこちら: http://fontawesome.io/icons/　および　http://ionicons.com。[/ja]
  */
 
@@ -6541,6 +6541,7 @@ limitations under the License.
  * @description
  *  [en]Material Design input component.[/en]
  *  [ja]Material Designのinputコンポ―ネントです。[/ja]
+ * @codepen ojQxLj
  * @guide UsingFormComponents
  *   [en]Using form components[/en]
  *   [ja]フォームを使う[/ja]
@@ -7991,6 +7992,7 @@ limitations under the License.
  * @description
  *   [en]A material design progress component. Can be displayed both as a linear or circular progress indicator.[/en]
  *   [ja]マテリアルデザインのprgoressコンポーネントです。linearもしくはcircularなプログレスインジケータを表示できます。[/ja]
+ * @codepen VvVaZv
  * @example
  * <ons-progress
  *  type="circular"
@@ -8350,6 +8352,7 @@ limitations under the License.
  * @description
  *   [en]Adds a Material Design "ripple" effect to an element.[/en]
  *   [ja]マテリアルデザインのリップル効果をDOM要素に追加します。[/ja]
+ * @codepen wKQWdZ
  * @example
  * <ons-list>
  *   <ons-list-item>
@@ -8990,6 +8993,7 @@ limitations under the License.
  * @description
  *   [en]Element that displays a Material Design Speed Dialog component.[/en]
  *   [ja]Material DesignのSpeed dialコンポーネントを表現する要素です。[/ja]
+ * @codepen dYQYLg
  * @seealso ons-speed-dial-item
  *   [en]ons-speed-dial-item component[/en]
  *   [ja]ons-speed-dial-itemコンポーネント[/ja]
@@ -9137,6 +9141,7 @@ limitations under the License.
  * @description
  *   [en]This component displays the child elements of the Material Design Speed dial component.[/en]
  *   [ja]Material DesignのSpeed dialの子要素を表現する要素です。[/ja]
+ * @codepen dYQYLg
  * @seealso ons-speed-dial
  *   [en]ons-speed-dial component[/en]
  *   [ja]ons-speed-dialコンポーネント[/ja]
@@ -9577,6 +9582,7 @@ limitations under the License.
  * @description
  *  [en]A component that enables responsive layout by implementing both a two-column layout and a sliding menu layout.[/en]
  *  [ja]sliding-menuとsplit-view両方の機能を持つレイアウトです。[/ja]
+ * @codepen rOQOML
  * @guide CallingComponentAPIsfromJavaScript
  *   [en]Using components from JavaScript[/en]
  *   [ja]JavaScriptからコンポーネントを呼び出す[/ja]
@@ -9811,6 +9817,7 @@ limitations under the License.
  * @description
  *  [en]The "ons-splitter-content" element is used as a child element of "ons-splitter".[/en]
  *  [ja]ons-splitter-content要素は、ons-splitter要素の子要素として利用します。[/ja]
+ * @codepen rOQOML
  * @example
  * <ons-splitter>
  *   <ons-splitter-content>
@@ -9906,6 +9913,7 @@ limitations under the License.
  * @description
  *  [en]The "ons-splitter-side" element is used as a child element of "ons-splitter".[/en]
  *  [ja]ons-splitter-side要素は、ons-splitter要素の子要素として利用します。[/ja]
+ * @codepen rOQOML
  * @example
  * <ons-splitter>
  *   <ons-splitter-content>
@@ -10250,8 +10258,9 @@ limitations under the License.
  * @name ons-switch
  * @category form
  * @description
- *  [en]Switch component.[/en]
+ *  [en]Switch component. Can display either an iOS flat switch or a Material Design switch.[/en]
  *  [ja]スイッチを表示するコンポーネントです。[/ja]
+ * @codepen LpXZQQ
  * @guide UsingFormComponents
  *   [en]Using form components[/en]
  *   [ja]フォームを使う[/ja]
@@ -10263,6 +10272,7 @@ limitations under the License.
  *   [ja]ons-buttonコンポーネント[/ja]
  * @example
  * <ons-switch checked></ons-switch>
+ * <ons-switch modifier="material"></ons-switch>
  */
 
 /**
@@ -11978,6 +11988,12 @@ limitations under the License.
  * <script>
  *   ons.notification.alert({
  *     message: 'Hello, world!'
+ *   });
+ *
+ *   // Show a Material Design alert dialog.
+ *   ons.notification.alert({
+ *    message: 'Hello, world!',
+ *    modifier: 'material'
  *   });
  *
  *   ons.notification.confirm({
