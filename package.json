@@ -1,6 +1,6 @@
 {
   "name": "onsenui",
-  "version": "2.0.0-beta.4",
+  "version": "2.0.0-beta.5",
   "description": "HTML5 Mobile Framework & UI Components",
   "private": false,
   "author": "@kruyvanna",
@@ -36,6 +36,7 @@
     "url": "https://github.com/OnsenUI/OnsenUI/issues"
   },
   "homepage": "http://onsen.io/",
+  "main": "js/onsenui.js",
   "devDependencies": {
     "babel-core": "^6.3.15",
     "babel-eslint": "^3.1.30",
