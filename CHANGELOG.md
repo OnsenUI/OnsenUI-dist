@@ -2,6 +2,38 @@
 CHANGELOG
 ====
 
+v2.0.0-beta.8
+----
+
+v2.0.0-beta.7
+----
+ * core: Automatic Styling feature depending on current platform.
+ * core: Fixed [#1181](https://github.com/OnsenUI/OnsenUI/issues/1181).
+ * ons-fab: Fixed [#1192](https://github.com/OnsenUI/OnsenUI/issues/1192).
+ * ons-tabbar: Correctly applies animation-options.
+ * ons-popover: Correctly applies animation-options.
+ * ons-alert-dialog: Correctly applies animation-options.
+ * ons-navigator: Closes [#1208](https://github.com/OnsenUI/OnsenUI/issues/1208).
+ * ons-carousel: Accepts animation-options.
+ * core: Async methods return promises. Closes [#1054](https://github.com/OnsenUI/OnsenUI/issues/1054).
+ * ons-if: Added new conditional component with `platform` and `orientation` attributes.
+ * ons-navigator: New Lift and Fade animators that match Material Design styles.
+ * ons-input: Extended component to support type `checkbox` and `radio`.
+ * ons-ripple: Can be added by using `ripple` attribute.
+ * ons-tab: Tabs are always persistent.
+ * ons-ripple: Improve ripple effect. Closes [#1193](https://github.com/OnsenUI/OnsenUI/issues/1193).
+ * ons-switch: Switch is now draggable.
+ * core: Use a global gesture detector to improve performance.
+ * ons-splitter-side: Fixed [#1222](https://github.com/OnsenUI/OnsenUI/issues/1222).
+ * css-components: Improve list item style.
+ * ons.notification: Closes [#1127](https://github.com/OnsenUI/OnsenUI/issues/1127).
+ * ons-splitter: Improved performance and fixed minor bugs.
+ * ons-lazy-repeat: Fixed [[#1236](https://github.com/OnsenUI/OnsenUI/issues/1236), [#1029](https://github.com/OnsenUI/OnsenUI/issues/1029), [#470](https://github.com/OnsenUI/OnsenUI/issues/470)], and [#1035](https://github.com/OnsenUI/OnsenUI/issues/1035).
+ * ons-input: Transparent style is now default in iOS (removed 'transparent' modifier).
+ * ons-input: Update Angular bindings to work better with checkboxes and radio buttons.
+ * ons-switch: Fix so it works inside a <label> element.
+ * ons-ripple: Attach event listeners to parent to avoid blocking cliks.
+
 v2.0.0-beta.6
 ----
  * css-components: Add San Francisco font for iOS9 devices.
@@ -318,7 +350,7 @@ v1.2.0
  * ons-navigator: Fixed [#228](https://github.com/OnsenUI/OnsenUI/issues/228).
  * ons-switch: Fixed [#252](https://github.com/OnsenUI/OnsenUI/issues/252). Model change is now bound correctly when using ngModel.
  * css-components: Fixed [#177](https://github.com/OnsenUI/OnsenUI/issues/177). Checkboxes and radio buttons are now clickable on iOS.
- * ons-button: Added several methods to the component. 
+ * ons-button: Added several methods to the component.
 
 v1.1.4
 ----
