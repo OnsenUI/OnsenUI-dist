@@ -4,6 +4,22 @@ CHANGELOG
 
 v2.0.0-beta.8
 ----
+ * core: Small fix for Autostyling.
+ * ons-list-item: Fix "tappable" attribute.
+ * ons-navigator: Added default `options` poperty.
+ * ons-navigator: Fixed flickering in Lift animation for iOS.
+ * ons-page: Does not remove 'style' attribute anymore.
+ * ons.notification: Fixed an issue in iOS related to CustomElements.
+ * ons.ready: Waits for `WebComponentsReady` event instead of `DOMContentLoaded`.
+ * ons-icon: Fixed a bug in old Android versions.
+ * ons-page: Add onInfiniteScroll functionality [#1165](https://github.com/OnsenUI/OnsenUI/issues/1165).
+ * ons-bottom-toolbar: Fixed a bug making it scroll with the content in some cases.
+ * ons-carousel: Added `centered` attribute.
+ * ons-popover: Added material popover.
+ * ons-splitter: Fixed [#1300](https://github.com/OnsenUI/OnsenUI/issues/1300).
+ * ons-list-item: Fix chevron position when list content is large.
+ * ons-lazy-repeat: Auto calculate item height if no information is provided.
+ * ons-carousel: Removes event listeners if it's not swipeable.
 
 v2.0.0-beta.7
 ----
