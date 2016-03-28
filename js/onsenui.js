@@ -1,4 +1,4 @@
-/*! onsenui v2.0.0-beta.7+react - 2016-03-28 */
+/*! onsenui v2.0.0-react - 2016-03-28 */
 /**
  * @license
  * Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
