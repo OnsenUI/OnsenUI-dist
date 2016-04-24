@@ -113,6 +113,7 @@ list__item()
   align-items center
 
 .list__item__left
+  min-height var-list-item-min-height
   display flex
   padding-right 14px
   order 0
@@ -126,6 +127,7 @@ list__item()
   margin 0
 
 .list__item__center
+  min-height var-list-item-min-height
   display flex
   flex-grow 1
   flex-wrap wrap
@@ -139,6 +141,7 @@ list__item()
   retina-list-item-border()
 
 .list__item__right
+  min-height var-list-item-min-height
   display flex
   margin-left auto
   padding-right 12px
@@ -267,6 +270,10 @@ list__item()
   border none
   background-image none
 
+.list__item--longdivider.list__item--chevron:before
+  border none
+  background-image none
+
 /*! topdoc
   name: Category List Header
   class: list__header
@@ -353,6 +360,7 @@ list__item()
   transition none
 
 .list__item--chevron:before
+  min-height var-list-item-min-height
   display flex
   align-items center
   color var-list-item-separator-color
@@ -692,10 +700,18 @@ list__item()
 
 .list__item--material__center
   padding 16px 0
+  border-color #eee
+  retina-list-item-border(#eee)
 
 .list__item--material__right
   padding 16px 16px 16px 0px
   line-height 1
+  border-color #eee
+  retina-list-item-border(#eee)
+
+.list__item--material.list__item--longdivider
+  border-bottom 1px solid #eee
+  retina-list-item-border(#eee)
 
 /*! topdoc
   name: Material List with Header
@@ -726,7 +742,7 @@ list__item()
   padding 8px 16px
 
 .list__header--material:not(:first-of-type)
-  border-top 1px solid var-list-border-color
+  border-top 1px solid #eee
   padding-top 16px
 
 /*! topdoc

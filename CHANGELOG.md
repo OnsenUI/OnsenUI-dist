@@ -2,6 +2,34 @@
 CHANGELOG
 ====
 
+v2.0.0-beta.10
+----
+ * core: Expose FastClick instance as `ons.fastClick`.
+ * ons-navigator: Fixed a bug where popPage always showed the default animation.
+ * ons-navigator: Fixed md-lift-animator.
+ * ons-navigator: Removed small delay after Lift animators.
+ * css-components: Fixed issue with list item using both "chevron" and "longdivider" modifiers.
+ * core: Fixed an issue preventing users from selecting text in inputs and textareas.
+ * ons-carousel: Added `auto-refresh` attribute.
+ * ons-carousel: Fixed an issue causing improper carousel size when used with angular and ons-navigator.
+ * ons-icon: Delete attribute `flip` from ons-icon (obsolete, since everything can be done with `rotate`)
+ * ons-list-item: Make the attribute `tappable` a boolean and add attribute `tap-background-color`
+ * ons-alert-dialog: Fixed [#1347](https://github.com/OnsenUI/OnsenUI/issues/1347).
+ * ons-progress-bar, ons-progress-circular: Add `value`, `secondaryValue` and `indeterminate` properties.
+ * ons-pull-hook: Add `state`, `pullDistance`, `height`, `thresholdHeight` and `disabled` properties.
+ * ons-alert-dialog, ons-dialog, ons-popover, ons-modal: Updated API (`disabled`, `visible`, `onDeviceBackButton` properties).
+ * ons-page: Update API (`disabled`, `onDeviceBackButton` properties, `on-device-back-button` and `ng-device-back-button` attributes).
+ * ons-splitter: Renamed property `deviceBackButton` to a `onDeviceBackButton`.
+ * ons-button, ons-ripple: Update API (`disabled` property).
+ * ons-speeddial: Updated API (`disabled`, `visible`, `inline` properties).
+ * ons-switch: Updated API (`disabled`, `checked`, `checkbox` properties).
+ * ons-splitter-side: Changed `isOpen` to a property.
+ * ons-navigator: Removed old angular methods (`getPages`, `getBackButtonHandler`).
+ * ons-lazy-repeat: Removed `setDelegate` in favor of the `delegate` property.
+ * ons-range: Fixes memory leak in AngularJS bindings.
+ * ons-toolbar-button: Add `disabled` property.
+ * css-components: Fixes list layout glitch on older Android devices.
+
 v2.0.0-beta.9
 ----
  * ons-splitter: Fixed memory leak.
@@ -9,8 +37,11 @@ v2.0.0-beta.9
  * ons-icon: Accepts two icon values at once for Auto Styling.
  * ons-tab: Fix glitch where content was removed during `<ons-navigator>` slide animation.
  * ons-splitter: Fix default side and swipe-target-width.
+ * ons-carousel: Update API.
  * ons-icon: 'spin' attribute does not require boolean values anymore.
  * core: Fix DeviceBackButton dispatcher for pages containing SVG elements.
+ * ons-navigator: Changed part of the API.
+ * ons-navigator: Fixed [#1324](https://github.com/OnsenUI/OnsenUI/issues/1324), [#1325](https://github.com/OnsenUI/OnsenUI/issues/1325).
 
 v2.0.0-beta.8
 ----
