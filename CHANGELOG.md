@@ -2,6 +2,10 @@
 CHANGELOG
 ====
 
+v2.0.0-beta.13
+----
+ * ons-lazy-repeat: Fixes issue on Safari.
+
 v2.0.0-beta.12
 ----
  * ons-alert-dialog: Only compile once. This fixes issue with `ons.notification` in Firefox.
