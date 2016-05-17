@@ -5,10 +5,11 @@
 [![TypeScript definitions on DefinitelyTyped](http://definitelytyped.org/badges/standard.svg)](https://github.com/borisyankov/DefinitelyTyped/tree/master/onsenui)
 [![Circle CI](https://circleci.com/gh/OnsenUI/OnsenUI.svg?style=shield)](https://circleci.com/gh/OnsenUI/OnsenUI) 
 [![Coverage Status](https://coveralls.io/repos/OnsenUI/OnsenUI/badge.svg?branch=master&service=github)](https://coveralls.io/github/OnsenUI/OnsenUI?branch=master)
+[![npm version](https://badge.fury.io/js/onsenui.svg)](https://badge.fury.io/js/onsenui)
 
 The best place to start with Onsen UI is our [Getting Started](http://onsen.io/guide/getting_started.html) page.
 
-![The Answer to Cordova UI Development](https://cloud.githubusercontent.com/assets/9889313/5350569/eec8b870-7efb-11e4-90af-2f4d505e09a8.png)
+**We just released the RC of Onsen UI 2. The new version includes Material Design, React Components and much more. Check out all the new features [here](https://onsen.io/2/)!**
 
 Onsen UI is open source, free and open for all. Onsen UI is designed and implemented to deliver unprecedented user interface and user experience for your mobile and hybrid apps. Onsen UI is built on top of Web Components so applications can be built using **HTML tags** web developers already know and love.
 
