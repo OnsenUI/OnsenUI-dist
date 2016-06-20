@@ -2,8 +2,15 @@
 CHANGELOG
 ====
 
+v2.0.0-rc.12
+----
+ * core: Added type definitions.
+ * ons-switch: Fix [#1464](https://github.com/OnsenUI/OnsenUI/issues/1464).
+ * ons-splitter: Fix [#1392](https://github.com/OnsenUI/OnsenUI/issues/1392).
+
 v2.0.0-rc.11
 ----
+ * core: Added binding for Angular2.
  * ons-input: Fix `value` property bug for radio and checkbox.
  * ons-navigator: Fix [#1449](https://github.com/OnsenUI/OnsenUI/issues/1449).
  * ons-popover: Fix [#1450](https://github.com/OnsenUI/OnsenUI/issues/1450).
@@ -43,6 +50,7 @@ v2.0.0-rc.7
 
 v2.0.0-rc.6
 ----
+ * ons-page: Change to fill page background element if there is only .page__content element in ons-page.
  * ons-splitter: 'load' methods return promises in Angular1 bindings.
  * ons-navigator: Fix 'popPage' with 'refresh' parameter.
  * ons-dialog: Make ons-dialog angular2 compatible.
@@ -53,6 +61,9 @@ v2.0.0-rc.6
 
 v2.0.0-rc.5
 ----
+ * ons-dialog: Make ons-dialog angular2 compatible.
+ * ons-speed-dial, ons-speed-dial-item: Removed "_compiled" attribute.
+ * ons-speed-dial: Make ons-speed-dial elements angular2 compatible.
  * css-components: Fix material list item paddings.
  * ons-list: Fix [#1401](https://github.com/OnsenUI/OnsenUI/issues/1401).
  * ons-range: Fix [#1391](https://github.com/OnsenUI/OnsenUI/issues/1391).
