@@ -1,12 +1,12 @@
-/**
+/*!
  * Copyright 2013-2017 ASIAL CORPORATION
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *    http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -14,8 +14,7 @@
  * limitations under the License.
  *
  */
-
-/**
+/*!
  * Copyright 2012 Adobe Systems Inc.;
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -31,20 +30,10 @@
  * limitations under the License.
  *
  */
-
-:root {
-  /* Global variables */
-
-  /* Font */
-
-  /* Input */
-}
-
 html {
   height: 100%;
   width: 100%;
 }
-
 body {
   position: absolute;
   top: 0;
@@ -55,47 +44,38 @@ body {
   margin: 0;
   -webkit-text-size-adjust: 100%;
 }
-
-* {
+* { /* stylelint-disable-line selector-no-universal */
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
-
 input, textarea, select {
   -webkit-user-select: auto;
-     -moz-user-select: auto;
       -ms-user-select: auto;
           user-select: auto;
+  -moz-user-select: text;
 }
-
 input:active, input:focus, textarea:active, textarea:focus, select:active, select:focus {
-  outline: none
+  outline: none;
 }
-
 h1 {
   font-size: 36px;
 }
-
 h2 {
   font-size: 30px;
 }
-
 h3 {
   font-size: 24px;
 }
-
 h4, h5, h6 {
   font-size: 18px;
 }
-
 :root {
 }
-
 .page {
-  font-family: -apple-system, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -108,15 +88,12 @@ h4, h5, h6 {
   bottom: 0;
   overflow-x: visible;
   overflow-y: hidden;
-  font-size: 17px;
   color: #1f1f21;
   -ms-overflow-style: none;
 }
-
 .page::-webkit-scrollbar {
   display: none;
 }
-
 .page__content {
   background-color: #f9f9f9;
   position: absolute;
@@ -126,7 +103,6 @@ h4, h5, h6 {
   bottom: 0;
   box-sizing: border-box;
 }
-
 .page__background {
   background-color: #f9f9f9;
   position: absolute;
@@ -136,19 +112,16 @@ h4, h5, h6 {
   bottom: 0;
   box-sizing: border-box;
 }
-
 .page--material {
   font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
 }
-
 .page--material__content {
   font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
   font-weight: 400;
 }
-
-// FIXME
+/* FIXME */
 .page--material__content h1,
 .page--material__content h2,
 .page--material__content h3,
@@ -158,15 +131,12 @@ h4, h5, h6 {
   -webkit-font-smoothing: antialiased;
   font-weight: 400;
 }
-
 .page--material__background {
   background-color: #ffffff;
 }
-
 :root { /* background color active */
 }
-
-/*!
+/*~
   name: Switch
   category: Switch
   elements: ons-switch
@@ -190,15 +160,12 @@ h4, h5, h6 {
       </div>
     </label>
 */
-
 .switch {
-  position: relative;
   display: inline-block;
   vertical-align: top;
   box-sizing: border-box;
   background-clip: padding-box;
   position: relative;
-  overflow: hidden;
   min-width: 51px;
   font-size: 17px;
   padding: 0 20px;
@@ -209,7 +176,6 @@ h4, h5, h6 {
   z-index: 0;
   text-align: left;
 }
-
 .switch__input {
   position: absolute;
   overflow: hidden;
@@ -227,20 +193,18 @@ h4, h5, h6 {
   height: 100%;
   margin: 0;
   -webkit-appearance: none;
-  -moz-appearance: none;
-       appearance: none;
-  z-index: -1;
+     -moz-appearance: none;
+          appearance: none;
+  z-index: 0;
 }
-
 /* switch toggle background */
-
 .switch__toggle {
   background-color: #fff;
   position: absolute;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   border-radius: 30px;
   -webkit-transition-property: all;
   transition-property: all;
@@ -250,9 +214,7 @@ h4, h5, h6 {
           transition-timing-function: ease-out;
   box-shadow: inset 0 0 0 2px #e5e5e5;
 }
-
 /* switch toggle circle */
-
 .switch__handle {
   box-sizing: border-box;
   background-clip: padding-box;
@@ -270,30 +232,25 @@ h4, h5, h6 {
           transition-duration: 0.35s;
   -webkit-transition-timing-function: cubic-bezier(.59, .01, .5, .99);
           transition-timing-function: cubic-bezier(.59, .01, .5, .99);
-  box-shadow: 0 0 0 1px #E4E4E4, 0 3px 2px rgba(0, 0, 0, .25);
+  box-shadow: 0 0 0 1px #e4e4e4, 0 3px 2px rgba(0, 0, 0, .25);
 }
-
 .switch--active__handle {
-  -webkit-transition: none !important;
-  transition: none !important;
+  -webkit-transition: none;
+  transition: none;
 }
-
 :checked + .switch__toggle {
   box-shadow: inset 0 0 0 2px #5198db;
   background-color: #5198db;
 }
-
 :checked + .switch__toggle > .switch__handle {
   left: 21px;
   box-shadow: 0 3px 2px rgba(0, 0, 0, .25);
 }
-
 :disabled + .switch__toggle {
   opacity: 0.3;
   cursor: default;
   pointer-events: none;
 }
-
 .switch__touch {
   position: absolute;
   top: -5px;
@@ -301,8 +258,7 @@ h4, h5, h6 {
   left: -10px;
   right: -10px;
 }
-
-/*!
+/*~
   name: Material Switch
   category: Switch
   elements: ons-switch
@@ -329,21 +285,18 @@ h4, h5, h6 {
       </div>
     </label>
 */
-
 .switch--material {
   width: 36px;
   height: 24px;
   padding: 0 10px;
   min-width: 36px;
 }
-
 .switch--material__toggle {
   background-color: #b0afaf;
   margin-top: 5px;
   height: 14px;
   box-shadow: none;
 }
-
 .switch--material__input {
   position: absolute;
   overflow: hidden;
@@ -361,14 +314,12 @@ h4, h5, h6 {
   height: 100%;
   margin: 0;
   -webkit-appearance: none;
-  -moz-appearance: none;
-       appearance: none;
-  z-index: -1;
+     -moz-appearance: none;
+          appearance: none;
 }
-
 .switch--material__handle {
   background-color: #f1f1f1;
-  left: 0px;
+  left: 0;
   margin-top: -5px;
   width: 20px;
   height: 20px;
@@ -376,12 +327,10 @@ h4, h5, h6 {
       0 1px 10px 0 rgba(0, 0, 0, .12),
       0 2px 4px -1px rgba(0, 0, 0, .4);
 }
-
 :checked + .switch--material__toggle {
   background-color: #77c2bb;
   box-shadow: none;
 }
-
 :checked + .switch--material__toggle > .switch--material__handle {
   left: 16px;
   background-color: #009688;
@@ -389,13 +338,11 @@ h4, h5, h6 {
       0 1px 5px 0 rgba(0, 0, 0, .12),
       0 3px 1px -2px rgba(0, 0, 0, .2);
 }
-
 :disabled + .switch--material__toggle {
   opacity: 0.3;
   cursor: default;
   pointer-events: none;
 }
-
 .switch--material__handle:before {
   background: transparent;
   content: '';
@@ -403,20 +350,17 @@ h4, h5, h6 {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  z-index: -1;
-  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, .12);
+  z-index: 0;
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, .12);
   -webkit-transition: box-shadow 0.1s linear;
   transition: box-shadow 0.1s linear;
 }
-
 .switch--material__toggle > .switch--active__handle:before {
-  box-shadow: 0px 0px 0px 14px rgba(0, 0, 0, .12);
+  box-shadow: 0 0 0 14px rgba(0, 0, 0, .12);
 }
-
 :checked + .switch--material__toggle > .switch--active__handle:before {
-  box-shadow: 0px 0px 0px 14px alpha(#009688, 0.2);
+  box-shadow: 0 0 0 14px alpha(#009688, 0.2);
 }
-
 .switch--material__touch {
   position: absolute;
   top: -10px;
@@ -424,8 +368,7 @@ h4, h5, h6 {
   left: -15px;
   right: -15px;
 }
-
-/*!
+/*~
   name: Range
   category: Range
   elements: ons-range
@@ -438,7 +381,6 @@ h4, h5, h6 {
       <input type="range" class="range__input" disabled>
     </div>
 */
-
 .range {
   display: inline-block;
   width: 100px;
@@ -450,26 +392,23 @@ h4, h5, h6 {
   background-position: left center;
   background-size: 100% 2px;
   background-repeat: no-repeat;
-  overflow: hidden;
+  overflow: visible;
 }
-
 .range__input {
+  box-sizing: border-box;
+  background-clip: padding-box;
   padding: 0;
   margin: 0;
   font: inherit;
   color: inherit;
   background: transparent;
   border: none;
-  line-height: normal;
-  box-sizing: border-box;
-  background-clip: padding-box;
   vertical-align: top;
   outline: none;
   line-height: 1;
-  -moz-appearance: none;
-       appearance: none;
   -webkit-appearance: none;
-  border: none;
+     -moz-appearance: none;
+          appearance: none;
   background-image: -webkit-linear-gradient(rgba(24, 103, 194, .81), rgba(24, 103, 194, .81));
   background-image: linear-gradient(rgba(24, 103, 194, .81), rgba(24, 103, 194, .81));
   background-position: left center;
@@ -481,7 +420,6 @@ h4, h5, h6 {
   z-index: 1;
   width: 100%;
 }
-
 .range__input::-moz-range-track {
   position: relative;
   border: none;
@@ -493,7 +431,6 @@ h4, h5, h6 {
   margin: 0;
   padding: 0;
 }
-
 .range__input::-ms-track {
   position: relative;
   border: none;
@@ -501,7 +438,6 @@ h4, h5, h6 {
   height: 0;
   border-radius: 30px;
 }
-
 .range__input::-webkit-slider-thumb {
   cursor: pointer;
   position: relative;
@@ -514,12 +450,12 @@ h4, h5, h6 {
   border-radius: 30px;
   margin: 0;
   padding: 0;
-  position: relative;
+  box-sizing: border-box;
   -webkit-appearance: none;
+          appearance: none;
   top: 0;
   z-index: 1;
 }
-
 .range__input::-moz-range-thumb {
   cursor: pointer;
   position: relative;
@@ -533,7 +469,6 @@ h4, h5, h6 {
   margin: 0;
   padding: 0;
 }
-
 .range__input::-ms-thumb {
   cursor: pointer;
   position: relative;
@@ -548,26 +483,24 @@ h4, h5, h6 {
   padding: 0;
   top: 0;
 }
-
 .range__input::-ms-fill-lower {
   height: 2px;
   background-color: rgba(24, 103, 194, .81);
 }
-
 .range__input::-ms-tooltip {
   display: none;
 }
-
 .range__input:disabled {
+  opacity: 1;
+  pointer-events: none;
 }
-
 .range--disabled {
   opacity: 0.3;
   cursor: default;
   pointer-events: none;
+  pointer-events: none;
 }
-
-/*!
+/*~
   name: Material Range
   category: Range
   elements: ons-range
@@ -580,12 +513,10 @@ h4, h5, h6 {
       <input type="range" class="range__input range--material__input" disabled>
     </div>
 */
-
 .range--material {
   background-image: -webkit-linear-gradient(#e0e0e0, #e0e0e0);
   background-image: linear-gradient(#e0e0e0, #e0e0e0);
 }
-
 .range--material__input {
   background-image: -webkit-linear-gradient(#009688, #009688);
   background-image: linear-gradient(#009688, #009688);
@@ -593,19 +524,16 @@ h4, h5, h6 {
   background-size: 0% 2px;
   overflow: visible;
 }
-
 .range--material__input::-webkit-slider-thumb {
-  top: 1px;
+  box-sizing: border-box;
   border: none;
   height: 36px;
   width: 14px;
   border-radius: 0;
   background-color: transparent;
-  background-image: -webkit-radial-gradient(circle 6px at 7px, #009688 0%, #009688 6px, transparent 7px);
-  background-image: radial-gradient(circle 6px at 7px, #009688 0%, #009688 6px, transparent 7px);
-  margin-top: -1px;
+  background-image: -webkit-radial-gradient(circle cover, #009688 0%, #009688 6.6px, transparent 7.2px);
+  background-image: radial-gradient(circle cover, #009688 0%, #009688 6.6px, transparent 7.2px);
 }
-
 .range--material__input::-moz-range-thumb {
   top: 1px;
   border: 3px solid #e0e0e0;
@@ -615,11 +543,9 @@ h4, h5, h6 {
   border-color: #009688;
   background-color: #009688;
 }
-
 .range--material__input::-moz-range-track {
   background-color: #e0e0e0;
 }
-
 .range--material__input::-ms-thumb {
   margin-top: 1px;
   border: none;
@@ -629,30 +555,15 @@ h4, h5, h6 {
   border-color: #009688;
   background-color: #009688;
 }
-
-.range--material__input:focus::-moz-range-thumb {
-  border-color: #009688;
-  background-color: #009688;
-}
-
-.range--material__input::-moz-range-thumb:before {
-  display: none;
-}
-
-.range--material__input::-webkit-slider-thumb:before {
-  display: none;
-}
-
 .range--material__input::-ms-fill-lower {
   background-color: #009688;
 }
-
-.range--material__input::-moz-range-thumb:after {
-  margin-top: -3px;
-  margin-left: -3px;
+.range--material__input::-ms-fill-upper {
+  margin-top: -6px;
+  margin-left: -6px;
   content: '';
   display: block;
-  border: 0px;
+  border-width: 0;
   border-radius: 100%;
   height: 12px;
   width: 12px;
@@ -663,13 +574,36 @@ h4, h5, h6 {
   transition: transform 0.1s linear;
   transition: transform 0.1s linear, -webkit-transform 0.1s linear;
 }
-
-.range--material__input::-webkit-slider-thumb:after {
+.range--material__input:focus::-moz-range-thumb {
+  border-color: #009688;
+  background-color: #009688;
+}
+.range--material__input::-moz-range-thumb:before {
+  display: none;
+}
+.range--material__input::-webkit-slider-thumb:before {
+  display: none;
+}
+.range--material__input::-moz-range-thumb:after {
   margin-top: -3px;
   margin-left: -3px;
   content: '';
   display: block;
-  border: 0px;
+  border-width: 0;
+  border-radius: 100%;
+  height: 12px;
+  width: 12px;
+  background-color: #009688;
+  opacity: 0.2;
+  -webkit-transition: -webkit-transform 0.1s linear;
+  transition: -webkit-transform 0.1s linear;
+  transition: transform 0.1s linear;
+  transition: transform 0.1s linear, -webkit-transform 0.1s linear;
+}
+.range--material__input::-webkit-slider-thumb:after {
+  content: '';
+  display: block;
+  border-width: 0;
   border-radius: 100%;
   height: 12px;
   width: 12px;
@@ -683,38 +617,17 @@ h4, h5, h6 {
   margin-left: 1px;
   margin-top: 12px;
 }
-
-.range--material__input::-ms-fill-upper {
-  margin-top: -6px;
-  margin-left: -6px;
-  content: '';
-  display: block;
-  border: 0px;
-  border-radius: 100%;
-  height: 12px;
-  width: 12px;
-  background-color: #009688;
-  opacity: 0.2;
-  -webkit-transition: -webkit-transform 0.1s linear;
-  transition: -webkit-transform 0.1s linear;
-  transition: transform 0.1s linear;
-  transition: transform 0.1s linear, -webkit-transform 0.1s linear;
-}
-
 .range--material__input:active::-webkit-slider-thumb:after {
   -webkit-transform: scale(2.5);
           transform: scale(2.5);
 }
-
 .range--material__input:active::-moz-range-thumb:after {
   transform: scale(2.5);
 }
-
 .range--material__input:active::-ms-fill-upper {
   transform: scale(2.5);
 }
-
-/*!
+/*~
   name: Notification
   category: Notification
   markup: |
@@ -722,11 +635,12 @@ h4, h5, h6 {
     <span class="notification">10</span>
     <span class="notification">999</span>
 */
-
 .notification {
   position: relative;
   display: inline-block;
   vertical-align: top;
+  font: inherit;
+  border: none;
   box-sizing: border-box;
   background-clip: padding-box;
   padding: 0;
@@ -736,7 +650,7 @@ h4, h5, h6 {
   background: transparent;
   border: none;
   line-height: normal;
-  font-family: -apple-system, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -750,6 +664,7 @@ h4, h5, h6 {
   white-space: nowrap;
   overflow: hidden;
   text-decoration: none;
+  margin: 0;
   padding: 0 4px;
   width: auto;
   height: 19px;
@@ -762,12 +677,10 @@ h4, h5, h6 {
   line-height: 19px;
   font-weight: 400;
 }
-
 .notification:empty {
   display: none;
 }
-
-/*!
+/*~
   name: Toolbar
   category: Toolbar
   elements: ons-toolbar
@@ -776,9 +689,8 @@ h4, h5, h6 {
       <div class="toolbar__center">Navigation Bar</div>
     </div>
 */
-
 .toolbar {
-  font-family: -apple-system, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -825,19 +737,15 @@ h4, h5, h6 {
   background-image: -webkit-linear-gradient(bottom, #bbb, #bbb 100%);
   background-image: linear-gradient(0deg, #bbb, #bbb 100%);
 }
-
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-
   .toolbar {
     background-image: -webkit-linear-gradient(bottom, #bbb, #bbb 50%, transparent 50%);
     background-image: linear-gradient(0deg, #bbb, #bbb 50%, transparent 50%);
   }
 }
-
 .toolbar__bg {
   background: #fff;
 }
-
 .toolbar__item {
   box-sizing: border-box;
   background-clip: padding-box;
@@ -849,13 +757,10 @@ h4, h5, h6 {
   border: none;
   line-height: normal;
   height: 44px;
-  vertical-align: top;
   overflow: visible;
   display: block;
   vertical-align: middle;
-  float: left;
 }
-
 .toolbar__left {
   box-sizing: border-box;
   background-clip: padding-box;
@@ -871,7 +776,6 @@ h4, h5, h6 {
   text-align: left;
   line-height: 44px;
 }
-
 .toolbar__right {
   box-sizing: border-box;
   background-clip: padding-box;
@@ -887,7 +791,6 @@ h4, h5, h6 {
   text-align: right;
   line-height: 44px;
 }
-
 .toolbar__center {
   box-sizing: border-box;
   background-clip: padding-box;
@@ -905,7 +808,6 @@ h4, h5, h6 {
   font-weight: 500;
   color: #1f1f21;
 }
-
 .toolbar__title {
   line-height: 44px;
   font-size: 17px;
@@ -915,12 +817,10 @@ h4, h5, h6 {
   padding: 0;
   overflow: visible;
 }
-
 .toolbar__center:first-child:last-child {
   width: 100%;
 }
-
-/*!
+/*~
   name: Toolbar Item
   category: Toolbar
   elements: ons-toolbar ons-toolbar-button
@@ -941,8 +841,7 @@ h4, h5, h6 {
       </div>
     </div>
 */
-
-/*!
+/*~
   name: Toolbar with Outline Button
   category: Toolbar
   elements: ons-toolbar ons-toolbar-button
@@ -964,8 +863,7 @@ h4, h5, h6 {
       </div>
     </div>
 */
-
-/*!
+/*~
   name: Bottom Bar
   category: Toolbar
   elements: ons-bottom-toolbar
@@ -974,9 +872,8 @@ h4, h5, h6 {
       <div class="bottom-bar__line-height" style="text-align:center">Bottom Toolbar</div>
     </div>
 */
-
 .bottom-bar {
-  font-family: -apple-system, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -1010,9 +907,9 @@ h4, h5, h6 {
   border-bottom: none;
   border-top: 1px solid #bbb;
   position: absolute;
-  bottom: 0px;
-  right: 0px;
-  left: 0px;
+  bottom: 0;
+  right: 0;
+  left: 0;
   border-top: none;
   background-size: 100% 1px;
   background-repeat: no-repeat;
@@ -1020,28 +917,23 @@ h4, h5, h6 {
   background-image: -webkit-linear-gradient(top, #bbb, #bbb 100%);
   background-image: linear-gradient(180deg, #bbb, #bbb 100%);
 }
-
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-
   .bottom-bar {
     background-image: -webkit-linear-gradient(top, #bbb, #bbb 50%, transparent 50%);
     background-image: linear-gradient(180deg, #bbb, #bbb 50%, transparent 50%);
   }
 }
-
 .bottom-bar__line-height {
   line-height: 44px;
   padding-bottom: 0;
   padding-top: 0;
 }
-
 .bottom-bar--transparent {
   background-color: transparent;
   background-image: none;
   border: none;
 }
-
-/*!
+/*~
   name: Toolbar with Segment
   category: Toolbar
   elements: ons-toolbar
@@ -1062,8 +954,7 @@ h4, h5, h6 {
       </div>
     </div>
 */
-
-/*!
+/*~
   name: Material Toolbar
   category: Toolbar
   elements: ons-toolbar
@@ -1074,7 +965,6 @@ h4, h5, h6 {
       </div>
     </div>
 */
-
 .toolbar--material {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1091,8 +981,7 @@ h4, h5, h6 {
   background-color: #009688;
   background-size: 0;
 }
-
-/*!
+/*~
   name: No Shadow Toolbar
   category: Toolbar
   elements: ons-toolbar
@@ -1111,13 +1000,11 @@ h4, h5, h6 {
       </div>
     </div>
 */
-
 .toolbar--noshadow {
   box-shadow: none;
   background-image: none;
   border-bottom: none;
 }
-
 .toolbar--material__left, .toolbar--material__right {
   font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -1127,11 +1014,8 @@ h4, h5, h6 {
   height: 56px;
   min-width: 72px;
   width: auto;
-  float: none;
-  float: initial;
   line-height: 56px;
 }
-
 .toolbar--material__center {
   font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -1146,24 +1030,18 @@ h4, h5, h6 {
   overflow: hidden;
   text-overflow: ellipsis;
   text-align: left;
-  float: none;
-  float: initial;
   line-height: 56px;
 }
-
 .toolbar--material__center:first-child {
   margin-left: 16px;
 }
-
 .toolbar--material__center:last-child {
   margin-right: 16px;
 }
-
 .toolbar--material__left:empty, .toolbar--material__right:empty {
   min-width: 16px;
 }
-
-/*!
+/*~
   name: Material Toolbar with Icons
   category: Toolbar
   elements: ons-toolbar
@@ -1190,8 +1068,7 @@ h4, h5, h6 {
       </div>
     </div>
 */
-
-/*!
+/*~
   name: Transparent Toolbar
   category: Toolbar
   elements: ons-toolbar
@@ -1210,15 +1087,13 @@ h4, h5, h6 {
       </div>
     </div>
 */
-
 .toolbar--transparent {
   background-color: transparent;
   box-shadow: none;
   background-image: none;
   border-bottom: none;
 }
-
-/*!
+/*~
   name: Button
   category: Button
   elements: ons-button
@@ -1226,11 +1101,9 @@ h4, h5, h6 {
     <button class="button">Button</button>
     <button class="button" disabled>Button</button>
 */
-
 .button {
   position: relative;
   display: inline-block;
-  vertical-align: top;
   box-sizing: border-box;
   background-clip: padding-box;
   padding: 0;
@@ -1240,7 +1113,7 @@ h4, h5, h6 {
   background: transparent;
   border: none;
   line-height: normal;
-  font-family: -apple-system, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -1262,35 +1135,30 @@ h4, h5, h6 {
   color: white;
   vertical-align: middle;
   background-color: rgba(24, 103, 194, .81);
-  border: 0px solid currentColor;
+  border: 0 solid currentColor;
   border-radius: 3px;
   -webkit-transition: none;
   transition: none;
 }
-
 .button:hover {
   -webkit-transition: none;
   transition: none;
 }
-
 .button:active {
   background-color: rgba(24, 103, 194, .81);
   -webkit-transition: none;
   transition: none;
   opacity: 0.2;
 }
-
 .button:focus {
   outline: 0;
 }
-
 .button:disabled, .button[disabled] {
   opacity: 0.3;
   cursor: default;
   pointer-events: none;
 }
-
-/*!
+/*~
   name: Outline Button
   category: Button
   elements: ons-button
@@ -1298,27 +1166,23 @@ h4, h5, h6 {
     <button class="button button--outline">Button</button>
     <button class="button button--outline" disabled>Button</button>
 */
-
 .button--outline {
   background-color: transparent;
   border: 1px solid rgba(24, 103, 194, .81);
   color: rgba(24, 103, 194, .81);
 }
-
 .button--outline:active {
   background-color: rgba(203, 221, 241, 0.9430000000000001);
   border: 1px solid rgba(24, 103, 194, .81);
   color: rgba(24, 103, 194, .81);
   opacity: 1;
 }
-
 .button--outline:hover {
   border: 1px solid rgba(24, 103, 194, .81);
   -webkit-transition: 0;
   transition: 0;
 }
-
-/*!
+/*~
   name: Light Button
   category: Button
   elements: ons-button
@@ -1326,21 +1190,18 @@ h4, h5, h6 {
     <button class="button button--light">Button</button>
     <button class="button button--light" disabled>Button</button>
 */
-
 .button--light {
   background-color: transparent;
   color: rgba(0, 0, 0, .4);
   border: 1px solid rgba(0, 0, 0, .2);
 }
-
 .button--light:active {
   background-color: rgba(0, 0, 0, .05);
   color: rgba(0, 0, 0, .4);
   border: 1px solid rgba(0, 0, 0, .2);
   opacity: 1;
 }
-
-/*!
+/*~
   name: Quiet Button
   category: Button
   elements: ons-button
@@ -1348,11 +1209,9 @@ h4, h5, h6 {
     <button class="button--quiet">Button</button>
     <button class="button--quiet" disabled>Button</button>
 */
-
 .button--quiet {
   position: relative;
   display: inline-block;
-  vertical-align: top;
   box-sizing: border-box;
   background-clip: padding-box;
   padding: 0;
@@ -1362,7 +1221,7 @@ h4, h5, h6 {
   background: transparent;
   border: none;
   line-height: normal;
-  font-family: -apple-system, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -1384,7 +1243,7 @@ h4, h5, h6 {
   color: white;
   vertical-align: middle;
   background-color: rgba(24, 103, 194, .81);
-  border: 0px solid currentColor;
+  border: 0 solid currentColor;
   border-radius: 3px;
   -webkit-transition: none;
   transition: none;
@@ -1395,7 +1254,6 @@ h4, h5, h6 {
   color: rgba(24, 103, 194, .81);
   border: none;
 }
-
 .button--quiet:disabled,
 .button--quiet[disabled] {
   opacity: 0.3;
@@ -1403,16 +1261,13 @@ h4, h5, h6 {
   pointer-events: none;
   border: none;
 }
-
 .button--quiet:hover {
   -webkit-transition: none;
   transition: none;
 }
-
 .button--quiet:focus {
   outline: 0;
 }
-
 .button--quiet:active {
   background-color: transparent;
   border: none;
@@ -1421,8 +1276,7 @@ h4, h5, h6 {
   opacity: 0.2;
   color: rgba(24, 103, 194, .81);
 }
-
-/*!
+/*~
   name: Call To Action Button
   category: Button
   elements: ons-button
@@ -1430,11 +1284,9 @@ h4, h5, h6 {
     <button class="button--cta">Button</button>
     <button class="button--cta" disabled>Button</button>
 */
-
 .button--cta {
   position: relative;
   display: inline-block;
-  vertical-align: top;
   box-sizing: border-box;
   background-clip: padding-box;
   padding: 0;
@@ -1444,7 +1296,7 @@ h4, h5, h6 {
   background: transparent;
   border: none;
   line-height: normal;
-  font-family: -apple-system, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -1466,7 +1318,7 @@ h4, h5, h6 {
   color: white;
   vertical-align: middle;
   background-color: rgba(24, 103, 194, .81);
-  border: 0px solid currentColor;
+  border: 0 solid currentColor;
   border-radius: 3px;
   -webkit-transition: none;
   transition: none;
@@ -1474,16 +1326,13 @@ h4, h5, h6 {
   background-color: #25a6d9;
   color: white;
 }
-
 .button--cta:hover {
   -webkit-transition: none;
   transition: none;
 }
-
 .button--cta:focus {
   outline: 0;
 }
-
 .button--cta:active {
   color: white;
   background-color: #25a6d9;
@@ -1491,22 +1340,19 @@ h4, h5, h6 {
   transition: none;
   opacity: 0.2;
 }
-
 .button--cta:disabled,
 .button--cta[disabled] {
   opacity: 0.3;
   cursor: default;
   pointer-events: none;
 }
-
-/*!
+/*
   name: Large Button
   category: Button
   elements: ons-button
   markup: |
     <button class="button button--large" style="width: 95%; margin: 0 auto;">Button</button>
 */
-
 .button--large {
   font-size: 17px;
   font-weight: 500;
@@ -1516,7 +1362,6 @@ h4, h5, h6 {
   width: 100%;
   text-align: center;
 }
-
 .button--large:active {
   background-color: rgba(24, 103, 194, .81);
   -webkit-transition: none;
@@ -1524,35 +1369,29 @@ h4, h5, h6 {
   opacity: 0.2;
   transition: none;
 }
-
 .button--large:disabled,
 .button--large[disabled] {
   opacity: 0.3;
   cursor: default;
   pointer-events: none;
 }
-
 .button--large:hover {
   -webkit-transition: none;
   transition: none;
 }
-
 .button--large:focus {
   outline: 0;
 }
-
-/*!
+/*~
   name: Large Quiet Button
   category: Button
   elements: ons-button
   markup: |
     <button class="button--large--quiet" style="width: 95%; margin: 0 auto;">Button</button>
 */
-
 .button--large--quiet {
   position: relative;
   display: inline-block;
-  vertical-align: top;
   box-sizing: border-box;
   background-clip: padding-box;
   padding: 0;
@@ -1562,7 +1401,7 @@ h4, h5, h6 {
   background: transparent;
   border: none;
   line-height: normal;
-  font-family: -apple-system, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -1584,7 +1423,7 @@ h4, h5, h6 {
   color: white;
   vertical-align: middle;
   background-color: rgba(24, 103, 194, .81);
-  border: 0px solid currentColor;
+  border: 0 solid currentColor;
   border-radius: 3px;
   -webkit-transition: none;
   transition: none;
@@ -1600,7 +1439,6 @@ h4, h5, h6 {
   color: rgba(24, 103, 194, .81);
   text-align: center;
 }
-
 .button--large--quiet:active {
   -webkit-transition: none;
   transition: none;
@@ -1610,35 +1448,29 @@ h4, h5, h6 {
   border: 1px solid transparent;
   box-shadow: none;
 }
-
 .button--large--quiet:disabled,
 .button--large--quiet[disabled] {
   opacity: 0.3;
   cursor: default;
   pointer-events: none;
 }
-
 .button--large--quiet:hover {
   -webkit-transition: none;
   transition: none;
 }
-
 .button--large--quiet:focus {
   outline: 0;
 }
-
-/*!
+/*~
   name: Large Call To Action Button
   category: Button
   elements: ons-button
   markup: |
     <button class="button--large--cta" style="width: 95%; margin: 0 auto;">Button</button>
 */
-
 .button--large--cta {
   position: relative;
   display: inline-block;
-  vertical-align: top;
   box-sizing: border-box;
   background-clip: padding-box;
   padding: 0;
@@ -1648,7 +1480,7 @@ h4, h5, h6 {
   background: transparent;
   border: none;
   line-height: normal;
-  font-family: -apple-system, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -1670,7 +1502,7 @@ h4, h5, h6 {
   color: white;
   vertical-align: middle;
   background-color: rgba(24, 103, 194, .81);
-  border: 0px solid currentColor;
+  border: 0 solid currentColor;
   border-radius: 3px;
   -webkit-transition: none;
   transition: none;
@@ -1685,16 +1517,13 @@ h4, h5, h6 {
   text-align: center;
   display: block;
 }
-
 .button--large--cta:hover {
   -webkit-transition: none;
   transition: none;
 }
-
 .button--large--cta:focus {
   outline: 0;
 }
-
 .button--large--cta:active {
   color: white;
   background-color: #25a6d9;
@@ -1702,15 +1531,13 @@ h4, h5, h6 {
   transition: none;
   opacity: 0.2;
 }
-
 .button--large--cta:disabled,
 .button--large--cta[disabled] {
   opacity: 0.3;
   cursor: default;
   pointer-events: none;
 }
-
-/*!
+/*~
   name: Material Button
   category: Button
   elements: ons-button
@@ -1718,11 +1545,9 @@ h4, h5, h6 {
     <button class="button button--material">BUTTON</button>
     <button class="button button--material" disabled>DISABLED</button>
 */
-
 .button--material {
   position: relative;
   display: inline-block;
-  vertical-align: top;
   box-sizing: border-box;
   background-clip: padding-box;
   padding: 0;
@@ -1732,7 +1557,7 @@ h4, h5, h6 {
   background: transparent;
   border: none;
   line-height: normal;
-  font-family: -apple-system, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -1754,7 +1579,7 @@ h4, h5, h6 {
   color: white;
   vertical-align: middle;
   background-color: rgba(24, 103, 194, .81);
-  border: 0px solid currentColor;
+  border: 0 solid currentColor;
   border-radius: 3px;
   -webkit-transition: none;
   transition: none;
@@ -1765,7 +1590,7 @@ h4, h5, h6 {
   -webkit-font-smoothing: antialiased;
   min-height: 36px;
   line-height: 36px;
-  padding: 0px 16px;
+  padding: 0 16px;
   -webkit-transition: box-shadow 0.2s ease;
   transition: box-shadow 0.2s ease;
   text-align: center;
@@ -1777,7 +1602,6 @@ h4, h5, h6 {
   color: #ffffff;
   font-weight: 500;
 }
-
 .button--material:active {
   box-shadow: 0 6px 10px 0 rgba(0, 0, 0, .14),
       0 1px 18px 0 rgba(0, 0, 0, .12),
@@ -1785,18 +1609,15 @@ h4, h5, h6 {
   background-color: #009688;
   opacity: 1;
 }
-
 .button--material:focus {
   outline: 0;
 }
-
 .button--material:disabled,
 .button--material[disabled] {
   opacity: 0.5;
   box-shadow: none;
 }
-
-/*!
+/*~
   name: Material Flat Button
   category: Button
   elements: ons-button
@@ -1804,11 +1625,9 @@ h4, h5, h6 {
     <button class="button button--material--flat">BUTTON</button>
     <button class="button button--material--flat" disabled>DISABLED</button>
 */
-
 .button--material--flat {
   position: relative;
   display: inline-block;
-  vertical-align: top;
   box-sizing: border-box;
   background-clip: padding-box;
   padding: 0;
@@ -1818,7 +1637,7 @@ h4, h5, h6 {
   background: transparent;
   border: none;
   line-height: normal;
-  font-family: -apple-system, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -1840,7 +1659,7 @@ h4, h5, h6 {
   color: white;
   vertical-align: middle;
   background-color: rgba(24, 103, 194, .81);
-  border: 0px solid currentColor;
+  border: 0 solid currentColor;
   border-radius: 3px;
   -webkit-transition: none;
   transition: none;
@@ -1851,7 +1670,7 @@ h4, h5, h6 {
   -webkit-font-smoothing: antialiased;
   min-height: 36px;
   line-height: 36px;
-  padding: 0px 16px;
+  padding: 0 16px;
   -webkit-transition: box-shadow 0.2s ease;
   transition: box-shadow 0.2s ease;
   text-align: center;
@@ -1866,7 +1685,6 @@ h4, h5, h6 {
   background-color: transparent;
   color: #009688;
 }
-
 .button--material--flat:active {
   box-shadow: none;
   background-color: transparent;
@@ -1875,7 +1693,6 @@ h4, h5, h6 {
   opacity: 1;
   border: none;
 }
-
 .button--material--flat:focus {
   box-shadow: none;
   background-color: transparent;
@@ -1884,14 +1701,12 @@ h4, h5, h6 {
   opacity: 1;
   border: none;
 }
-
 .button--material--flat:disabled,
 .button--material--flat[disabled] {
   opacity: 0.5;
   box-shadow: none;
 }
-
-/*!
+/*~
   name: Button Bar
   category: Segment
   markup: |
@@ -1907,9 +1722,8 @@ h4, h5, h6 {
       </div>
     </div>
 */
-
 .button-bar {
-  font-family: -apple-system, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -1928,9 +1742,8 @@ h4, h5, h6 {
   padding: 0;
   border: none;
 }
-
 .button-bar__item {
-  font-family: -apple-system, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -1941,10 +1754,8 @@ h4, h5, h6 {
   margin: 0;
   position: relative;
   overflow: hidden;
-  overflow: hidden;
   box-sizing: border-box;
 }
-
 .button-bar__input {
   position: absolute;
   overflow: hidden;
@@ -1962,12 +1773,11 @@ h4, h5, h6 {
   height: 100%;
   margin: 0;
   -webkit-appearance: none;
-  -moz-appearance: none;
-       appearance: none;
+     -moz-appearance: none;
+          appearance: none;
 }
-
 .button-bar__button {
-  font-family: -apple-system, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -1979,7 +1789,7 @@ h4, h5, h6 {
   border-top-width: 1px;
   border-bottom-width: 1px;
   border-right-width: 1px;
-  border-left-width: 0px;
+  border-left-width: 0;
   font-weight: 400;
   padding: 0;
   font-size: 13px;
@@ -1989,23 +1799,29 @@ h4, h5, h6 {
   -webkit-transition: background-color 0.2s linear, color 0.2s linear;
   transition: background-color 0.2s linear, color 0.2s linear;
   box-sizing: border-box;
-  border-radius: 0;
 }
-
-.button-bar__item:first-child > .button-bar__button {
-  border-left-width: 1px;
-  border-radius: 4px 0 0 4px;
+.button-bar__button:disabled {
+  opacity: 0.3;
+  cursor: default;
+  pointer-events: none;
 }
-
-.button-bar__item:last-child > .button-bar__button {
-  border-right-width: 1px;
-  border-radius: 0 4px 4px 0;
+.button-bar__button:hover {
+  -webkit-transition: none;
+  transition: none;
 }
-
+.button-bar__button:focus {
+  outline: 0;
+}
+:checked + .button-bar__button {
+  background-color: rgba(18, 114, 224, .77);
+  color: #fff;
+  -webkit-transition: none;
+  transition: none;
+}
 .button-bar__button:active,
 :active + .button-bar__button {
   background-color: rgba(205, 225, 248, 0.931);
-  border: 0px solid rgba(18, 114, 224, .77);
+  border: 0 solid rgba(18, 114, 224, .77);
   border-top: 1px solid rgba(18, 114, 224, .77);
   border-bottom: 1px solid rgba(18, 114, 224, .77);
   border-right: 1px solid rgba(18, 114, 224, .77);
@@ -2014,30 +1830,15 @@ h4, h5, h6 {
   -webkit-transition: none;
   transition: none;
 }
-
-:checked + .button-bar__button {
-  background-color: rgba(18, 114, 224, .77);
-  color: #fff;
-  -webkit-transition: none;
-  transition: none;
+.button-bar__item:first-child > .button-bar__button {
+  border-left-width: 1px;
+  border-radius: 4px 0 0 4px;
 }
-
-.button-bar__button:disabled {
-  opacity: 0.3;
-  cursor: default;
-  pointer-events: none;
+.button-bar__item:last-child > .button-bar__button {
+  border-right-width: 1px;
+  border-radius: 0 4px 4px 0;
 }
-
-.button-bar__button:hover {
-  -webkit-transition: none;
-  transition: none;
-}
-
-.button-bar__button:focus {
-  outline: 0;
-}
-
-/*!
+/*~
   name: Segment
   category: Segment
   markup: |
@@ -2056,11 +1857,9 @@ h4, h5, h6 {
       </div>
     </div>
 */
-
 :root { /* Text color */ /* Text color active */
 }
-
-/*!
+/*~
   name: Icon Tabbar
   category: Tabbar
   elements: ons-tabbar ons-tab
@@ -2092,8 +1891,7 @@ h4, h5, h6 {
       </label>
     </div>
 */
-
-/*!
+/*~
   name: Tabbar
   category: Tabbar
   elements: ons-tabbar ons-tab
@@ -2121,9 +1919,8 @@ h4, h5, h6 {
       </label>
     </div>
 */
-
 .tabbar {
-  font-family: -apple-system, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -2131,9 +1928,9 @@ h4, h5, h6 {
   display: table;
   table-layout: fixed;
   position: absolute;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
+  bottom: 0;
+  left: 0;
+  right: 0;
   white-space: nowrap;
   margin: 0;
   padding: 0;
@@ -2142,9 +1939,7 @@ h4, h5, h6 {
   border-top: 1px solid #ccc;
   width: 100%;
 }
-
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-
   .tabbar {
     border-top: none;
     background-size: 100% 1px;
@@ -2154,20 +1949,17 @@ h4, h5, h6 {
     background-image: linear-gradient(180deg, #ccc, #ccc 50%, transparent 50%);
   }
 }
-
 .tabbar__item {
-  font-family: -apple-system, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
   font-size: 17px;
   position: relative;
-  overflow: hidden;
   display: table-cell;
   width: auto;
   border-radius: 0;
 }
-
 .tabbar__item > input {
   position: absolute;
   overflow: hidden;
@@ -2185,15 +1977,11 @@ h4, h5, h6 {
   height: 100%;
   margin: 0;
   -webkit-appearance: none;
-  -moz-appearance: none;
-       appearance: none;
+     -moz-appearance: none;
+          appearance: none;
 }
-
 .tabbar__button {
-  position: relative;
-  display: inline-block;
-  vertical-align: top;
-  font-family: -apple-system, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -2215,6 +2003,8 @@ h4, h5, h6 {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  position: relative;
+  display: inline-block;
   text-decoration: none;
   padding: 0;
   height: 49px;
@@ -2229,31 +2019,26 @@ h4, h5, h6 {
   font-weight: 400;
   line-height: 49px
 }
-
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-
   .tabbar__button {
     border-top: none;
   }
   }
-
 .tabbar__icon {
   font-size: 24px;
   padding: 0;
   margin: 0;
   line-height: 26px;
-  display: block !important;
+  display: block !important; /* stylelint-disable-line declaration-no-important */
   height: 28px;
 }
-
 .tabbar__label {
-  font-family: -apple-system, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
   font-size: 17px;
 }
-
 .tabbar__badge.notification { /* FIXME */
   position: absolute;
   top: 5px;
@@ -2263,45 +2048,35 @@ h4, h5, h6 {
   line-height: 16px;
   border-radius: 8px;
 }
-
 .tabbar__icon + .tabbar__label {
   font-size: 10px;
   line-height: 1;
   margin: 0;
   font-weight: 400;
 }
-
 .tabbar__label:first-child {
   font-size: 16px;
   line-height: 49px;
   margin: 0;
   padding: 0;
 }
-
-.tabbar__button {
-  color: #999;
-}
-
 :checked + .tabbar__button {
   color: rgba(24, 103, 194, .81);
   background-color: transparent;
   box-shadow: none;
   border-top: none;
 }
-
 .tabbar__button:disabled {
   opacity: 0.3;
   cursor: default;
   pointer-events: none;
 }
-
 .tabbar__button:focus {
   z-index: 1;
   border-top: none;
   box-shadow: none;
   outline: 0;
 }
-
 .tabbar__content {
   position: absolute;
   top: 0;
@@ -2310,8 +2085,7 @@ h4, h5, h6 {
   bottom: 49px;
   z-index: 0;
 }
-
-/*!
+/*~
   name: Icon Only Tabbar
   category: Tabbar
   elements: ons-tabbar ons-tab
@@ -2341,8 +2115,7 @@ h4, h5, h6 {
 
     </div>
 */
-
-/*!
+/*~
   name: Top Tabbar
   category: Tabbar
   elements: ons-tabbar ons-tab
@@ -2370,19 +2143,16 @@ h4, h5, h6 {
       </label>
     </div>
 */
-
 .tabbar--top {
   position: relative;
-  top: 0px;
-  left: 0px;
-  right: 0px;
+  top: 0;
+  left: 0;
+  right: 0;
   bottom: auto;
   border-top: none;
   border-bottom: 1px solid #ccc;
 }
-
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-
   .tabbar--top {
     border-bottom: none;
     background-size: 100% 1px;
@@ -2392,7 +2162,6 @@ h4, h5, h6 {
     background-image: linear-gradient(0deg, #ccc, #ccc 50%, transparent 50%);
   }
 }
-
 .tabbar--top__content {
   top: 49px;
   left: 0;
@@ -2400,8 +2169,7 @@ h4, h5, h6 {
   bottom: 0;
   z-index: 0;
 }
-
-/*!
+/*~
   name: Bordered Top Tabbar
   category: Tabbar
   elements: ons-tabbar ons-tab
@@ -2429,8 +2197,7 @@ h4, h5, h6 {
       </label>
     </div>
 */
-
-/*!
+/*~
   name: Material Tabbar
   category: Tabbar
   elements: ons-tabbar ons-tab
@@ -2466,23 +2233,22 @@ h4, h5, h6 {
 
     </div>
 */
-
 .tabbar--top-border__button {
   background-color: transparent;
   border-bottom: 4px solid transparent;
 }
-
 :checked + .tabbar--top-border__button {
   background-color: transparent;
   border-bottom: 4px solid rgba(24, 103, 194, .81);
 }
-
 .tabbar--material {
   background-color: #009688;
-  border-bottom-width: 0px;
-  box-shadow: 0 4px 2px -2px rgba(0, 0, 0, .14), 0 3px 5px -2px rgba(0, 0, 0, .12), 0 5px 1px -4px rgba(0, 0, 0, .2);
+  border-bottom-width: 0;
+  box-shadow:
+    0 4px 2px -2px rgba(0, 0, 0, .14),
+    0 3px 5px -2px rgba(0, 0, 0, .12),
+    0 5px 1px -4px rgba(0, 0, 0, .2);
 }
-
 .tabbar--material__button {
   background-color: transparent;
   color: rgba(255, 255, 255, .6);
@@ -2492,7 +2258,6 @@ h4, h5, h6 {
   font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
 }
-
 .tabbar--material__button:after {
   content: '';
   display: block;
@@ -2503,23 +2268,19 @@ h4, h5, h6 {
   margin-top: -2px;
   background-color: #ffffff;
 }
-
 :checked + .tabbar--material__button:after {
   width: 100%;
   -webkit-transition: width 0.2s ease-in-out;
   transition: width 0.2s ease-in-out;
 }
-
 :checked + .tabbar--material__button {
   background-color: transparent;
   color: #ffffff;
 }
-
 .tabbar--material__item:not([ripple]):active {
   background-color: #26a69a;
 }
-
-/*!
+/*~
   name: Material Tabbar (Icon only)
   category: Tabbar
   elements: ons-tabbar ons-tab
@@ -2547,13 +2308,11 @@ h4, h5, h6 {
       </label>
     </div>
 */
-
 .tabbar--material__icon {
-  font-size: 22px !important;
+  font-size: 22px !important; /* stylelint-disable-line declaration-no-important */
   line-height: 36px;
 }
-
-/*!
+/*~
   name: Material Tabbar (Icon and Label)
   category: Tabbar
   elements: ons-tabbar ons-tab
@@ -2584,12 +2343,10 @@ h4, h5, h6 {
       </label>
     </div>
 */
-
 .tabbar--material__label {
   font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
 }
-
 .tabbar--material__label:first-child {
   font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -2597,12 +2354,10 @@ h4, h5, h6 {
   font-weight: 500;
   font-size: 14px;
 }
-
 .tabbar--material__icon + .tabbar--material__label {
   font-size: 10px;
 }
-
-/*!
+/*~
   name: Toolbar Button
   category: Toolbar Button
   elements: ons-toolbar-button
@@ -2616,9 +2371,8 @@ h4, h5, h6 {
       <i class="fa fa-bell" style="font-size:17px"></i> Label
     </button>
 */
-
 .toolbar-button {
-  font-family: -apple-system, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -2635,39 +2389,33 @@ h4, h5, h6 {
   -webkit-transition: none;
   transition: none;
 }
-
 .toolbar-button:active {
   background-color: rgba(0, 0, 0, 0);
   -webkit-transition: none;
   transition: none;
   opacity: 0.2;
 }
-
 .toolbar-button:disabled,
 .toolbar-button[disabled] {
   opacity: 0.3;
   cursor: default;
   pointer-events: none;
 }
-
 .toolbar-button:focus {
   outline: 0;
   -webkit-transition: none;
   transition: none;
 }
-
 .toolbar-button:hover {
   -webkit-transition: none;
   transition: none;
 }
-
 .toolbar-button--outline {
   border: 1px solid rgba(38, 100, 171, .81);
   margin: auto 8px;
   padding-left: 6px;
   padding-right: 6px;
 }
-
 .toolbar-button--material {
   font-size: 22px;
   color: #ffffff;
@@ -2680,20 +2428,16 @@ h4, h5, h6 {
   vertical-align: baseline;
   vertical-align: initial;
 }
-
 .toolbar-button--material:first-of-type {
   margin-left: 4px;
 }
-
 .toolbar-button--material:last-of-type {
   margin-right: 4px;
 }
-
 .toolbar-button--material:active {
   opacity: 1;
   background-color: rgba(255, 255, 255, .15);
 }
-
 .back-button {
   height: 44px;
   line-height: 44px;
@@ -2701,30 +2445,25 @@ h4, h5, h6 {
   color: rgba(38, 100, 171, .81);
   background-color: rgba(0, 0, 0, 0);
 }
-
 .back-button:active {
   opacity: 0.2;
 }
-
 .back-button__label {
   display: inline-block;
   height: 100%;
   vertical-align: top;
 }
-
 .back-button__icon {
   display: inline-block;
   height: 100%;
   vertical-align: top;
   margin-right: 6px;
 }
-
 .back-button__icon:before {
   font-family: 'Ionicons';
   content: '\f3cf';
   font-size: 32px;
 }
-
 .back-button--material {
   font-size: 22px;
   color: #ffffff;
@@ -2738,28 +2477,22 @@ h4, h5, h6 {
   vertical-align: initial;
   line-height: 56px;
 }
-
 .back-button--material__label {
   display: none;
   font-size: 20px;
 }
-
 .back-button--material__icon:before {
   font-family: 'Material-Design-Iconic-Font';
   content: '\f2ea';
   font-size: 26px;
 }
-
 .back-button--material:active {
   opacity: 1;
   background-color: rgba(255, 255, 255, .15);
 }
-
 :root { /* background color active */ /* indicator color */
-
 }
-
-/*!
+/*~
   name: Checkbox
   category: Checkbox
   elements: ons-input
@@ -2782,7 +2515,6 @@ h4, h5, h6 {
       Disabled
     </label>
 */
-
 .checkbox {
   position: relative;
   display: inline-block;
@@ -2792,14 +2524,13 @@ h4, h5, h6 {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  font-family: -apple-system, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
   font-size: 17px;
   line-height: 24px;
 }
-
 .checkbox__checkmark {
   box-sizing: border-box;
   background-clip: padding-box;
@@ -2811,17 +2542,16 @@ h4, h5, h6 {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  font-family: -apple-system, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
   font-size: 17px;
   position: relative;
-  overflow: hidden;
   height: 24px;
+  width: 24px;
   pointer-events: none;
 }
-
 .checkbox__input {
   position: absolute;
   overflow: hidden;
@@ -2839,23 +2569,12 @@ h4, h5, h6 {
   height: 100%;
   margin: 0;
   -webkit-appearance: none;
-  -moz-appearance: none;
-       appearance: none;
+     -moz-appearance: none;
+          appearance: none;
 }
-
 .checkbox__input:checked {
   background: rgba(24, 103, 194, .81);
 }
-
-.checkbox__input:checked + .checkbox__checkmark:before {
-  background: rgba(24, 103, 194, .81);
-  border: 1px solid rgba(24, 103, 194, .81);
-}
-
-.checkbox__input:checked + .checkbox__checkmark:after {
-  opacity: 1;
-}
-
 .checkbox__checkmark:before {
   content: '';
   position: absolute;
@@ -2869,31 +2588,7 @@ h4, h5, h6 {
   box-shadow: none;
   left: 0;
 }
-
-.checkbox__checkmark {
-  box-sizing: border-box;
-  background-clip: padding-box;
-  position: relative;
-  display: inline-block;
-  vertical-align: top;
-  cursor: default;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  font-family: -apple-system, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-weight: 400;
-  font-size: 17px;
-  position: relative;
-  overflow: hidden;
-  width: 24px;
-  height: 24px;
-}
-
 /* checkmark's line */
-
 .checkbox__checkmark:after {
   content: '';
   position: absolute;
@@ -2906,28 +2601,31 @@ h4, h5, h6 {
   border-width: 2px;
   border-top: none;
   border-right: none;
-  border-radius: 0px;
+  border-radius: 0;
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
   opacity: 0;
 }
-
-.checkbox__input:focus + .checkbox__checkmark:before {
+:checked + .checkbox__checkmark:before {
+  background: rgba(24, 103, 194, .81);
+  border: 1px solid rgba(24, 103, 194, .81);
+}
+:checked + .checkbox__checkmark:after {
+  opacity: 1;
+}
+:focus + .checkbox__checkmark:before {
   box-shadow: none;
 }
-
-.checkbox__input:disabled + .checkbox__checkmark {
+:disabled + .checkbox__checkmark {
   opacity: 0.3;
   cursor: default;
   pointer-events: none;
 }
-
-.checkbox__input:disabled:active + .checkbox__checkmark:before {
+:disabled:active + .checkbox__checkmark:before { /* FIXME */
   background: transparent;
   box-shadow: none;
 }
-
-/*!
+/*~
   name: No border Checkbox
   category: Checkbox
   elements: ons-input
@@ -2950,7 +2648,23 @@ h4, h5, h6 {
       Disabled
     </label>
  */
-
+.checkbox--noborder {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  cursor: default;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 24px;
+  position: relative;
+}
 .checkbox--noborder__input {
   position: absolute;
   overflow: hidden;
@@ -2968,29 +2682,9 @@ h4, h5, h6 {
   height: 100%;
   margin: 0;
   -webkit-appearance: none;
-  -moz-appearance: none;
-       appearance: none;
+     -moz-appearance: none;
+          appearance: none;
 }
-
-.checkbox--noborder {
-  position: relative;
-  display: inline-block;
-  vertical-align: top;
-  cursor: default;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  font-family: -apple-system, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-weight: 400;
-  font-size: 17px;
-  line-height: 24px;
-  position: relative;
-  overflow: hidden;
-}
-
 .checkbox--noborder__checkmark {
   position: relative;
   display: inline-block;
@@ -3002,40 +2696,11 @@ h4, h5, h6 {
           user-select: none;
   box-sizing: border-box;
   background-clip: padding-box;
+  width: 24px;
   height: 24px;
-  background: transparent;
-}
-
-.checkbox--noborder__input {
-  position: absolute;
-  overflow: hidden;
-  right: 0;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  padding: 0;
-  border: 0;
-  opacity: 0.001;
-  z-index: 1;
-  vertical-align: top;
-  outline: none;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-       appearance: none;
-}
-
-.checkbox--noborder__input:checked + .checkbox--noborder__checkmark:before {
   background: transparent;
   border: none;
 }
-
-.checkbox--noborder__input:checked + .checkbox--noborder__checkmark:after {
-  opacity: 1;
-}
-
 .checkbox--noborder__checkmark:before {
   content: '';
   position: absolute;
@@ -3046,23 +2711,6 @@ h4, h5, h6 {
   border-radius: 16px;
   left: 0;
 }
-
-.checkbox--noborder__checkmark {
-  position: relative;
-  display: inline-block;
-  vertical-align: top;
-  cursor: default;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  box-sizing: border-box;
-  background-clip: padding-box;
-  width: 24px;
-  height: 24px;
-  border: none;
-}
-
 .checkbox--noborder__checkmark:after {
   content: '';
   position: absolute;
@@ -3076,29 +2724,32 @@ h4, h5, h6 {
   border-width: 2px;
   border-top: none;
   border-right: none;
-  border-radius: 0px;
+  border-radius: 0;
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
 }
-
-.checkbox--noborder__input:focus + .checkbox--noborder__checkmark:before {
+:checked + .checkbox--noborder__checkmark:before {
+  background: transparent;
+  border: none;
+}
+:checked + .checkbox--noborder__checkmark:after {
+  opacity: 1;
+}
+:focus + .checkbox--noborder__checkmark:before {
   border: none;
   box-shadow: none;
 }
-
-.checkbox--noborder__input:disabled + .checkbox--noborder__checkmark {
+:disabled + .checkbox--noborder__checkmark {
   opacity: 0.3;
   cursor: default;
   pointer-events: none;
 }
-
-.checkbox--noborder__input:disabled:active + .checkbox--noborder__checkmark:before {
+:disabled:active + .checkbox--noborder__checkmark:before {
   background: transparent;
   box-shadow: none;
   border: none;
 }
-
-/*!
+/*~
   name: Material Checkbox
   category: Checkbox
   elements: ons-input
@@ -3124,28 +2775,26 @@ h4, h5, h6 {
       Disabled
     </label>
 */
-
 .checkbox--material {
   line-height: 18px;
   font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
 }
-
 .checkbox--material__checkmark {
   width: 18px;
   height: 18px;
 }
-
 .checkbox--material__checkmark:before {
+  border-radius: 2px;
+  height: 18px;
+  width: 18px;
   border: 2px solid #717171;
 }
-
-.checkbox--material__input:checked + .checkbox--material__checkmark:before {
+:checked + .checkbox--material__checkmark:before {
   background-color: #009688;
   border: none;
 }
-
-.checkbox--material__input + .checkbox--material__checkmark:after {
+.checkbox--material__checkmark:after {
   border-color: #ffffff;
   -webkit-transition: -webkit-transform 0.3s ease;
   transition: -webkit-transform 0.3s ease;
@@ -3158,41 +2807,25 @@ h4, h5, h6 {
   -webkit-transform: scale(0) rotate(-45deg);
           transform: scale(0) rotate(-45deg);
 }
-
-.checkbox--material__input:checked + .checkbox--material__checkmark:after {
+:checked + .checkbox--material__checkmark:after {
   top: 4px;
   left: 3px;
   -webkit-transform: scale(1) rotate(-45deg);
           transform: scale(1) rotate(-45deg);
 }
-
-.checkbox--material__input:disabled + .checkbox--material__checkmark {
+:disabled + .checkbox--material__checkmark {
   opacity: 1;
 }
-
-.checkbox--material__input:disabled + .checkbox--material__checkmark:before {
+:disabled + .checkbox--material__checkmark:before {
   border-color: #afafaf;
 }
-
-.checkbox--material__input:disabled:checked + .checkbox--material__checkmark:before {
+:disabled:checked + .checkbox--material__checkmark:before {
   background-color: #afafaf;
 }
-
-.checkbox--material__input:disabled:checked + .checkbox--material__checkmark:after {
+:disabled:checked + .checkbox--material__checkmark:after {
   border-color: #ffffff;
 }
-
-.checkbox--material__input:disabled:checked:active + .checkbox--material__checkmark:before {
-  background-color: #afafaf;
-}
-
-.checkbox--material__checkmark:before {
-  border-radius: 2px;
-  height: 18px;
-  width: 18px;
-}
-
-/*!
+/*~
   name: Radio Button
   category: Radio Button
   elements: ons-input
@@ -3215,7 +2848,6 @@ h4, h5, h6 {
       Label
     </label>
 */
-
 .radio-button__input {
   position: absolute;
   overflow: hidden;
@@ -3233,25 +2865,14 @@ h4, h5, h6 {
   height: 100%;
   margin: 0;
   -webkit-appearance: none;
-  -moz-appearance: none;
-       appearance: none;
+     -moz-appearance: none;
+          appearance: none;
 }
-
 .radio-button__input:active,
 .radio-button__input:focus {
   outline: 0;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
-
-.radio-button__input:checked + .radio-button__checkmark:after {
-  opacity: 1;
-}
-
-.radio-button__input:checked + .radio-button__checkmark:before {
-  background: transparent;
-  border: none;
-}
-
 .radio-button {
   position: relative;
   display: inline-block;
@@ -3262,11 +2883,9 @@ h4, h5, h6 {
       -ms-user-select: none;
           user-select: none;
   position: relative;
-  overflow: hidden;
   line-height: 24px;
   text-align: left;
 }
-
 .radio-button__checkmark:before {
   content: '';
   position: absolute;
@@ -3280,7 +2899,6 @@ h4, h5, h6 {
   border-radius: 16px;
   left: 0;
 }
-
 .radio-button__checkmark {
   box-sizing: border-box;
   background-clip: padding-box;
@@ -3292,24 +2910,18 @@ h4, h5, h6 {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  font-family: -apple-system, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
   font-size: 17px;
   position: relative;
-  overflow: hidden;
   position: relative;
   width: 24px;
   height: 24px;
   background: transparent;
   pointer-events: none;
 }
-
-.radio-button__input:checked + .radio-button__checkmark {
-  background: rgba(0, 0, 0, 0);
-}
-
 .radio-button__checkmark:after {
   content: '';
   position: absolute;
@@ -3328,18 +2940,26 @@ h4, h5, h6 {
   border-width: 2px;
   border-top: none;
   border-right: none;
-  border-radius: 0px;
+  border-radius: 0;
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
 }
-
-.radio-button__input:disabled + .radio-button__checkmark {
+:checked + .radio-button__checkmark {
+  background: rgba(0, 0, 0, 0);
+}
+:checked + .radio-button__checkmark:after {
+  opacity: 1;
+}
+:checked + .radio-button__checkmark:before {
+  background: transparent;
+  border: none;
+}
+:disabled + .radio-button__checkmark {
   opacity: 0.3;
   cursor: default;
   pointer-events: none;
 }
-
-/*!
+/*~
   name: Material Radio Button
   category: Radio Button
   elements: ons-input
@@ -3365,19 +2985,16 @@ h4, h5, h6 {
       Label
     </label>
 */
-
 .radio-button--material {
   line-height: 20px + 2px;
   font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
 }
-
 .radio-button--material__checkmark {
   width: 20px;
   height: 20px;
   overflow: visible;
 }
-
 .radio-button--material__checkmark:before {
   background: transparent;
   border: 2px solid #717171;
@@ -3388,7 +3005,6 @@ h4, h5, h6 {
   -webkit-transition: border 0.2s ease;
   transition: border 0.2s ease;
 }
-
 .radio-button--material__checkmark:after {
   -webkit-transition: background 0.2s ease, -webkit-transform 0.2s ease;
   transition: background 0.2s ease, -webkit-transform 0.2s ease;
@@ -3403,40 +3019,33 @@ h4, h5, h6 {
   -webkit-transform: scale(0);
           transform: scale(0);
 }
-
-.radio-button--material__input:checked + .radio-button__checkmark:before {
+:checked + .radio-button--material__checkmark:before {
   background: transparent;
   border: 2px solid #009688;
 }
-
 .radio-button--material__input + .radio-button__checkmark:after {
   background: #717171;
   opacity: 1;
   -webkit-transform: scale(0);
           transform: scale(0);
 }
-
-.radio-button--material__input:checked + .radio-button__checkmark:after {
+:checked + .radio-button--material__checkmark:after {
   opacity: 1;
   background: #009688;
   -webkit-transform: scale(1);
           transform: scale(1);
 }
-
-.radio-button--material__input:disabled + .radio-button__checkmark {
+:disabled + .radio-button--material__checkmark {
   opacity: 1;
 }
-
-.radio-button--material__input:disabled + .radio-button__checkmark:after {
+:disabled + .radio-button--material__checkmark:after {
   background-color: #afafaf;
   border-color: #afafaf;
 }
-
-.radio-button--material__input:disabled + .radio-button__checkmark:before {
+:disabled + .radio-button--material__checkmark:before {
   border-color: #afafaf;
 }
-
-/*!
+/*~
   name: List
   category: List
   elements: ons-list ons-list-item
@@ -3453,7 +3062,6 @@ h4, h5, h6 {
       </li>
     </ul>
 */
-
 .list {
   padding: 0;
   margin: 0;
@@ -3467,13 +3075,11 @@ h4, h5, h6 {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  font-family: -apple-system, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
   font-size: 17px;
-  padding: 0;
-  margin: 0;
   list-style-type: none;
   text-align: left;
   display: block;
@@ -3489,9 +3095,7 @@ h4, h5, h6 {
   border: none;
   background-color: #fff
 }
-
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-
   .list {
     background-image: -webkit-linear-gradient(bottom, #ccc, #ccc 50%, transparent 50%),
       -webkit-linear-gradient(top, #ccc, #ccc 50%, transparent 50%);
@@ -3499,10 +3103,7 @@ h4, h5, h6 {
       linear-gradient(180deg, #ccc, #ccc 50%, transparent 50%);
   }
   }
-
 .list-item {
-  margin: 0;
-  padding: 0;
   width: 100%;
   position: relative;
   list-style: none;
@@ -3526,7 +3127,6 @@ h4, h5, h6 {
   -webkit-transition: background-color 0.2s linear;
   transition: background-color 0.2s linear;
 }
-
 .list-item__left {
   box-sizing: border-box;
   display: -webkit-box;
@@ -3544,14 +3144,12 @@ h4, h5, h6 {
   line-height: 1.2em;
   min-height: 44px;
 }
-
 .list-item__left:empty {
   width: 0;
   min-width: 0;
   padding: 0;
   margin: 0;
 }
-
 .list-item__center {
   box-sizing: border-box;
   display: -webkit-box;
@@ -3586,15 +3184,12 @@ h4, h5, h6 {
   line-height: 1.2em;
   min-height: 44px;
 }
-
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-
   .list-item__center {
     background-image: -webkit-linear-gradient(bottom, #ccc, #ccc 50%, transparent 50%);
     background-image: linear-gradient(0deg, #ccc, #ccc 50%, transparent 50%);
   }
 }
-
 .list-item__right {
   box-sizing: border-box;
   display: -webkit-box;
@@ -3619,18 +3214,14 @@ h4, h5, h6 {
   line-height: 1.2em;
   min-height: 44px;
 }
-
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-
   .list-item__right {
     background-image: -webkit-linear-gradient(bottom, #ccc, #ccc 50%, transparent 50%);
     background-image: linear-gradient(0deg, #ccc, #ccc 50%, transparent 50%);
   }
 }
-
 .list-header {
   margin: 0;
-  padding: 0;
   list-style: none;
   text-align: left;
   display: block;
@@ -3643,24 +3234,20 @@ h4, h5, h6 {
   line-height: 25px;
   text-transform: uppercase;
   position: relative;
-
   background-color: #eee;
   background-size: 100% 1px;
   background-repeat: no-repeat;
   background-position: top;
   background-image: -webkit-linear-gradient(bottom, #ccc, #ccc 100%);
-  background-image: linear-gradient(0deg, #ccc, #ccc 100%);
+  background-image: linear-gradient(0deg, #ccc, #ccc 100%)
 }
-
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-
   .list-header {
     background-image: -webkit-linear-gradient(top, #ccc, #ccc 50%, transparent 50%);
     background-image: linear-gradient(180deg, #ccc, #ccc 50%, transparent 50%);
   }
   }
-
-/*!
+/*~
   name: Noborder List
   category: List
   elements: ons-list ons-list-item
@@ -3674,14 +3261,12 @@ h4, h5, h6 {
       </li>
     </ul>
  */
-
 .list--noborder {
   border-top: none;
   border-bottom: none;
   background-image: none;
 }
-
-/*!
+/*~
   name: Category List Header
   category: List
   elements: ons-list ons-list-header ons-list-item
@@ -3701,8 +3286,7 @@ h4, h5, h6 {
       </li>
     </ul>
  */
-
-/*!
+/*~
   name: Tappable List
   category: List
   elements: ons-list ons-list-item
@@ -3719,14 +3303,12 @@ h4, h5, h6 {
       </li>
     </ul>
  */
-
 .list-item--tappable:active {
   -webkit-transition: none;
   transition: none;
   background-color: #d9d9d9;
 }
-
-/*!
+/*~
   name: Switch in List Item
   category: List
   elements: ons-list ons-list-item ons-switch
@@ -3760,8 +3342,7 @@ h4, h5, h6 {
       </li>
     </ul>
 */
-
-/*!
+/*~
   name: List Item with Chevron
   category: List
   elements: ons-list ons-list-item
@@ -3775,11 +3356,9 @@ h4, h5, h6 {
       </li>
     </ul>
  */
-
 .list-item--chevron {
   overflow: hidden;
 }
-
 .list-item--chevron:before {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3794,12 +3373,11 @@ h4, h5, h6 {
   -ms-flex-item-align: stretch;
       align-self: stretch;
   font-size: 28px;
-  font-family: FontAwesome;
+  font-family: 'FontAwesome';
   font-style: normal;
-  font-weight: normal;
-  content: "\f105";
+  font-weight: 200;
+  content: '\f105';
   margin-left: auto;
-  width: 18px;
   text-align: right;
   border-bottom: 1px solid #ccc;
   border-bottom: none;
@@ -3811,16 +3389,13 @@ h4, h5, h6 {
   width: 10px;
   padding-right: 8px;
 }
-
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-
   .list-item--chevron:before {
     background-image: -webkit-linear-gradient(bottom, #ccc, #ccc 50%, transparent 50%);
     background-image: linear-gradient(0deg, #ccc, #ccc 50%, transparent 50%);
   }
 }
-
-/*!
+/*~
   name: Inset List
   category: List
   elements: ons-list ons-list-item
@@ -3834,15 +3409,13 @@ h4, h5, h6 {
       </li>
     </ul>
  */
-
 .list--inset {
   margin: 0 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
   background-image: none;
 }
-
-/*!
+/*~
   name: Radio Button in List Item
   category: List
   elements: ons-list ons-list-item ons-input
@@ -3872,8 +3445,7 @@ h4, h5, h6 {
       </li>
     </ul>
 */
-
-/*!
+/*~
   name: Checkbox in List Item
   category: List
   elements: ons-list ons-list-item ons-input
@@ -3903,8 +3475,7 @@ h4, h5, h6 {
       </li>
     </ul>
 */
-
-/*!
+/*~
   name: No border Checkbox in List Item
   category: List
   elements: ons-list ons-list-item ons-input
@@ -3934,8 +3505,7 @@ h4, h5, h6 {
       </li>
     </ul>
 */
-
-/*!
+/*~
   name: Text Input in List Item
   category: List
   elements: ons-list ons-list-item ons-input
@@ -3953,8 +3523,7 @@ h4, h5, h6 {
       </li>
     </ul>
 */
-
-/*!
+/*~
   name: Textarea in List Item
   category: List
   elements: ons-list ons-list-item
@@ -3967,8 +3536,7 @@ h4, h5, h6 {
       </li>
     </ul>
 */
-
-/*!
+/*~
   name: Right Label in List Item
   category: List
   elements: ons-list ons-list-item
@@ -3984,14 +3552,12 @@ h4, h5, h6 {
       </li>
     </ul>
 */
-
 .list-item__label {
   font-size: 14px;
   padding: 0 4px;
   opacity: 0.6;
 }
-
-/*!
+/*~
   name: List Item with Subtitle
   category: List
   elements: ons-list ons-list-item
@@ -4009,7 +3575,6 @@ h4, h5, h6 {
       </li>
     </ul>
 */
-
 .list-item__title {
   -ms-flex-preferred-size: 100%;
       flex-basis: 100%;
@@ -4019,7 +3584,6 @@ h4, h5, h6 {
       -ms-flex-order: 0;
           order: 0;
 }
-
 .list-item__subtitle {
   opacity: 0.75;
   font-size: 14px;
@@ -4031,8 +3595,7 @@ h4, h5, h6 {
   -ms-flex-item-align: start;
       align-self: flex-start;
 }
-
-/*!
+/*~
   name: List Item with Thumbnail
   category: List
   elements: ons-list ons-list-item
@@ -4061,7 +3624,6 @@ h4, h5, h6 {
       </li>
     </ul>
 */
-
 .list-item__thumbnail {
   width: 40px;
   height: 40px;
@@ -4069,8 +3631,7 @@ h4, h5, h6 {
   display: block;
   margin: 0;
 }
-
-/*!
+/*~
   name: List Item with Icon
   category: List
   elements: ons-list ons-list-item
@@ -4107,13 +3668,11 @@ h4, h5, h6 {
       </li>
     </ul>
 */
-
 .list-item__icon {
   font-size: 22px;
   padding: 0 6px;
 }
-
-/*!
+/*~
   name: Material List
   category: List
   elements: ons-list ons-list-item
@@ -4133,34 +3692,28 @@ h4, h5, h6 {
       </li>
     </ul>
 */
-
 .list--material {
   font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
   background-image: none;
 }
-
 .list-item--material {
   border: 0;
   padding: 0 0 0 16px;
   line-height: normal;
 }
-
 .list-item--material__subtitle {
   margin-top: 4px;
 }
-
 .list-item--material:first-child {
   box-shadow: none;
 }
-
 .list-item--material__left {
   padding: 14px 0;
   min-width: 56px;
   line-height: 1;
   min-height: 48px;
 }
-
 .list-item--material__left:empty,
 .list-item--material__center {
   padding: 14px 6px 14px 0;
@@ -4173,18 +3726,15 @@ h4, h5, h6 {
   background-image: linear-gradient(0deg, #eee, #eee 100%);
   min-height: 48px;
 }
-
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-
   .list-item--material__left:empty,
 .list-item--material__center {
     background-image: -webkit-linear-gradient(bottom, #eee, #eee 50%, transparent 50%);
     background-image: linear-gradient(0deg, #eee, #eee 50%, transparent 50%);
   }
 }
-
 .list-item--material__right {
-  padding: 14px 16px 14px 0px;
+  padding: 14px 16px 14px 0;
   line-height: 1;
   border-color: #eee;
   border-bottom: none;
@@ -4195,15 +3745,12 @@ h4, h5, h6 {
   background-image: linear-gradient(0deg, #eee, #eee 100%);
   min-height: 48px;
 }
-
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-
   .list-item--material__right {
     background-image: -webkit-linear-gradient(bottom, #eee, #eee 50%, transparent 50%);
     background-image: linear-gradient(0deg, #eee, #eee 50%, transparent 50%);
   }
 }
-
 .list-item--material.list-item--longdivider {
   border-bottom: 1px solid #eee;
   border-bottom: none;
@@ -4213,16 +3760,13 @@ h4, h5, h6 {
   background-image: -webkit-linear-gradient(bottom, #eee, #eee 100%);
   background-image: linear-gradient(0deg, #eee, #eee 100%);
 }
-
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-
   .list-item--material.list-item--longdivider {
     background-image: -webkit-linear-gradient(bottom, #eee, #eee 50%, transparent 50%);
     background-image: linear-gradient(0deg, #eee, #eee 50%, transparent 50%);
   }
 }
-
-/*!
+/*~
   name: Material List with Header
   category: List
   elements: ons-list ons-list-item
@@ -4239,7 +3783,6 @@ h4, h5, h6 {
       </li>
     </ul>
 */
-
 .list-header--material {
   background: #fff;
   border: none;
@@ -4250,13 +3793,11 @@ h4, h5, h6 {
   font-weight: 500;
   padding: 8px 16px;
 }
-
 .list-header--material:not(:first-of-type) {
   border-top: 1px solid #eee;
   padding-top: 16px;
 }
-
-/*!
+/*~
   name: Material List with Checkboxes
   category: List
   elements: ons-list ons-list-item ons-input
@@ -4292,8 +3833,7 @@ h4, h5, h6 {
 
     </ul>
 */
-
-/*!
+/*~
   name: Material List with Thumbnails
   category: List
   markup: |
@@ -4322,14 +3862,12 @@ h4, h5, h6 {
 
     </ul>
 */
-
 .list-item--material__thumbnail {
   width: 40px;
   height: 40px;
   border-radius: 100%;
 }
-
-/*!
+/*~
   name: Material List with Icons
   category: List
   markup: |
@@ -4365,13 +3903,11 @@ h4, h5, h6 {
       </li>
     </ul>
 */
-
 .list-item--material__icon {
   font-size: 20px;
   padding: 0 4px;
 }
-
-/*!
+/*~
   name: List item without divider
   category: List
   markup: |
@@ -4384,15 +3920,13 @@ h4, h5, h6 {
       </li>
     </ul>
  */
-
 .list-item--nodivider__center,
 .list-item--nodivider__right,
 .list-item--nodivider:before {
   border: none;
   background-image: none;
 }
-
-/*!
+/*~
   name: List item with long divider
   category: List
   markup: |
@@ -4405,7 +3939,6 @@ h4, h5, h6 {
       </li>
     </ul>
  */
-
 .list-item--longdivider {
   border-bottom: 1px solid #ccc;
   border-bottom: none;
@@ -4415,66 +3948,54 @@ h4, h5, h6 {
   background-image: -webkit-linear-gradient(bottom, #ccc, #ccc 100%);
   background-image: linear-gradient(0deg, #ccc, #ccc 100%);
 }
-
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-
   .list-item--longdivider {
     background-image: -webkit-linear-gradient(bottom, #ccc, #ccc 50%, transparent 50%);
     background-image: linear-gradient(0deg, #ccc, #ccc 50%, transparent 50%);
   }
 }
-
 .list-item--longdivider:last-of-type {
   border: none;
   background-image: none;
 }
-
 .list-item--longdivider__center {
   border: none;
   background-image: none;
 }
-
 .list-item--longdivider__right {
   border: none;
   background-image: none;
 }
-
 .list-item--longdivider.list-item--chevron:before { /* FIXME */
   border: none;
   background-image: none;
 }
-
-/*!
+/*~
   name: Search Input
   category: Search Input
   markup: |
     <input type="search" value="" placeholder="Search" class="search-input" style="width: 200px;">
 */
-
-.search-input::-webkit-search-cancel-button {
-  -webkit-appearance: textfield;
-  display: none;
-}
-
 .search-input {
+  box-sizing: border-box;
+  background-clip: padding-box;
   padding: 0;
   margin: 0;
   font: inherit;
   color: inherit;
   background: transparent;
   border: none;
-  line-height: normal;
-  box-sizing: border-box;
-  background-clip: padding-box;
   vertical-align: top;
   outline: none;
   line-height: 1;
-  font-family: -apple-system, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
   font-size: 17px;
   -webkit-appearance: textfield;
+     -moz-appearance: textfield;
+          appearance: textfield;
   box-sizing: border-box;
   height: 31px;
   font-size: 15px;
@@ -4482,11 +4003,11 @@ h4, h5, h6 {
   background-color: #f9f9f9;
   box-shadow: none;
   color: #1f1f21;
-  line-height: 1.3; 
+  line-height: 1.3;
   padding: 0 0 0 28px;
   margin: 0;
   border-radius: 4px;
-  background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nNDFweCcgaGVpZ2h0PSc0MHB4JyB2aWV3Qm94PScwIDAgNDEgNDAnIHZlcnNpb249JzEuMScgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJyB4bWxuczp4bGluaz0naHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluaycgeG1sbnM6c2tldGNoPSdodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2gvbnMnPjx0aXRsZT5TbGljZSAxPC90aXRsZT48ZGVzY3JpcHRpb24+Q3JlYXRlZCB3aXRoIFNrZXRjaCAoaHR0cDovL3d3dy5ib2hlbWlhbmNvZGluZy5jb20vc2tldGNoKTwvZGVzY3JpcHRpb24+PGRlZnM+PC9kZWZzPjxnIGlkPSdQYWdlIDEnIHN0cm9rZT0nbm9uZScgc3Ryb2tlLXdpZHRoPScxJyBmaWxsPSdub25lJyBmaWxsLXJ1bGU9J2V2ZW5vZGQnPjxnIGlkPSdzZWFyY2gnIGZpbGw9JyNDNkM4QzgnPjxwYXRoIGQ9J00wLjUwNCwxNi4zMzggQzAuNTA0LDI1LjA4NSA3LjYzNSwzMi4xNjUgMTYuNDQ0LDMyLjE2NSBDMjUuMjQsMzIuMTY1IDMyLjM4MiwyNS4wODUgMzIuMzgyLDE2LjMzOCBDMzIuMzgyLDcuNTkxIDI1LjI0LDAuNSAxNi40NDQsMC41IEM3LjYzNSwwLjUgMC41MDQsNy41OTEgMC41MDQsMTYuMzM4IEwwLjUwNCwxNi4zMzggWiBNNS41NTUsMTYuMzM4IEM1LjU1NSwxMC4zNTkgMTAuNDIzLDUuNTIxIDE2LjQ0NSw1LjUyMSBDMjIuNDU1LDUuNTIxIDI3LjMzMywxMC4zNiAyNy4zMzMsMTYuMzM4IEMyNy4zMzMsMjIuMzE3IDIyLjQ1NSwyNy4xNTYgMTYuNDQ1LDI3LjE1NiBDMTAuNDIzLDI3LjE1NiA1LjU1NSwyMi4zMTYgNS41NTUsMTYuMzM4IEw1LjU1NSwxNi4zMzggWiBNMjcuNjY2LDMwLjg2MSBMMzQuNTIxLDM4LjY3IEMzNS42MjUsMzkuNzcyIDM2LjMzOCwzOS43ODEgMzcuNDYsMzguNjcgTDM5LjY2MSwzNi40ODkgQzQwLjc0MywzNS40MDggNDAuODExLDM0LjcxMSAzOS42NjEsMzMuNTY4IEwzMS43NjUsMjYuNzkzIEwyNy42NjYsMzAuODYxIEwyNy42NjYsMzAuODYxIFogTTI3LjY2NiwzMC44NjEnIGlkPSdTaGFwZSc+PC9wYXRoPjwvZz48L2c+PC9zdmc+");
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nNDFweCcgaGVpZ2h0PSc0MHB4JyB2aWV3Qm94PScwIDAgNDEgNDAnIHZlcnNpb249JzEuMScgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJyB4bWxuczp4bGluaz0naHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluaycgeG1sbnM6c2tldGNoPSdodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2gvbnMnPjx0aXRsZT5TbGljZSAxPC90aXRsZT48ZGVzY3JpcHRpb24+Q3JlYXRlZCB3aXRoIFNrZXRjaCAoaHR0cDovL3d3dy5ib2hlbWlhbmNvZGluZy5jb20vc2tldGNoKTwvZGVzY3JpcHRpb24+PGRlZnM+PC9kZWZzPjxnIGlkPSdQYWdlIDEnIHN0cm9rZT0nbm9uZScgc3Ryb2tlLXdpZHRoPScxJyBmaWxsPSdub25lJyBmaWxsLXJ1bGU9J2V2ZW5vZGQnPjxnIGlkPSdzZWFyY2gnIGZpbGw9JyNDNkM4QzgnPjxwYXRoIGQ9J00wLjUwNCwxNi4zMzggQzAuNTA0LDI1LjA4NSA3LjYzNSwzMi4xNjUgMTYuNDQ0LDMyLjE2NSBDMjUuMjQsMzIuMTY1IDMyLjM4MiwyNS4wODUgMzIuMzgyLDE2LjMzOCBDMzIuMzgyLDcuNTkxIDI1LjI0LDAuNSAxNi40NDQsMC41IEM3LjYzNSwwLjUgMC41MDQsNy41OTEgMC41MDQsMTYuMzM4IEwwLjUwNCwxNi4zMzggWiBNNS41NTUsMTYuMzM4IEM1LjU1NSwxMC4zNTkgMTAuNDIzLDUuNTIxIDE2LjQ0NSw1LjUyMSBDMjIuNDU1LDUuNTIxIDI3LjMzMywxMC4zNiAyNy4zMzMsMTYuMzM4IEMyNy4zMzMsMjIuMzE3IDIyLjQ1NSwyNy4xNTYgMTYuNDQ1LDI3LjE1NiBDMTAuNDIzLDI3LjE1NiA1LjU1NSwyMi4zMTYgNS41NTUsMTYuMzM4IEw1LjU1NSwxNi4zMzggWiBNMjcuNjY2LDMwLjg2MSBMMzQuNTIxLDM4LjY3IEMzNS42MjUsMzkuNzcyIDM2LjMzOCwzOS43ODEgMzcuNDYsMzguNjcgTDM5LjY2MSwzNi40ODkgQzQwLjc0MywzNS40MDggNDAuODExLDM0LjcxMSAzOS42NjEsMzMuNTY4IEwzMS43NjUsMjYuNzkzIEwyNy42NjYsMzAuODYxIEwyNy42NjYsMzAuODYxIFogTTI3LjY2NiwzMC44NjEnIGlkPSdTaGFwZSc+PC9wYXRoPjwvZz48L2c+PC9zdmc+');
   background-position: 8px center;
   background-repeat: no-repeat;
   background-size: 16px;
@@ -4494,52 +4015,48 @@ h4, h5, h6 {
   display: inline-block;
   text-indent: 0;
 }
-
+.search-input::-webkit-search-cancel-button {
+  -webkit-appearance: textfield;
+          appearance: textfield;
+  display: none;
+}
+.search-input::-webkit-search-decoration {
+  display: none;
+}
 .search-input:focus {
   background-color: #f9f9f9;
   color: #1f1f21;
   border: 1px solid #ccc;
   box-shadow: none;
 }
-
-.search-input::-webkit-search-cancel-button {
-  display: none;
+.search-input::-webkit-input-placeholder {
+  color: #999;
+  font-size: 15px;
+  text-indent: 0;
 }
-
-.search-input::-webkit-search-decoration {
-  display: none;
+.search-input::-moz-placeholder {
+  color: #999;
+  font-size: 15px;
+  text-indent: 0;
 }
-
-.search-input::-webkit-input-placeholder
-.search-input::-webkit-input-placeholder,
-.search-input::-moz-placeholder,
-.search-input::-ms-input-placeholder,
 .search-input:-ms-input-placeholder {
   color: #999;
   font-size: 15px;
   text-indent: 0;
 }
-
-.search-input::placeholder
-.search-input::-webkit-input-placeholder,
-.search-input::-moz-placeholder,
-.search-input::-ms-input-placeholder,
-.search-input:-ms-input-placeholder {
+.search-input::placeholder {
   color: #999;
   font-size: 15px;
   text-indent: 0;
 }
-
 .search-input:placeholder-shown {
 }
-
 .search-input:disabled {
   opacity: 0.3;
   cursor: default;
   pointer-events: none;
 }
-
-/*!
+/*~
   name: Text Input
   category: Text Input
   elements: ons-input
@@ -4547,21 +4064,19 @@ h4, h5, h6 {
     <div><input type="text" class="text-input" placeholder="text" value=""></div>
     <div><input type="text" class="text-input" placeholder="text" value="" disabled></div>
 */
-
 .text-input {
+  box-sizing: border-box;
+  background-clip: padding-box;
   padding: 0;
   margin: 0;
   font: inherit;
   color: inherit;
   background: transparent;
   border: none;
-  line-height: normal;
-  box-sizing: border-box;
-  background-clip: padding-box;
   vertical-align: top;
   outline: none;
   line-height: 1;
-  font-family: -apple-system, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -4579,40 +4094,52 @@ h4, h5, h6 {
   font-weight: 400;
   box-sizing: border-box;
 }
-
+.text-input::-ms-clear {
+  display: none;
+}
 .text-input:disabled {
   opacity: 0.3;
   cursor: default;
   pointer-events: none;
 }
-
-.text-input::-webkit-input-placeholder,
-.text-input::-moz-placeholder,
-.text-input::-ms-input-placeholder,
+.text-input::-webkit-input-placeholder {
+  color: #999;
+}
+.text-input::-moz-placeholder {
+  color: #999;
+}
 .text-input:-ms-input-placeholder {
   color: #999;
 }
-
-.text-input:disabled::-webkit-input-placeholder,
-.text-input:disabled::-moz-placeholder,
-.text-input:disabled::-ms-input-placeholder,
+.text-input::placeholder {
+  color: #999;
+}
+.text-input:disabled::-webkit-input-placeholder {
+  border: none;
+  background-color: transparent;
+  color: #999;
+}
+.text-input:disabled::-moz-placeholder {
+  border: none;
+  background-color: transparent;
+  color: #999;
+}
 .text-input:disabled:-ms-input-placeholder {
   border: none;
   background-color: transparent;
   color: #999;
 }
-
-.text-input::-ms-clear {
-  display: none;
+.text-input:disabled::placeholder {
+  border: none;
+  background-color: transparent;
+  color: #999;
 }
-
 .text-input:invalid {
   border: none;
   background-color: transparent;
   color: #1f1f21;
 }
-
-/*!
+/*~
   name: Underbar Text Input
   category: Text Input
   elements: ons-input
@@ -4620,21 +4147,19 @@ h4, h5, h6 {
     <div><input type="text" class="text-input text-input--underbar" placeholder="text" value=""></div>
     <div><input type="text" class="text-input text-input--underbar" placeholder="text" value="" disabled></div>
 */
-
 .text-input--underbar {
+  box-sizing: border-box;
+  background-clip: padding-box;
   padding: 0;
   margin: 0;
   font: inherit;
   color: inherit;
   background: transparent;
   border: none;
-  line-height: normal;
-  box-sizing: border-box;
-  background-clip: padding-box;
   vertical-align: top;
   outline: none;
   line-height: 1;
-  font-family: -apple-system, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -4654,9 +4179,8 @@ h4, h5, h6 {
   border: none;
   background-color: transparent;
   border-bottom: 1px solid #ccc;
-  border-radius: 0px;
+  border-radius: 0;
 }
-
 .text-input--underbar:disabled {
   opacity: 0.3;
   cursor: default;
@@ -4665,10 +4189,20 @@ h4, h5, h6 {
   background-color: transparent;
   border-bottom: 1px solid #ccc;
 }
-
-.text-input--underbar:disabled::-webkit-input-placeholder,
-.text-input--underbar:disabled::-moz-placeholder,
-.text-input--underbar:disabled::-ms-input-placeholder,
+.text-input--underbar:disabled::-webkit-input-placeholder {
+  border: none;
+  background-color: transparent;
+  color: #999;
+  border: none;
+  background-color: transparent;
+}
+.text-input--underbar:disabled::-moz-placeholder {
+  border: none;
+  background-color: transparent;
+  color: #999;
+  border: none;
+  background-color: transparent;
+}
 .text-input--underbar:disabled:-ms-input-placeholder {
   border: none;
   background-color: transparent;
@@ -4676,7 +4210,13 @@ h4, h5, h6 {
   border: none;
   background-color: transparent;
 }
-
+.text-input--underbar:disabled::placeholder {
+  border: none;
+  background-color: transparent;
+  color: #999;
+  border: none;
+  background-color: transparent;
+}
 .text-input--underbar:invalid {
   border: none;
   background-color: transparent;
@@ -4685,8 +4225,7 @@ h4, h5, h6 {
   background-color: transparent;
   border-bottom: 1px solid #ccc;
 }
-
-/*!
+/*~
   name: Material Input
   category: Text Input
   elements: ons-input
@@ -4697,21 +4236,19 @@ h4, h5, h6 {
       <div><input class="text-input text-input--material" placeholder="Password" type="password" required></div>
     </span>
 */
-
 .text-input--material {
+  box-sizing: border-box;
+  background-clip: padding-box;
   padding: 0;
   margin: 0;
   font: inherit;
   color: inherit;
   background: transparent;
   border: none;
-  line-height: normal;
-  box-sizing: border-box;
-  background-clip: padding-box;
   vertical-align: top;
   outline: none;
   line-height: 1;
-  font-family: -apple-system, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -4734,18 +4271,17 @@ h4, h5, h6 {
   vertical-align: middle;
   -webkit-transform: translate3d(0, 0, 0); /* FIXME: prevent ios flicker */
 }
-
 .text-input--material__label {
+  font-family: 'Roboto', 'Noto', sans-serif;
+  -webkit-font-smoothing: antialiased;
   color: #afafaf;
   position: absolute;
-  left: 0px;
+  left: 0;
   top: 2px;
   font-size: 16px;
   font-weight: 400;
-  font-family: 'Roboto', 'Noto', sans-serif;
   pointer-events: none;
 }
-
 .text-input--material__label--active {
   color: #009688;
   -webkit-transform: translate(0, -75%) scale(0.75);
@@ -4757,45 +4293,49 @@ h4, h5, h6 {
   transition: transform 0.1s ease-in, color 0.1s ease-in;
   transition: transform 0.1s ease-in, color 0.1s ease-in, -webkit-transform 0.1s ease-in;
 }
-
 .text-input--material:focus {
-  background-image: -webkit-linear-gradient(#009688, #009688), -webkit-linear-gradient(bottom, transparent 1px, #afafaf 1px);
-  background-image: linear-gradient(#009688, #009688), linear-gradient(to top, transparent 1px, #afafaf 1px);
+  background-image: -webkit-linear-gradient(#009688, #009688),
+    -webkit-linear-gradient(bottom, transparent 1px, #afafaf 1px);
+  background-image: linear-gradient(#009688, #009688),
+    linear-gradient(to top, transparent 1px, #afafaf 1px);
   -webkit-animation: material-text-input-animate 0.3s forwards;
           animation: material-text-input-animate 0.3s forwards;
 }
-
-.text-input--material::-webkit-input-placeholder,
-.text-input--material::-moz-placeholder,
-.text-input--material::-ms-input-placeholder,
+.text-input--material::-webkit-input-placeholder {
+  color: #afafaf;
+  line-height: 20px;
+}
+.text-input--material::-moz-placeholder {
+  color: #afafaf;
+  line-height: 20px;
+}
 .text-input--material:-ms-input-placeholder {
   color: #afafaf;
   line-height: 20px;
 }
-
-.text-input--material::-ms-clear {
-  display: none;
+.text-input--material::placeholder {
+  color: #afafaf;
+  line-height: 20px;
 }
-
 @-webkit-keyframes material-text-input-animate {
   0% {
     background-size: 0% 2px, 100% 2px;
   }
+
   100% {
     background-size: 100% 2px, 100% 2px;
   }
 }
-
 @keyframes material-text-input-animate {
   0% {
     background-size: 0% 2px, 100% 2px;
   }
+
   100% {
     background-size: 100% 2px, 100% 2px;
   }
 }
-
-/*!
+/*~
   name: Transparent Text Input
   category: Text Input
   elements: ons-input
@@ -4803,21 +4343,19 @@ h4, h5, h6 {
     <div><input type="text" class="text-input text-input--transparent" placeholder="text" value=""></div>
     <div><input type="text" class="text-input text-input--transparent" placeholder="text" value="" disabled></div>
 */
-
 .text-input--transparent {
+  box-sizing: border-box;
+  background-clip: padding-box;
   padding: 0;
   margin: 0;
   font: inherit;
   color: inherit;
   background: transparent;
   border: none;
-  line-height: normal;
-  box-sizing: border-box;
-  background-clip: padding-box;
   vertical-align: top;
   outline: none;
   line-height: 1;
-  font-family: -apple-system, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -4835,20 +4373,17 @@ h4, h5, h6 {
   font-weight: 400;
   box-sizing: border-box;
 }
-
 .text-input--transparent:disabled {
   opacity: 0.3;
   cursor: default;
   pointer-events: none;
 }
-
-/*!
+/*~
   name: Textarea
   category: Textarea
   markup: |
     <textarea class="textarea" rows="3" placeholder="Textarea"></textarea>
 */
-
 .textarea {
   box-sizing: border-box;
   background-clip: padding-box;
@@ -4859,7 +4394,7 @@ h4, h5, h6 {
   background: transparent;
   border: none;
   line-height: normal;
-  font-family: -apple-system, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -4877,28 +4412,33 @@ h4, h5, h6 {
   letter-spacing: 0;
   box-shadow: none;
   -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   width: auto;
 }
-
 .textarea:disabled {
   opacity: 0.3;
   cursor: default;
   pointer-events: none;
 }
-
-.textarea::-webkit-input-placeholder,
-.textarea::-moz-placeholder,
+.textarea::-webkit-input-placeholder {
+  color: #999;
+}
+.textarea::-moz-placeholder {
+  color: #999;
+}
 .textarea:-ms-input-placeholder {
   color: #999;
 }
-
-/*!
+.textarea::placeholder {
+  color: #999;
+}
+/*~
   name: Textarea Transparent
   category: Textarea
   markup: |
     <textarea class="textarea--transparent" rows="3" placeholder="Textarea"></textarea>
 */
-
 .textarea--transparent {
   box-sizing: border-box;
   background-clip: padding-box;
@@ -4909,7 +4449,7 @@ h4, h5, h6 {
   background: transparent;
   border: none;
   line-height: normal;
-  font-family: -apple-system, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -4929,22 +4469,28 @@ h4, h5, h6 {
   letter-spacing: 0;
   box-shadow: none;
   -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   width: auto;
 }
-
 .textarea--transparent:disabled {
   opacity: 0.3;
   cursor: default;
   pointer-events: none;
 }
-
-.textarea--transparent::-webkit-input-placeholder,
-.textarea--transparent::-moz-placeholder,
+.textarea--transparent::-webkit-input-placeholder {
+  color: #999;
+}
+.textarea--transparent::-moz-placeholder {
+  color: #999;
+}
 .textarea--transparent:-ms-input-placeholder {
   color: #999;
 }
-
-/*!
+.textarea--transparent::placeholder {
+  color: #999;
+}
+/*~
   name: Dialog
   category: Dialog
   elements: ons-dialog
@@ -4958,7 +4504,6 @@ h4, h5, h6 {
       </div>
     </div>
 */
-
 .dialog {
   box-sizing: border-box;
   background-clip: padding-box;
@@ -4974,7 +4519,7 @@ h4, h5, h6 {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  font-family: -apple-system, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -4990,16 +4535,14 @@ h4, h5, h6 {
   min-height: 100px;
   text-align: left;
 }
-
 .dialog-container {
   height: inherit;
   min-height: inherit;
   overflow: hidden;
   border-radius: 4px;
   background-color: #f4f4f4;
-  -webkit-mask-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC");
+  -webkit-mask-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC');
 }
-
 .dialog-mask {
   padding: 0;
   margin: 0;
@@ -5020,8 +4563,7 @@ h4, h5, h6 {
   bottom: 0;
   background-color: rgba(0, 0, 0, .2);
 }
-
-/*!
+/*~
   name: Material Dialog
   category: Dialog
   elements: ons-dialog
@@ -5033,7 +4575,6 @@ h4, h5, h6 {
       </div>
     </div>
 */
-
 .dialog--material {
   font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -5042,17 +4583,14 @@ h4, h5, h6 {
       0 6px 30px 5px rgba(0, 0, 0, .12),
       0 8px 10px -5px rgba(0, 0, 0, .4);
 }
-
 .dialog-container--material {
   border-radius: 2px;
   background-color: #ffffff;
 }
-
 .dialog-mask--material {
   background-color: rgba(0, 0, 0, .3);
 }
-
-/*!
+/*~
   name: Alert Dialog
   category: Alert Dialog
   elements: ons-alert-dialog
@@ -5072,7 +4610,6 @@ h4, h5, h6 {
       </div>
     </div>
 */
-
 .alert-dialog {
   box-sizing: border-box;
   background-clip: padding-box;
@@ -5088,7 +4625,7 @@ h4, h5, h6 {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  font-family: -apple-system, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -5099,47 +4636,42 @@ h4, h5, h6 {
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   width: 270px;
-  margin: auto auto;
+  margin: auto;
   background-color: #f4f4f4;
   border-radius: 8px;
   overflow: visible;
   max-width: 95%;
   color: #1f1f21;
 }
-
 .alert-dialog-container {
   height: inherit;
   padding-top: 16px;
   overflow: hidden;
 }
-
 .alert-dialog-title {
-  font-family: -apple-system, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
   font-size: 17px;
   font-size: 17px;
   font-weight: 500;
-  padding: 0px 8px 0px 8px;
+  padding: 0 8px;
   text-align: center;
   color: #1f1f21;
 }
-
 .alert-dialog-content {
   box-sizing: border-box;
   background-clip: padding-box;
-  padding: 4px 12px 8px 12px;
+  padding: 4px 12px 8px;
   font-size: 14px;
   min-height: 36px;
   text-align: center;
   color: #1f1f21;
 }
-
 .alert-dialog-footer {
   width: 100%;
 }
-
 .alert-dialog-button {
   box-sizing: border-box;
   background-clip: padding-box;
@@ -5150,7 +4682,7 @@ h4, h5, h6 {
   background: transparent;
   border: none;
   line-height: normal;
-  font-family: -apple-system, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -5168,7 +4700,7 @@ h4, h5, h6 {
   vertical-align: middle;
   border: none;
   border-top: 1px solid #ddd;
-  font-size: 16pxpx;
+  font-size: 16px;
   padding: 0 8px;
   margin: 0;
   display: block;
@@ -5180,9 +4712,7 @@ h4, h5, h6 {
   outline: none;
   color: rgba(24, 103, 194, .81);
 }
-
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-
   .alert-dialog-button {
     border-top: none;
     background-size: 100% 1px;
@@ -5192,15 +4722,12 @@ h4, h5, h6 {
     background-image: linear-gradient(180deg, #ddd, #ddd 50%, transparent 50%);
   }
 }
-
 .alert-dialog-button:active {
   background-color: rgba(0, 0, 0, .05);
 }
-
 .alert-dialog-button--primal {
   font-weight: 500;
 }
-
 .alert-dialog-footer--rowfooter {
   white-space: nowrap;
   display: -webkit-box;
@@ -5209,7 +4736,6 @@ h4, h5, h6 {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
 }
-
 .alert-dialog-button--rowfooter {
   -webkit-box-flex: 1;
       -ms-flex: 1;
@@ -5218,9 +4744,7 @@ h4, h5, h6 {
   width: 100%;
   border-left: 1px solid #ddd
 }
-
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-
   .alert-dialog-button--rowfooter {
     border-top: none;
     border-left: none;
@@ -5233,13 +4757,10 @@ h4, h5, h6 {
       linear-gradient(90deg, transparent, transparent 50%, #ddd 50%);
   }
   }
-
 .alert-dialog-button--rowfooter:first-child {
   border-left: none
 }
-
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-
   .alert-dialog-button--rowfooter:first-child {
     border-top: none;
     background-size: 100% 1px;
@@ -5249,7 +4770,6 @@ h4, h5, h6 {
     background-image: linear-gradient(0deg, transparent, transparent 50%, #ddd 50%);
   }
   }
-
 .alert-dialog-mask {
   padding: 0;
   margin: 0;
@@ -5270,8 +4790,7 @@ h4, h5, h6 {
   bottom: 0;
   background-color: rgba(0, 0, 0, .2);
 }
-
-/*!
+/*~
   name: Alert Dialog without Title
   category: Alert Dialog
   elements: ons-alert-dialog
@@ -5289,8 +4808,7 @@ h4, h5, h6 {
       </div>
     </div>
 */
-
-/*!
+/*~
   name: Alert Dialog with Multiple Buttons
   category: Alert Dialog
   elements: ons-alert-dialog
@@ -5309,8 +4827,7 @@ h4, h5, h6 {
       </div>
     </div>
 */
-
-/*!
+/*~
   name: Alert Dialog with Multiple Buttons 2
   category: Alert Dialog
   elements: ons-alert-dialog
@@ -5332,8 +4849,7 @@ h4, h5, h6 {
       </div>
     </div>
 */
-
-/*!
+/*~
   name: Material Alert Dialog
   category: Alert Dialog
   elements: ons-alert-dialog
@@ -5354,19 +4870,16 @@ h4, h5, h6 {
       </div>
     </div>
 */
-
 .alert-dialog--material {
   border-radius: 2px;
   background-color: #ffffff;
 }
-
 .alert-dialog-container--material {
   padding-top: 22px;
   box-shadow: 0 16px 24px 2px rgba(0, 0, 0, .14),
       0 6px 30px 5px rgba(0, 0, 0, .12),
       0 8px 10px -5px rgba(0, 0, 0, .4);
 }
-
 .alert-dialog-title--material {
   font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -5376,7 +4889,6 @@ h4, h5, h6 {
   padding: 0 24px;
   color: #212121;
 }
-
 .alert-dialog-content--material {
   font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -5389,13 +4901,11 @@ h4, h5, h6 {
   min-height: 0;
   color: #727272;
 }
-
 .alert-dialog-footer--material {
   display: inline-block;
-  padding: 0px 8px 0px 24px;
+  padding: 0 8px 0 24px;
   box-sizing: border-box;
 }
-
 .alert-dialog-button--material {
   font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -5411,48 +4921,37 @@ h4, h5, h6 {
   outline: none;
   color: #009688
 }
-
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-
   .alert-dialog-button--material {
     background: none;
   }
   }
-
 .alert-dialog-button--material:active {
   background-color: transparent;
   background-color: initial;
 }
-
 .alert-dialog-button--rowfooter--material,
 .alert-dialog-button--rowfooter--material:first-child {
   border: 0
 }
-
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-
   .alert-dialog-button--rowfooter--material,
 .alert-dialog-button--rowfooter--material:first-child {
     background: none;
   }
   }
-
 .alert-dialog-button--primal--material {
   font-weight: 500
 }
-
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-
   .alert-dialog-button--primal--material {
     background: none;
   }
   }
-
 .alert-dialog-mask--material {
   background-color: rgba(0, 0, 0, .3);
 }
-
-/*!
+/*~
   name: Popover
   category: Popover
   elements: ons-popover
@@ -5465,8 +4964,7 @@ h4, h5, h6 {
       </div>
     </div>
 */
-
-/*!
+/*~
   name: Popover(top)
   category: Popover
   elements: ons-popover
@@ -5479,8 +4977,7 @@ h4, h5, h6 {
       </div>
     </div>
 */
-
-/*!
+/*~
   name: Popover(left)
   category: Popover
   elements: ons-popover
@@ -5493,8 +4990,7 @@ h4, h5, h6 {
       </div>
     </div>
 */
-
-/*!
+/*~
   name: Popover(right)
   category: Popover
   elements: ons-popover
@@ -5507,28 +5003,22 @@ h4, h5, h6 {
       </div>
     </div>
 */
-
 .popover {
   position: absolute;
   z-index: 20001;
 }
-
 .popover--bottom {
-  bottom: 0px;
+  bottom: 0;
 }
-
 .popover--top {
-  top: 0px;
+  top: 0;
 }
-
 .popover--left {
-  left: 0px;
+  left: 0;
 }
-
 .popover--right {
-  right: 0px;
+  right: 0;
 }
-
 .popover-mask {
   left: 0;
   right: 0;
@@ -5538,7 +5028,6 @@ h4, h5, h6 {
   position: absolute;
   z-index: 19999;
 }
-
 .popover__content {
   box-sizing: border-box;
   background-clip: padding-box;
@@ -5554,7 +5043,7 @@ h4, h5, h6 {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  font-family: -apple-system, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -5569,23 +5058,18 @@ h4, h5, h6 {
   color: #1f1f21;
   pointer-events: auto;
 }
-
 .popover--top__content {
 
 }
-
 .popover--bottom__content {
 
 }
-
 .popover--left__content {
 
 }
-
 .popover--right__content {
 
 }
-
 .popover__arrow {
   position: absolute;
   width: 18px;
@@ -5596,42 +5080,35 @@ h4, h5, h6 {
   background-image: -webkit-linear-gradient(45deg, white, white 50%, transparent 50%);
   background-image: linear-gradient(45deg, white, white 50%, transparent 50%);
   border-radius: 0 0 0 4px;
-  margin: 0px;
-  position: absolute;
+  margin: 0;
   z-index: 20001;
 }
-
 /* NOTE: If you changed this properties, you should check if ons-popover is broken. */
-
 .popover--bottom__arrow {
   -webkit-transform: translateY(6px) translateX(-9px) rotate(-45deg);
           transform: translateY(6px) translateX(-9px) rotate(-45deg);
   bottom: 0;
   margin-right: -18px;
 }
-
 .popover--top__arrow {
   -webkit-transform: translateY(-6px) translateX(-9px) rotate(135deg);
           transform: translateY(-6px) translateX(-9px) rotate(135deg);
   top: 0;
   margin-right: -18px;
 }
-
 .popover--left__arrow {
   -webkit-transform: translateX(-6px) translateY(-9px) rotate(45deg);
           transform: translateX(-6px) translateY(-9px) rotate(45deg);
   left: 0;
   margin-bottom: -18px;
 }
-
 .popover--right__arrow {
   -webkit-transform: translateX(6px) translateY(-9px) rotate(225deg);
           transform: translateX(6px) translateY(-9px) rotate(225deg);
   right: 0;
   margin-bottom: -18px;
 }
-
-/*!
+/*~
   name: Material Popover
   category: Popover
   elements: ons-popover
@@ -5644,28 +5121,23 @@ h4, h5, h6 {
       </div>
     </div>
 */
-
 .popover--material {
 }
-
 .popover-mask--material {
   background-color: transparent;
 }
-
 .popover--material__content {
-  background-color: #FAFAFA;
+  background-color: #fafafa;
   border-radius: 2px;
   color: #1f1f21;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14),
       0 1px 5px 0 rgba(0, 0, 0, .12),
       0 3px 1px -2px rgba(0, 0, 0, .2);
 }
-
 .popover--material__arrow {
   display: none;
 }
-
-/*!
+/*~
   name: Progress Bar
   category: Progress Bar
   elements: ons-progress-bar
@@ -5682,7 +5154,6 @@ h4, h5, h6 {
     <div class="progress-bar progress-bar--indeterminate">
     </div>
 */
-
 .progress-bar {
   position: relative;
   height: 4px;
@@ -5693,8 +5164,7 @@ h4, h5, h6 {
   margin: 0;
   overflow: hidden;
 }
-
-.progress-bar__primary, 
+.progress-bar__primary,
 .progress-bar__secondary {
   position: absolute;
   background-color: #009688;
@@ -5704,12 +5174,10 @@ h4, h5, h6 {
   transition: width .3s linear;
   z-index: 100;
 }
-
 .progress-bar__secondary {
   background-color: #80cbc4;
   z-index: 0;
 }
-
 .progress-bar--indeterminate:before {
   content: '';
   position: absolute;
@@ -5721,7 +5189,6 @@ h4, h5, h6 {
   -webkit-animation: progress-bar__indeterminate 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
           animation: progress-bar__indeterminate 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
 }
-
 .progress-bar--indeterminate:after {
   content: '';
   position: absolute;
@@ -5735,68 +5202,71 @@ h4, h5, h6 {
   -webkit-animation-delay: 1.15s;
           animation-delay: 1.15s;
 }
-
 @-webkit-keyframes progress-bar__indeterminate {
   0% {
     left: -35%;
     right: 100%;
   }
+
   60% {
     left: 100%;
     right: -90%;
   }
+
   100% {
     left: 100%;
     right: -90%;
   }
 }
-
 @keyframes progress-bar__indeterminate {
   0% {
     left: -35%;
     right: 100%;
   }
+
   60% {
     left: 100%;
     right: -90%;
   }
+
   100% {
     left: 100%;
     right: -90%;
   }
 }
-
 @-webkit-keyframes progress-bar__indeterminate-short {
   0% {
     left: -200%;
     right: 100%;
   }
+
   60% {
     left: 107%;
     right: -8%;
   }
+
   100% {
     left: 107%;
     right: -8%;
   }
 }
-
 @keyframes progress-bar__indeterminate-short {
   0% {
     left: -200%;
     right: 100%;
   }
+
   60% {
     left: 107%;
     right: -8%;
   }
+
   100% {
     left: 107%;
     right: -8%;
   }
 }
-
-/*!
+/*~
   name: Progress Circle
   category: Progress Circle
   elements: ons-progress-circular
@@ -5814,16 +5284,15 @@ h4, h5, h6 {
       <circle class="progress-circular__primary" style="stroke-dasharray: 80%, 251.32%"/>
     </svg>
 */
-
 .progress-circular {
   height: 32px;
   position: relative;
   width: 32px;
   -webkit-transform: rotate(270deg);
           transform: rotate(270deg);
-  animatino: none;
+  -webkit-animation: none;
+          animation: none;
 }
-
 .progress-circular__primary,
 .progress-circular__secondary {
   cx: 50%;
@@ -5835,7 +5304,6 @@ h4, h5, h6 {
   stroke-width: 9%;
   stroke-miterlimit: 10;
 }
-
 .progress-circular__primary {
   stroke-dasharray: 1, 200;
   stroke-dashoffset: 0;
@@ -5843,68 +5311,64 @@ h4, h5, h6 {
   -webkit-transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
   transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 .progress-circular__secondary {
   stroke: #80cbc4;
 }
-
 .progress-circular--indeterminate {
   -webkit-animation: progress__rotate 2s linear infinite;
           animation: progress__rotate 2s linear infinite;
   -webkit-transform: none;
           transform: none;
 }
-
 .progress-circular--indeterminate__primary {
   -webkit-animation: progress__dash 1.5s ease-in-out infinite;
           animation: progress__dash 1.5s ease-in-out infinite;
 }
-
 @-webkit-keyframes progress__rotate {
   100% {
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg);
   }
 }
-
 @keyframes progress__rotate {
   100% {
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg);
   }
 }
-
 @-webkit-keyframes progress__dash {
   0% {
     stroke-dasharray: 10%, 241.32%;
-    stroke-dashoffset: 0%;
+    stroke-dashoffset: 0;
   }
+
   50% {
     stroke-dasharray: 201%, 50.322%;
-    stroke-dashoffset: -100.0%;
+    stroke-dashoffset: -100%;
   }
+
   100% {
     stroke-dasharray: 10%, 241.32%;
     stroke-dashoffset: -251.32%;
   }
 }
-
 @keyframes progress__dash {
   0% {
     stroke-dasharray: 10%, 241.32%;
-    stroke-dashoffset: 0%;
+    stroke-dashoffset: 0;
   }
+
   50% {
     stroke-dasharray: 201%, 50.322%;
-    stroke-dashoffset: -100.0%;
+    stroke-dashoffset: -100%;
   }
+
   100% {
     stroke-dasharray: 10%, 241.32%;
     stroke-dashoffset: -251.32%;
   }
 }
-
-/*!
+/*~
   name: Fab
   category: Fab
   elements: ons-fab
@@ -5912,11 +5376,9 @@ h4, h5, h6 {
     <button class="fab"><i class="zmdi zmdi-car"></i></button>
     <button class="fab" disabled><i class="zmdi zmdi-car"></i></button>
 */
-
 .fab {
   position: relative;
   display: inline-block;
-  vertical-align: top;
   box-sizing: border-box;
   background-clip: padding-box;
   padding: 0;
@@ -5926,7 +5388,7 @@ h4, h5, h6 {
   background: transparent;
   border: none;
   line-height: normal;
-  font-family: -apple-system, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -5948,7 +5410,7 @@ h4, h5, h6 {
   vertical-align: middle;
   text-align: center;
   background-color: #009688;
-  border: 0px solid currentColor;
+  border: 0 solid currentColor;
   border-radius: 50%;
   overflow: hidden;
   box-shadow: 0 4px 5px 0 rgba(0, 0, 0, .14),
@@ -5957,7 +5419,6 @@ h4, h5, h6 {
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
-
 .fab:active {
   box-shadow: 0 8px 10px 1px rgba(0, 0, 0, .14),
       0 3px 14px 2px rgba(0, 0, 0, .12),
@@ -5966,11 +5427,9 @@ h4, h5, h6 {
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
 }
-
 .fab:focus {
   outline: 0;
 }
-
 .fab__icon {
   position: relative;
   overflow: hidden;
@@ -5982,7 +5441,6 @@ h4, h5, h6 {
   z-index: 100;
   line-height: 56px;
 }
-
 .fab:disabled,
 .fab[disabled] {
   background-color: alpha(black, 0.5);
@@ -5991,7 +5449,6 @@ h4, h5, h6 {
   cursor: default;
   pointer-events: none;
 }
-
 .fab--top__right {
   top: 20px;
   bottom: auto;
@@ -5999,7 +5456,6 @@ h4, h5, h6 {
   left: auto;
   position: fixed;
 }
-
 .fab--bottom__right {
   top: auto;
   bottom: 20px;
@@ -6007,7 +5463,6 @@ h4, h5, h6 {
   left: auto;
   position: fixed;
 }
-
 .fab--top__left {
   top: 20px;
   bottom: auto;
@@ -6015,7 +5470,6 @@ h4, h5, h6 {
   left: 20px;
   position: fixed;
 }
-
 .fab--bottom__left {
   top: auto;
   bottom: 20px;
@@ -6023,7 +5477,6 @@ h4, h5, h6 {
   left: 20px;
   position: fixed;
 }
-
 .fab--top__center {
   top: 20px;
   bottom: auto;
@@ -6032,7 +5485,6 @@ h4, h5, h6 {
   right: auto;
   position: fixed;
 }
-
 .fab--bottom__center {
   top: auto;
   bottom: 20px;
@@ -6041,8 +5493,7 @@ h4, h5, h6 {
   right: auto;
   position: fixed;
 }
-
-/*!
+/*~
   name: Fab Mini
   category: Fab
   elements: ons-fab
@@ -6050,24 +5501,20 @@ h4, h5, h6 {
     <button class="fab fab--mini"><i class="zmdi zmdi-plus"></i></button>
     <button class="fab fab--mini" disabled><i class="zmdi zmdi-plus"></i></button>
 */
-
 .fab--mini {
   width: 40px;
   height: 40px;
   line-height: 40px;
 }
-
 .fab--mini__icon {
   line-height: 40px;
 }
-
 .speed-dial__item {
   position: absolute;
   -webkit-transform: scale(0);
           transform: scale(0);
 }
-
-/*!
+/*~
   name: Modal
   category: Modal
   elements: ons-modal
@@ -6078,7 +5525,6 @@ h4, h5, h6 {
       </div>
     </div>
 */
-
 .modal {
   box-sizing: border-box;
   background-clip: padding-box;
@@ -6094,7 +5540,7 @@ h4, h5, h6 {
   line-height: normal;
   box-sizing: border-box;
   background-clip: padding-box;
-  font-family: -apple-system, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -6111,7 +5557,6 @@ h4, h5, h6 {
   display: table;
   z-index: 2147483647;
 }
-
 .modal__content {
   box-sizing: border-box;
   background-clip: padding-box;
@@ -6127,7 +5572,7 @@ h4, h5, h6 {
   line-height: normal;
   box-sizing: border-box;
   background-clip: padding-box;
-  font-family: -apple-system, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -6138,8 +5583,7 @@ h4, h5, h6 {
   color: #fff;
   white-space: normal;
 }
-
-/*!
+/*~
   name: Select Input
   category: Select Input
   markup: |
@@ -6149,21 +5593,19 @@ h4, h5, h6 {
       <option>Option 3</option>
     </select>
 */
-
 .select-input {
+  box-sizing: border-box;
+  background-clip: padding-box;
   padding: 0;
   margin: 0;
   font: inherit;
   color: inherit;
   background: transparent;
   border: none;
-  line-height: normal;
-  box-sizing: border-box;
-  background-clip: padding-box;
   vertical-align: top;
   outline: none;
   line-height: 1;
-  font-family: -apple-system, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -6176,14 +5618,21 @@ h4, h5, h6 {
   border-color: #ccc;
   color: rgba(24, 103, 194, .81);
 }
-
-.select-input::-webkit-input-placeholder,
-.select-input::-moz-placeholder,
-.select-input::-ms-input-placeholder,
+.select-input::-ms-clear {
+  display: none;
+}
+.select-input::-webkit-input-placeholder {
+  color: #999;
+}
+.select-input::-moz-placeholder {
+  color: #999;
+}
 .select-input:-ms-input-placeholder {
   color: #999;
 }
-
+.select-input::placeholder {
+  color: #999;
+}
 .select-input:disabled {
   opacity: 0.3;
   cursor: default;
@@ -6191,31 +5640,35 @@ h4, h5, h6 {
   border: none;
   background-color: transparent;
 }
-
-.select-input:disabled::-webkit-input-placeholder,
-.select-input:disabled::-moz-placeholder,
-.select-input:disabled::-ms-input-placeholder,
+.select-input:disabled::-webkit-input-placeholder {
+  border: none;
+  background-color: transparent;
+  color: #999;
+}
+.select-input:disabled::-moz-placeholder {
+  border: none;
+  background-color: transparent;
+  color: #999;
+}
 .select-input:disabled:-ms-input-placeholder {
   border: none;
   background-color: transparent;
   color: #999;
 }
-
-.select-input::-ms-clear {
-  display: none;
+.select-input:disabled::placeholder {
+  border: none;
+  background-color: transparent;
+  color: #999;
 }
-
 .select-input:invalid {
   border: none;
   background-color: transparent;
   color: #1f1f21;
 }
-
 .select-input[multiple] {
   height: 62px;
 }
-
-/*!
+/*~
   name: Material Select Input
   category: Select Input
   markup: |
@@ -6225,21 +5678,19 @@ h4, h5, h6 {
       <option>Option 3</option>
     </select>
 */
-
 .select-input--material {
+  box-sizing: border-box;
+  background-clip: padding-box;
   padding: 0;
   margin: 0;
   font: inherit;
   color: inherit;
   background: transparent;
   border: none;
-  line-height: normal;
-  box-sizing: border-box;
-  background-clip: padding-box;
   vertical-align: top;
   outline: none;
   line-height: 1;
-  font-family: -apple-system, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -6262,18 +5713,16 @@ h4, h5, h6 {
           transform: translate3d(0, 0, 0); /* prevent ios flicker */
   border: none;
 }
-
 .select-input--material__label {
   font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
   color: rgba(0, 0, 0, .81);
   position: absolute;
-  left: 0px;
+  left: 0;
   top: 2px;
   font-size: 16px;
   pointer-events: none;
 }
-
 .select-input--material__label--active {
   color: rgba(0, 0, 0, .15);
   -webkit-transform: translate(0, -75%) scale(0.75);
@@ -6285,7 +5734,6 @@ h4, h5, h6 {
   transition: transform 0.1s ease-in, color 0.1s ease-in;
   transition: transform 0.1s ease-in, color 0.1s ease-in, -webkit-transform 0.1s ease-in;
 }
-
 .select-input--material:focus {
   background-image: -webkit-linear-gradient(rgba(0, 0, 0, .15), rgba(0, 0, 0, .15)), -webkit-linear-gradient(bottom, transparent 1px, rgba(0, 0, 0, .81) 1px);
   background-image: linear-gradient(rgba(0, 0, 0, .15), rgba(0, 0, 0, .15)), linear-gradient(to top, transparent 1px, rgba(0, 0, 0, .81) 1px);
@@ -6293,38 +5741,41 @@ h4, h5, h6 {
           animation: material-select-input-animate 0.3s forwards;
   border-radius: 0;
 }
-
-.select-input--material::-webkit-input-placeholder,
-.select-input--material::-moz-placeholder,
-.select-input--material::-ms-input-placeholder,
+.select-input--material::-webkit-input-placeholder {
+  color: rgba(0, 0, 0, .81);
+  line-height: 20px;
+}
+.select-input--material::-moz-placeholder {
+  color: rgba(0, 0, 0, .81);
+  line-height: 20px;
+}
 .select-input--material:-ms-input-placeholder {
   color: rgba(0, 0, 0, .81);
   line-height: 20px;
 }
-
-.select-input--material::-ms-clear {
-  display: none;
+.select-input--material::placeholder {
+  color: rgba(0, 0, 0, .81);
+  line-height: 20px;
 }
-
 @-webkit-keyframes material-select-input-animate {
   0% {
     background-size: 0% 2px, 100% 2px;
   }
+
   100% {
     background-size: 100% 2px, 100% 2px;
   }
 }
-
 @keyframes material-select-input-animate {
   0% {
     background-size: 0% 2px, 100% 2px;
   }
+
   100% {
     background-size: 100% 2px, 100% 2px;
   }
 }
-
-/*!
+/*~
   name: Underbar Select Input
   category: Select Input
   markup: |
@@ -6334,21 +5785,19 @@ h4, h5, h6 {
       <option>Option 3</option>
     </select>
 */
-
 .select-input--underbar {
+  box-sizing: border-box;
+  background-clip: padding-box;
   padding: 0;
   margin: 0;
   font: inherit;
   color: inherit;
   background: transparent;
   border: none;
-  line-height: normal;
-  box-sizing: border-box;
-  background-clip: padding-box;
   vertical-align: top;
   outline: none;
   line-height: 1;
-  font-family: -apple-system, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -6363,9 +5812,8 @@ h4, h5, h6 {
   border: none;
   background-color: transparent;
   border-bottom: 1px solid #ccc;
-  border-radius: 0px;
+  border-radius: 0;
 }
-
 .select-input--underbar:disabled {
   opacity: 0.3;
   cursor: default;
@@ -6376,10 +5824,20 @@ h4, h5, h6 {
   background-color: transparent;
   border-bottom: 1px solid #ccc;
 }
-
-.select-input--underbar:disabled::-webkit-input-placeholder,
-.select-input--underbar:disabled::-moz-placeholder,
-.select-input--underbar:disabled::-ms-input-placeholder,
+.select-input--underbar:disabled::-webkit-input-placeholder {
+  border: none;
+  background-color: transparent;
+  color: #999;
+  border: none;
+  background-color: transparent;
+}
+.select-input--underbar:disabled::-moz-placeholder {
+  border: none;
+  background-color: transparent;
+  color: #999;
+  border: none;
+  background-color: transparent;
+}
 .select-input--underbar:disabled:-ms-input-placeholder {
   border: none;
   background-color: transparent;
@@ -6387,7 +5845,13 @@ h4, h5, h6 {
   border: none;
   background-color: transparent;
 }
-
+.select-input--underbar:disabled::placeholder {
+  border: none;
+  background-color: transparent;
+  color: #999;
+  border: none;
+  background-color: transparent;
+}
 .select-input--underbar:invalid {
   border: none;
   background-color: transparent;
