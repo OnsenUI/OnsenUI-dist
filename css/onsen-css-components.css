@@ -5454,28 +5454,28 @@ h4, h5, h6 {
   bottom: auto;
   right: 20px;
   left: auto;
-  position: fixed;
+  position: absolute;
 }
 .fab--bottom__right {
   top: auto;
   bottom: 20px;
   right: 20px;
   left: auto;
-  position: fixed;
+  position: absolute;
 }
 .fab--top__left {
   top: 20px;
   bottom: auto;
   right: auto;
   left: 20px;
-  position: fixed;
+  position: absolute;
 }
 .fab--bottom__left {
   top: auto;
   bottom: 20px;
   right: auto;
   left: 20px;
-  position: fixed;
+  position: absolute;
 }
 .fab--top__center {
   top: 20px;
@@ -5483,7 +5483,7 @@ h4, h5, h6 {
   margin-left: -28px;
   left: 50%;
   right: auto;
-  position: fixed;
+  position: absolute;
 }
 .fab--bottom__center {
   top: auto;
@@ -5491,7 +5491,7 @@ h4, h5, h6 {
   margin-left: -28px;
   left: 50%;
   right: auto;
-  position: fixed;
+  position: absolute;
 }
 /*~
   name: Fab Mini
