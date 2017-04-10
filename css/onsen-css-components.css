@@ -316,6 +316,7 @@ h4, h5, h6 {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
+  z-index: 0;
 }
 .switch--material__handle {
   background-color: #f1f1f1;
@@ -5273,6 +5274,7 @@ h4, h5, h6 {
   markup: |
     <svg class="progress-circular progress-circular--indeterminate">
       <circle class="progress-circular__primary progress-circular--indeterminate__primary"/>
+      <circle class="progress-circular__secondary progress-circular--indeterminate__secondary"/>
     </svg>
 
     <svg class="progress-circular">
@@ -5323,6 +5325,9 @@ h4, h5, h6 {
 .progress-circular--indeterminate__primary {
   -webkit-animation: progress__dash 1.5s ease-in-out infinite;
           animation: progress__dash 1.5s ease-in-out infinite;
+}
+.progress-circular--indeterminate__secondary {
+  display: none;
 }
 @-webkit-keyframes progress__rotate {
   100% {
