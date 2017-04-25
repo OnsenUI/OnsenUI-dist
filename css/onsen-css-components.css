@@ -115,10 +115,14 @@ h4, h5, h6 {
 .page--material {
   font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
+  font-weight: 400;
+  font-size: 17px;
 }
 .page--material__content {
   font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
+  font-weight: 400;
+  font-size: 17px;
   font-weight: 400;
 }
 /* FIXME */
@@ -129,6 +133,8 @@ h4, h5, h6 {
 .page--material__content h5 {
   font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
+  font-weight: 400;
+  font-size: 17px;
   font-weight: 400;
 }
 .page--material__background {
@@ -1009,6 +1015,8 @@ h4, h5, h6 {
 .toolbar--material__left, .toolbar--material__right {
   font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
+  font-weight: 400;
+  font-size: 17px;
   font-size: 20px;
   font-weight: 500;
   color: #ffffff;
@@ -1020,6 +1028,8 @@ h4, h5, h6 {
 .toolbar--material__center {
   font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
+  font-weight: 400;
+  font-size: 17px;
   font-size: 20px;
   font-weight: 500;
   color: #ffffff;
@@ -1589,6 +1599,8 @@ h4, h5, h6 {
       0 3px 1px -2px rgba(0, 0, 0, .2);
   font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
+  font-weight: 400;
+  font-size: 17px;
   min-height: 36px;
   line-height: 36px;
   padding: 0 16px;
@@ -1669,6 +1681,8 @@ h4, h5, h6 {
       0 3px 1px -2px rgba(0, 0, 0, .2);
   font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
+  font-weight: 400;
+  font-size: 17px;
   min-height: 36px;
   line-height: 36px;
   padding: 0 16px;
@@ -2258,6 +2272,8 @@ h4, h5, h6 {
   font-weight: 500;
   font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
+  font-weight: 400;
+  font-size: 17px;
 }
 .tabbar--material__button:after {
   content: '';
@@ -2347,10 +2363,14 @@ h4, h5, h6 {
 .tabbar--material__label {
   font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
+  font-weight: 400;
+  font-size: 17px;
 }
 .tabbar--material__label:first-child {
   font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
+  font-weight: 400;
+  font-size: 17px;
   letter-spacing: 0.015em;
   font-weight: 500;
   font-size: 14px;
@@ -2780,6 +2800,8 @@ h4, h5, h6 {
   line-height: 18px;
   font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
+  font-weight: 400;
+  font-size: 17px;
 }
 .checkbox--material__checkmark {
   width: 18px;
@@ -2990,6 +3012,8 @@ h4, h5, h6 {
   line-height: 20px + 2px;
   font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
+  font-weight: 400;
+  font-size: 17px;
 }
 .radio-button--material__checkmark {
   width: 20px;
@@ -3696,6 +3720,8 @@ h4, h5, h6 {
 .list--material {
   font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
+  font-weight: 400;
+  font-size: 17px;
   background-image: none;
 }
 .list-item--material {
@@ -3790,14 +3816,25 @@ h4, h5, h6 {
   font-size: 14px;
   text-transform: none;
   margin: -1px 0 0 0;
-  color: #6c6c6c;
+  color: #757575;
   font-weight: 500;
   padding: 8px 16px;
 }
 .list-header--material:not(:first-of-type) {
-  border-top: 1px solid #eee;
+  border-top: none;
+  background-size: 100% 1px;
+  background-repeat: no-repeat;
+  background-position: top;
+  background-image: -webkit-linear-gradient(top, #eee, #eee 100%);
+  background-image: linear-gradient(180deg, #eee, #eee 100%);
   padding-top: 16px;
 }
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .list-header--material:not(:first-of-type) {
+    background-image: -webkit-linear-gradient(top, #eee, #eee 50%, transparent 50%);
+    background-image: linear-gradient(180deg, #eee, #eee 50%, transparent 50%);
+  }
+  }
 /*~
   name: Material List with Checkboxes
   category: List
@@ -3970,6 +4007,74 @@ h4, h5, h6 {
 .list-item--longdivider.list-item--chevron:before { /* FIXME */
   border: none;
   background-image: none;
+}
+/*~
+  name: List title
+  category: List
+  markup: |
+    <div class="list-title">LIST TITLE</div>
+    <ul class="list">
+      <li class="list-item">
+        <div class="list-item__center">Item</div>
+      </li>
+      <li class="list-item">
+        <div class="list-item__center">Item</div>
+      </li>
+    </ul>
+ */
+.list-title {
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: none;
+  line-height: normal;
+  cursor: default;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  font-size: 17px;
+  display: block;
+  color: #6d6d72;
+  text-align: left;
+  box-sizing: border-box;
+  padding: 0 0 0 16px;
+  margin: 0;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 24px;
+}
+/*~
+  name: Material List Title
+  category: List
+  markup: |
+    <h3 class="list-title list-title--material">LIST TITLE</h3>
+    <ul class="list list--material">
+      <li class="list-item list-item--material">
+        <div class="list-item__center list-item--material__center">Item</div>
+      </li>
+      <li class="list-item list-item--material">
+        <div class="list-item__center list-item--material__center">Item</div>
+      </li>
+    </ul>
+ */
+.list-title--material {
+  font-family: 'Roboto', 'Noto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 400;
+  font-size: 17px;
+  color: #757575;
+  font-size: 14px;
+  margin: 0;
+  padding: 12px 0 12px 16px;
+  font-weight: 500;
+  line-height: 24px;
 }
 /*~
   name: Search Input
@@ -4256,6 +4361,8 @@ h4, h5, h6 {
   font-size: 17px;
   font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
+  font-weight: 400;
+  font-size: 17px;
   color: #212121;
   background-image: -webkit-linear-gradient(bottom, transparent 1px, #afafaf 1px);
   background-image: linear-gradient(to top, transparent 1px, #afafaf 1px);
@@ -4275,6 +4382,8 @@ h4, h5, h6 {
 .text-input--material__label {
   font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
+  font-weight: 400;
+  font-size: 17px;
   color: #afafaf;
   position: absolute;
   left: 0;
@@ -4579,6 +4688,8 @@ h4, h5, h6 {
 .dialog--material {
   font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
+  font-weight: 400;
+  font-size: 17px;
   text-align: left;
   box-shadow: 0 16px 24px 2px rgba(0, 0, 0, .14),
       0 6px 30px 5px rgba(0, 0, 0, .12),
@@ -4884,6 +4995,8 @@ h4, h5, h6 {
 .alert-dialog-title--material {
   font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
+  font-weight: 400;
+  font-size: 17px;
   text-align: left;
   font-size: 20px;
   font-weight: 500;
@@ -4893,6 +5006,8 @@ h4, h5, h6 {
 .alert-dialog-content--material {
   font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
+  font-weight: 400;
+  font-size: 17px;
   text-align: left;
   font-size: 16px;
   font-weight: 400;
@@ -4910,6 +5025,8 @@ h4, h5, h6 {
 .alert-dialog-button--material {
   font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
+  font-weight: 400;
+  font-size: 17px;
   text-transform: uppercase;
   display: inline-block;
   width: auto;
@@ -5405,6 +5522,8 @@ h4, h5, h6 {
           user-select: none;
   font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
+  font-weight: 400;
+  font-size: 17px;
   width: 56px;
   height: 56px;
   text-decoration: none;
@@ -5702,6 +5821,8 @@ h4, h5, h6 {
   font-size: 17px;
   font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
+  font-weight: 400;
+  font-size: 17px;
   color: rgba(0, 0, 0, 1);
   background-image: -webkit-linear-gradient(bottom, transparent 1px, rgba(0, 0, 0, .81) 1px);
   background-image: linear-gradient(to top, transparent 1px, rgba(0, 0, 0, .81) 1px);
@@ -5721,6 +5842,8 @@ h4, h5, h6 {
 .select-input--material__label {
   font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
+  font-weight: 400;
+  font-size: 17px;
   color: rgba(0, 0, 0, .81);
   position: absolute;
   left: 0;

@@ -1,4 +1,4 @@
-/*! onsenui - v2.2.4 - 2017-04-10 */
+/*! onsenui - v2.2.5 - 2017-04-25 */
 /*
 Copyright 2013-2015 ASIAL CORPORATION
 
@@ -205,9 +205,7 @@ ons-splitter-side[side="right"][mode="collapse"] {
 }
 
 ons-splitter-side[mode="split"] {
-  -webkit-transform: none !important;
-          transform: none !important;
-  transition: none !important;
+  z-index: 2;
 }
 
 ons-toolbar-button > ons-icon[icon*="ion-"] {
