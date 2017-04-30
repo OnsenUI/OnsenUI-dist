@@ -1,0 +1,252 @@
+
+:root {
+  --range-track-background-color: var(--border-color);
+  --range-track-background-color-active: var(--highlight-color);
+  --range-thumb-background-color: #fff;
+  --range-thumb-border-color: var(--border-color);
+
+  --range-thumb-border: 1px solid var(--range-thumb-border-color);
+  --range-track-height: 2px;
+  --range-thumb-width: var(--thumb-size);
+
+  --material-range-track-height: 2px;
+  --material-range-thumb-width: 12px;
+  --material-range-thumb-radius: calc(var(--material-range-thumb-width) / 2);
+  --material-range-thumb-vertical-margin: 24px;
+  --material-range-thumb-horizontal-margin: 2px;
+
+  --range__thumb: {
+    cursor: pointer;
+    position: relative;
+    height: var(--range-thumb-width);
+    width: var(--range-thumb-width);
+    background-color: var(--range-thumb-background-color);
+    border: var(--range-thumb-border);
+    /* TODO: Add shadow */
+    /*box-shadow: 0 0 0 1px #e4e4e4, 0 3px 2px rgba(0, 0, 0, 0.25); */
+    border-radius: var(--round-border);
+    margin: 0;
+    padding: 0;
+  }
+
+  --range--material--thumb--before: {
+    display: none;
+  }
+
+  --range--material--thumb--after: {
+    content: '';
+    display: block;
+    border-width: 0;
+    border-radius: 100%;
+    height: var(--material-range-thumb-width);
+    width: var(--material-range-thumb-width);
+    background-color: var(--material-range-thumb-color);
+    opacity: 0.2;
+    transition: transform 0.1s linear;
+  }
+}
+
+/*~
+  name: Range
+  category: Range
+  elements: ons-range
+  markup: |
+    <div class="range">
+      <input type="range" class="range__input">
+    </div>
+
+    <div class="range range--disabled">
+      <input type="range" class="range__input" disabled>
+    </div>
+*/
+
+.range {
+  display: inline-block;
+  width: 100px;
+  height: 32px;
+  margin: 0;
+  padding: 0;
+  background-image: linear-gradient(var(--range-track-background-color), var(--range-track-background-color));
+  background-position: left center;
+  background-size: 100% var(--range-track-height);
+  background-repeat: no-repeat;
+  overflow: visible;
+}
+
+.range__input {
+  @apply(--reset-input);
+  appearance: none;
+  background-image: linear-gradient(var(--highlight-color), var(--highlight-color));
+  background-position: left center;
+  background-size: 0% var(--range-track-height);
+  background-repeat: no-repeat;
+  overflow: hidden;
+  height: 32px;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.range__input::-moz-range-track {
+  position: relative;
+  border: none;
+  background-color: var(--range-track-background-color);
+  height: var(--range-track-height);
+  border-radius: var(--round-border);
+  box-shadow: none;
+  top: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.range__input::-ms-track {
+  position: relative;
+  border: none;
+  background-color: var(--range-track-background-color);
+  height: 0;
+  border-radius: var(--round-border);
+}
+
+.range__input::-webkit-slider-thumb {
+  @apply(--range__thumb);
+  box-sizing: border-box;
+  appearance: none;
+  top: 0;
+  z-index: 1;
+}
+
+.range__input::-moz-range-thumb {
+  @apply(--range__thumb);
+}
+
+.range__input::-ms-thumb {
+  @apply(--range__thumb);
+  top: 0;
+}
+
+.range__input::-ms-fill-lower {
+  height: 2px;
+  background-color: var(--range-track-background-color-active);
+}
+
+.range__input::-ms-tooltip {
+  display: none;
+}
+
+.range__input:disabled {
+  opacity: 1;
+  pointer-events: none;
+}
+
+.range--disabled {
+  @apply(--disabled);
+  pointer-events: none;
+}
+
+/*~
+  name: Material Range
+  category: Range
+  elements: ons-range
+  markup: |
+    <div class="range range--material">
+      <input type="range" class="range__input range--material__input">
+    </div>
+
+    <div class="range range--material range--disabled">
+      <input type="range" class="range__input range--material__input" disabled>
+    </div>
+*/
+
+.range--material {
+  background-image: linear-gradient(var(--material-range-track-color), var(--material-range-track-color));
+}
+
+.range--material__input {
+  background-image: linear-gradient(var(--material-range-thumb-color), var(--material-range-thumb-color));
+  background-position: center left;
+  background-size: 0% 2px;
+  overflow: visible;
+}
+
+.range--material__input::-webkit-slider-thumb {
+  box-sizing: border-box;
+  border: none;
+  height: calc(var(--material-range-thumb-width) + var(--material-range-thumb-vertical-margin));
+  width: calc(var(--material-range-thumb-width) + var(--material-range-thumb-horizontal-margin));
+  border-radius: 0;
+  background-color: transparent;
+  background-image: radial-gradient(circle cover, var(--material-range-thumb-color) 0%, var(--material-range-thumb-color) calc(var(--material-range-thumb-radius) + 0.6px), transparent calc(var(--material-range-thumb-radius) + 1.2px));
+}
+
+.range--material__input::-moz-range-thumb {
+  top: 1px;
+  border: 3px solid var(--material-range-track-color);
+  height: var(--material-range-thumb-width);
+  width: var(--material-range-thumb-width);
+  border-radius: 100%;
+  border-color: var(--material-range-thumb-color);
+  background-color: var(--material-range-thumb-color);
+}
+
+.range--material__input::-moz-range-track {
+  background-color: var(--material-range-track-color);
+}
+
+.range--material__input::-ms-thumb {
+  margin-top: 1px;
+  border: none;
+  height: var(--material-range-thumb-width);
+  width: var(--material-range-thumb-width);
+  border-radius: 100%;
+  border-color: var(--material-range-thumb-color);
+  background-color: var(--material-range-thumb-color);
+}
+
+.range--material__input::-ms-fill-lower {
+  background-color: var(--material-range-thumb-color);
+}
+
+.range--material__input::-ms-fill-upper {
+  margin-top: -6px;
+  margin-left: -6px;
+  @apply(--range--material--thumb--after);
+}
+
+.range--material__input:focus::-moz-range-thumb {
+  border-color: var(--material-range-thumb-color);
+  background-color: var(--material-range-thumb-color);
+}
+
+.range--material__input::-moz-range-thumb:before {
+  @apply(--range--material--thumb--before);
+}
+
+.range--material__input::-webkit-slider-thumb:before {
+  @apply(--range--material--thumb--before);
+}
+
+.range--material__input::-moz-range-thumb:after {
+  margin-top: -3px;
+  margin-left: -3px;
+  @apply(--range--material--thumb--after);
+}
+
+.range--material__input::-webkit-slider-thumb:after {
+  @apply(--range--material--thumb--after);
+  display: inline-block;
+  margin-left: calc(var(--material-range-thumb-horizontal-margin) / 2);
+  margin-top: calc(var(--material-range-thumb-vertical-margin) / 2);
+}
+
+.range--material__input:active::-webkit-slider-thumb:after {
+  transform: scale(2.5);
+}
+
+.range--material__input:active::-moz-range-thumb:after {
+  transform: scale(2.5);
+}
+
+.range--material__input:active::-ms-fill-upper {
+  transform: scale(2.5);
+}
+
