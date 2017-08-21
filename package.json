@@ -1,0 +1,142 @@
+{
+  "name": "onsenui",
+  "version": "2.5.3",
+  "description": "HTML5 Mobile Framework & UI Components",
+  "private": false,
+  "author": "@kruyvanna",
+  "contributors": [
+    {
+      "name": "Mitsunori KUBOTA",
+      "email": "anatoo.jp@gmail.com",
+      "url": "http://anatoo.jp"
+    },
+    {
+      "name": "Andreas Argelius",
+      "email": "andreas@asial.co.jp"
+    },
+    {
+      "name": "Ataru Otoh",
+      "email": "ataru@asial.co.jp"
+    }
+  ],
+  "scripts": {
+    "test": "gulp test --disable-warnings",
+    "test:skip-build": "gulp test --disable-warnings --skip-build"
+  },
+  "main": "js/onsenui.js",
+  "typings": "js/onsenui.d.ts",
+  "files": [
+    "bower.json",
+    "css",
+    "css-components-src/src",
+    "css-components-src/misc",
+    "css-components-src/templates",
+    "css-components-src/gulpfile.js",
+    "css-components-src/package.json",
+    "css-components-src/README.md",
+    "css-components-src/stylelint.config.js",
+    "css-components-src/yarn.lock",
+    "js",
+    "core-src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/OnsenUI/OnsenUI"
+  },
+  "licenses": [
+    {
+      "type": "Apache-2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/OnsenUI/OnsenUI/issues"
+  },
+  "keywords": [
+    "phonegap",
+    "cordova",
+    "web-components",
+    "react",
+    "components",
+    "angular",
+    "vue",
+    "hybrid",
+    "app",
+    "ui",
+    "mobile",
+    "onsen",
+    "onsenui"
+  ],
+  "homepage": "https://onsen.io/",
+  "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-eslint": "^6.0.3",
+    "babel-loader": "^7",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-angularjs-annotate": "^0.7.0",
+    "babel-preset-env": "^1.4.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-3": "^6.22.0",
+    "browser-sync": "^2.13.0",
+    "chai": "^3.4.1",
+    "chai-as-promised": "^5.2.0",
+    "chai-spies": "^0.7.1",
+    "chalk": "^1.1.3",
+    "eslint": "^2.12.0",
+    "event-stream": "^3.3.2",
+    "gulp": "^3.9.0",
+    "gulp-add-src": "^0.2.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-babel": "^6.1.2",
+    "gulp-cached": "^1.1.0",
+    "gulp-chmod": "^1.3.0",
+    "gulp-chug": "^0.5.1",
+    "gulp-clean": "^0.3.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-connect": "^4.1.0",
+    "gulp-cssmin": "^0.2.0",
+    "gulp-download": "0.0.1",
+    "gulp-eslint": "^2.0.0",
+    "gulp-header": "^1.7.1",
+    "gulp-html2js": "^0.4.2",
+    "gulp-if": "^2.0.0",
+    "gulp-load-plugins": "^1.2.4",
+    "gulp-plumber": "^1.0.1",
+    "gulp-protractor": "^2.4.0",
+    "gulp-remember": "^0.3.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-shell": "^0.5.1",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.5.1",
+    "gulp-unzip": "^0.1.3",
+    "gulp-util": "^3.0.7",
+    "gulp-zip": "^3.0.2",
+    "jsonschema": "^1.0.3",
+    "karma": "^0.13.19",
+    "karma-babel-preprocessor": "^6.0.1",
+    "karma-chai": "^0.1.0",
+    "karma-chai-as-promised": "^0.1.2",
+    "karma-chai-spies": "^0.1.4",
+    "karma-chrome-launcher": "^2.1.1",
+    "karma-coverage": "^1.0.0",
+    "karma-junit-reporter": "^1.0.0",
+    "karma-mocha": "^1.0.1",
+    "karma-safari-launcher": "^1.0.0",
+    "karma-sauce-launcher": "^1.1.0",
+    "mkpath": "^1.0.0",
+    "mocha": "^2.5.3",
+    "progress-bar-webpack-plugin": "^1.9.3",
+    "protractor": "^4.0.10",
+    "run-sequence": "^1.2.1",
+    "svg-inline-loader": "^0.8.0",
+    "typescript": "^2.3.3",
+    "wcdoc": "0.1.19",
+    "wdio-jasmine-framework": "^0.2.16",
+    "webdriverio": "^4.4.0",
+    "webpack": "^2.4.1"
+  },
+  "dependencies": {
+    "@onsenui/custom-elements": "1.0.0",
+    "core-js": "2.4.1"
+  }
+}

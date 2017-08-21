@@ -1,0 +1,4176 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Onsen CSS Components</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,minimum-scale=1">
+    <link rel="stylesheet" href="./onsen-css-components.css" />
+    <link rel="stylesheet" href="https://unpkg.com/onsenui/css/ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/onsenui/css/material-design-iconic-font/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        position: static;
+        background-color: white;
+        overflow: visible;
+      }
+
+      h1#title {
+        font-size: 16px;
+        font-weight: 500;
+        font-family: Helvetica;
+        text-align: center;
+        width: 100%;
+        height: 64px;
+        line-height: 64px;
+        padding: 0;
+        margin: 0 0 20px 0;
+      }
+
+      .components {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: 50vh;
+      }
+
+      .component-preview {
+        display: inline-block;
+        width: 350px;
+        box-sizing: border-box;
+        margin: 10px 10px 20px 10px;
+      }
+
+      .component-preview__link,
+      .component-preview__link:link,
+      .component-preview__link:visited {
+        color: #333;
+        text-decoration: none;
+      }
+
+      .component-preview__link:hover {
+        text-decoration: underline;
+      }
+
+      .component-preview__title {
+        font-family: Helvetica;
+        font-size: 14px;
+        font-weight: 400;
+        color: #333;
+        line-height: 1.4;
+        margin: 8px 0;
+      }
+
+      .component-preview__toggle {
+        display: none;
+        float: right;
+        margin: 8px 0 0 0;
+        border: none;
+        background-color: white;
+        font-size: 12px;
+        padding: 0px;
+        color: #aaa;
+        text-decoration: underline;
+        cursor: pointer;
+        line-height: 12px;
+        padding: 4px 3px;
+      }
+
+      .component-preview:hover > .component-preview__toggle {
+        display: block;
+      }
+
+      .component-preview__toggle:hover {
+        text-decoration: none;
+      }
+
+      .component-preview__toggle:active {
+        outline: none;
+      }
+
+      .component-preview__toggle:focus {
+        outline: none;
+      }
+
+      .component-preview__markup {
+        background-color: #f3f3f3;
+        color: #888;
+        font-size: 14px;
+        line-height: 1.4;
+        font-family: Consolas, monospace;
+        padding: 4px 6px;
+        max-width: 100%;
+        overflow-x: auto;
+        display: none;
+        user-select: auto;
+        box-sizing: border-box;
+        margin: 0;
+      }
+
+      .component-preview__example {
+        height: 201px;
+        text-align: center;
+        position: relative;
+        z-index: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+
+    </style>
+  </head>
+  <body ontouchstart=""> <!-- Hack to fix ":active" CSS selector on mobile browsers.-->
+
+    <h1 id="title">CSS Components for Onsen UI</h1>
+
+    <div class="components">
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="switch">
+          <a href="#switch" class="component-preview__link">Switch</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <label class="switch">
+  <input type="checkbox" class="switch__input">
+  <div class="switch__toggle">
+    <div class="switch__handle"></div>
+  </div>
+</label>
+<label class="switch">
+  <input type="checkbox" class="switch__input" checked>
+  <div class="switch__toggle">
+    <div class="switch__handle"></div>
+  </div>
+</label>
+<label class="switch">
+  <input type="checkbox" class="switch__input" disabled>
+  <div class="switch__toggle">
+    <div class="switch__handle"></div>
+  </div>
+</label>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;label class=&quot;switch&quot;&gt;
+  &lt;input type=&quot;checkbox&quot; class=&quot;switch__input&quot;&gt;
+  &lt;div class=&quot;switch__toggle&quot;&gt;
+    &lt;div class=&quot;switch__handle&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/label&gt;
+&lt;label class=&quot;switch&quot;&gt;
+  &lt;input type=&quot;checkbox&quot; class=&quot;switch__input&quot; checked&gt;
+  &lt;div class=&quot;switch__toggle&quot;&gt;
+    &lt;div class=&quot;switch__handle&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/label&gt;
+&lt;label class=&quot;switch&quot;&gt;
+  &lt;input type=&quot;checkbox&quot; class=&quot;switch__input&quot; disabled&gt;
+  &lt;div class=&quot;switch__toggle&quot;&gt;
+    &lt;div class=&quot;switch__handle&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/label&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="material_switch">
+          <a href="#material_switch" class="component-preview__link">Material Switch</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <label class="switch switch--material">
+  <input type="checkbox" class="switch__input switch--material__input">
+  <div class="switch__toggle switch--material__toggle">
+    <div class="switch__handle switch--material__handle">
+    </div>
+  </div>
+</label>
+<label class="switch switch--material">
+  <input type="checkbox" class="switch__input switch--material__input" checked>
+  <div class="switch__toggle switch--material__toggle">
+    <div class="switch__handle switch--material__handle">
+    </div>
+  </div>
+</label>
+<label class="switch switch--material">
+  <input type="checkbox" class="switch__input switch--material__input" disabled>
+  <div class="switch__toggle switch--material__toggle">
+    <div class="switch__handle switch--material__handle">
+    </div>
+  </div>
+</label>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;label class=&quot;switch switch--material&quot;&gt;
+  &lt;input type=&quot;checkbox&quot; class=&quot;switch__input switch--material__input&quot;&gt;
+  &lt;div class=&quot;switch__toggle switch--material__toggle&quot;&gt;
+    &lt;div class=&quot;switch__handle switch--material__handle&quot;&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/label&gt;
+&lt;label class=&quot;switch switch--material&quot;&gt;
+  &lt;input type=&quot;checkbox&quot; class=&quot;switch__input switch--material__input&quot; checked&gt;
+  &lt;div class=&quot;switch__toggle switch--material__toggle&quot;&gt;
+    &lt;div class=&quot;switch__handle switch--material__handle&quot;&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/label&gt;
+&lt;label class=&quot;switch switch--material&quot;&gt;
+  &lt;input type=&quot;checkbox&quot; class=&quot;switch__input switch--material__input&quot; disabled&gt;
+  &lt;div class=&quot;switch__toggle switch--material__toggle&quot;&gt;
+    &lt;div class=&quot;switch__handle switch--material__handle&quot;&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/label&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="range">
+          <a href="#range" class="component-preview__link">Range</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <div class="range">
+  <input type="range" class="range__input">
+  <input type="range" class="range__focus-ring">
+</div>
+
+<div class="range range--disabled">
+  <input type="range" class="range__input" disabled>
+  <input type="range" class="range__focus-ring" disabled>
+</div>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;div class=&quot;range&quot;&gt;
+  &lt;input type=&quot;range&quot; class=&quot;range__input&quot;&gt;
+  &lt;input type=&quot;range&quot; class=&quot;range__focus-ring&quot;&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;range range--disabled&quot;&gt;
+  &lt;input type=&quot;range&quot; class=&quot;range__input&quot; disabled&gt;
+  &lt;input type=&quot;range&quot; class=&quot;range__focus-ring&quot; disabled&gt;
+&lt;/div&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="material_range">
+          <a href="#material_range" class="component-preview__link">Material Range</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <div class="range range--material">
+  <input type="range" class="range__input range--material__input" min="0" max="100">
+  <!-- <input type="range" class="range__focus-ring range--material__focus-ring"> -->
+</div>
+
+<div class="range range--material range--disabled">
+  <input type="range" class="range__input range--material__input" disabled>
+  <!-- <input type="range" class="range__focus-ring range--material__focus-ring" disabled> -->
+</div>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;div class=&quot;range range--material&quot;&gt;
+  &lt;input type=&quot;range&quot; class=&quot;range__input range--material__input&quot; min=&quot;0&quot; max=&quot;100&quot;&gt;
+  &lt;!-- &lt;input type=&quot;range&quot; class=&quot;range__focus-ring range--material__focus-ring&quot;&gt; --&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;range range--material range--disabled&quot;&gt;
+  &lt;input type=&quot;range&quot; class=&quot;range__input range--material__input&quot; disabled&gt;
+  &lt;!-- &lt;input type=&quot;range&quot; class=&quot;range__focus-ring range--material__focus-ring&quot; disabled&gt; --&gt;
+&lt;/div&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="notification">
+          <a href="#notification" class="component-preview__link">Notification</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <span class="notification">1</span>
+<span class="notification">10</span>
+<span class="notification">999</span>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;span class=&quot;notification&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;notification&quot;&gt;10&lt;/span&gt;
+&lt;span class=&quot;notification&quot;&gt;999&lt;/span&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="material_notification">
+          <a href="#material_notification" class="component-preview__link">Material Notification</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <span class="notification notification--material">1</span>
+<span class="notification notification--material">10</span>
+<span class="notification notification--material">999</span>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;span class=&quot;notification notification--material&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;notification notification--material&quot;&gt;10&lt;/span&gt;
+&lt;span class=&quot;notification notification--material&quot;&gt;999&lt;/span&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="toolbar">
+          <a href="#toolbar" class="component-preview__link">Toolbar</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <div class="toolbar">
+  <div class="toolbar__center">Navigation Bar</div>
+</div>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;div class=&quot;toolbar&quot;&gt;
+  &lt;div class=&quot;toolbar__center&quot;&gt;Navigation Bar&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="toolbar_item">
+          <a href="#toolbar_item" class="component-preview__link">Toolbar Item</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <div class="toolbar">
+  <div class="toolbar__left">
+    <span class="toolbar-button">
+      <i class="ion-navicon" style="font-size:32px; vertical-align:-6px;"></i>
+    </span>
+  </div>
+
+  <div class="toolbar__center">
+    Navigation Bar
+  </div>
+
+  <div class="toolbar__right">
+    <span class="toolbar-button">Label</span>
+  </div>
+</div>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;div class=&quot;toolbar&quot;&gt;
+  &lt;div class=&quot;toolbar__left&quot;&gt;
+    &lt;span class=&quot;toolbar-button&quot;&gt;
+      &lt;i class=&quot;ion-navicon&quot; style=&quot;font-size:32px; vertical-align:-6px;&quot;&gt;&lt;/i&gt;
+    &lt;/span&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;toolbar__center&quot;&gt;
+    Navigation Bar
+  &lt;/div&gt;
+
+  &lt;div class=&quot;toolbar__right&quot;&gt;
+    &lt;span class=&quot;toolbar-button&quot;&gt;Label&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="toolbar_with_outline_button">
+          <a href="#toolbar_with_outline_button" class="component-preview__link">Toolbar with Outline Button</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <!-- Prerequisite=This example use ionicons(http://ionicons.com) to display icons. -->
+<div class="toolbar">
+  <div class="toolbar__left">
+    <span class="toolbar-button toolbar-button--outline">
+      <i class="ion-navicon" style="font-size:32px; vertical-align:-6px;"></i>
+    </span>
+  </div>
+
+  <div class="toolbar__center">
+    Title
+  </div>
+
+  <div class="toolbar__right">
+    <span class="toolbar-button toolbar-button--outline">Button</span>
+  </div>
+</div>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;!-- Prerequisite=This example use ionicons(http://ionicons.com) to display icons. --&gt;
+&lt;div class=&quot;toolbar&quot;&gt;
+  &lt;div class=&quot;toolbar__left&quot;&gt;
+    &lt;span class=&quot;toolbar-button toolbar-button--outline&quot;&gt;
+      &lt;i class=&quot;ion-navicon&quot; style=&quot;font-size:32px; vertical-align:-6px;&quot;&gt;&lt;/i&gt;
+    &lt;/span&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;toolbar__center&quot;&gt;
+    Title
+  &lt;/div&gt;
+
+  &lt;div class=&quot;toolbar__right&quot;&gt;
+    &lt;span class=&quot;toolbar-button toolbar-button--outline&quot;&gt;Button&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="bottom_bar">
+          <a href="#bottom_bar" class="component-preview__link">Bottom Bar</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <div class="bottom-bar">
+  <div class="bottom-bar__line-height" style="text-align:center">Bottom Toolbar</div>
+</div>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;div class=&quot;bottom-bar&quot;&gt;
+  &lt;div class=&quot;bottom-bar__line-height&quot; style=&quot;text-align:center&quot;&gt;Bottom Toolbar&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="toolbar_with_segment">
+          <a href="#toolbar_with_segment" class="component-preview__link">Toolbar with Segment</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <div class="toolbar">
+  <div class="toolbar__center">
+    <div class="segment" style="width:200px;margin:7px 50px;">
+      <div class="segment__item">
+        <input type="radio" class="segment__input" name="navi-segment-a" checked>
+        <div class="segment__button">One</div>
+      </div>
+
+      <div class="segment__item">
+        <input type="radio" class="segment__input" name="navi-segment-a">
+        <div class="segment__button">Two</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;div class=&quot;toolbar&quot;&gt;
+  &lt;div class=&quot;toolbar__center&quot;&gt;
+    &lt;div class=&quot;segment&quot; style=&quot;width:200px;margin:7px 50px;&quot;&gt;
+      &lt;div class=&quot;segment__item&quot;&gt;
+        &lt;input type=&quot;radio&quot; class=&quot;segment__input&quot; name=&quot;navi-segment-a&quot; checked&gt;
+        &lt;div class=&quot;segment__button&quot;&gt;One&lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class=&quot;segment__item&quot;&gt;
+        &lt;input type=&quot;radio&quot; class=&quot;segment__input&quot; name=&quot;navi-segment-a&quot;&gt;
+        &lt;div class=&quot;segment__button&quot;&gt;Two&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="material_toolbar">
+          <a href="#material_toolbar" class="component-preview__link">Material Toolbar</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <div class="toolbar toolbar--material">
+  <div class="toolbar__center toolbar--material__center">
+    Title
+  </div>
+</div>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;div class=&quot;toolbar toolbar--material&quot;&gt;
+  &lt;div class=&quot;toolbar__center toolbar--material__center&quot;&gt;
+    Title
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="no_shadow_toolbar">
+          <a href="#no_shadow_toolbar" class="component-preview__link">No Shadow Toolbar</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <div class="toolbar toolbar--noshadow">
+  <div class="toolbar__left">
+    <span class="toolbar-button">
+      <i class="ion-navicon" style="font-size:32px; vertical-align:-6px;"></i>
+    </span>
+  </div>
+  <div class="toolbar__center">
+    Navigation Bar
+  </div>
+  <div class="toolbar__right">
+    <span class="toolbar-button">Label</span>
+  </div>
+</div>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;div class=&quot;toolbar toolbar--noshadow&quot;&gt;
+  &lt;div class=&quot;toolbar__left&quot;&gt;
+    &lt;span class=&quot;toolbar-button&quot;&gt;
+      &lt;i class=&quot;ion-navicon&quot; style=&quot;font-size:32px; vertical-align:-6px;&quot;&gt;&lt;/i&gt;
+    &lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;toolbar__center&quot;&gt;
+    Navigation Bar
+  &lt;/div&gt;
+  &lt;div class=&quot;toolbar__right&quot;&gt;
+    &lt;span class=&quot;toolbar-button&quot;&gt;Label&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="material_toolbar_with_icons">
+          <a href="#material_toolbar_with_icons" class="component-preview__link">Material Toolbar with Icons</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <div class="toolbar toolbar--material">
+  <div class="toolbar__left toolbar--material__left">
+    <span class="toolbar-button toolbar-button--material">
+      <i class="zmdi zmdi-menu"></i>
+    </span>
+  </div>
+  <div class="toolbar__center toolbar--material__center">
+    Title
+  </div>
+  <div class="toolbar__right toolbar--material__right">
+    <span class="toolbar-button toolbar-button--material">
+      <i class="zmdi zmdi-search"></i>
+    </span>
+    <span class="toolbar-button toolbar-button--material">
+      <i class="zmdi zmdi-favorite"></i>
+    </span>
+    <span class="toolbar-button toolbar-button--material">
+      <i class="zmdi zmdi-more-vert"></i>
+    </span>
+  </div>
+</div>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;div class=&quot;toolbar toolbar--material&quot;&gt;
+  &lt;div class=&quot;toolbar__left toolbar--material__left&quot;&gt;
+    &lt;span class=&quot;toolbar-button toolbar-button--material&quot;&gt;
+      &lt;i class=&quot;zmdi zmdi-menu&quot;&gt;&lt;/i&gt;
+    &lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;toolbar__center toolbar--material__center&quot;&gt;
+    Title
+  &lt;/div&gt;
+  &lt;div class=&quot;toolbar__right toolbar--material__right&quot;&gt;
+    &lt;span class=&quot;toolbar-button toolbar-button--material&quot;&gt;
+      &lt;i class=&quot;zmdi zmdi-search&quot;&gt;&lt;/i&gt;
+    &lt;/span&gt;
+    &lt;span class=&quot;toolbar-button toolbar-button--material&quot;&gt;
+      &lt;i class=&quot;zmdi zmdi-favorite&quot;&gt;&lt;/i&gt;
+    &lt;/span&gt;
+    &lt;span class=&quot;toolbar-button toolbar-button--material&quot;&gt;
+      &lt;i class=&quot;zmdi zmdi-more-vert&quot;&gt;&lt;/i&gt;
+    &lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="transparent_toolbar">
+          <a href="#transparent_toolbar" class="component-preview__link">Transparent Toolbar</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <div class="toolbar toolbar--transparent">
+  <div class="toolbar__left">
+    <span class="toolbar-button">
+      <i class="ion-navicon" style="font-size:32px; vertical-align:-6px;"></i>
+    </span>
+  </div>
+  <div class="toolbar__center">
+    Navigation Bar
+  </div>
+  <div class="toolbar__right">
+    <span class="toolbar-button">Label</span>
+  </div>
+</div>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;div class=&quot;toolbar toolbar--transparent&quot;&gt;
+  &lt;div class=&quot;toolbar__left&quot;&gt;
+    &lt;span class=&quot;toolbar-button&quot;&gt;
+      &lt;i class=&quot;ion-navicon&quot; style=&quot;font-size:32px; vertical-align:-6px;&quot;&gt;&lt;/i&gt;
+    &lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;toolbar__center&quot;&gt;
+    Navigation Bar
+  &lt;/div&gt;
+  &lt;div class=&quot;toolbar__right&quot;&gt;
+    &lt;span class=&quot;toolbar-button&quot;&gt;Label&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="button">
+          <a href="#button" class="component-preview__link">Button</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <button class="button">Button</button>
+<button class="button" disabled>Button</button>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;button class=&quot;button&quot;&gt;Button&lt;/button&gt;
+&lt;button class=&quot;button&quot; disabled&gt;Button&lt;/button&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="outline_button">
+          <a href="#outline_button" class="component-preview__link">Outline Button</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <button class="button button--outline">Button</button>
+<button class="button button--outline" disabled>Button</button>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;button class=&quot;button button--outline&quot;&gt;Button&lt;/button&gt;
+&lt;button class=&quot;button button--outline&quot; disabled&gt;Button&lt;/button&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="light_button">
+          <a href="#light_button" class="component-preview__link">Light Button</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <button class="button button--light">Button</button>
+<button class="button button--light" disabled>Button</button>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;button class=&quot;button button--light&quot;&gt;Button&lt;/button&gt;
+&lt;button class=&quot;button button--light&quot; disabled&gt;Button&lt;/button&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="quiet_button">
+          <a href="#quiet_button" class="component-preview__link">Quiet Button</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <button class="button--quiet">Button</button>
+<button class="button--quiet" disabled>Button</button>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;button class=&quot;button--quiet&quot;&gt;Button&lt;/button&gt;
+&lt;button class=&quot;button--quiet&quot; disabled&gt;Button&lt;/button&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="call_to_action_button">
+          <a href="#call_to_action_button" class="component-preview__link">Call To Action Button</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <button class="button--cta">Button</button>
+<button class="button--cta" disabled>Button</button>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;button class=&quot;button--cta&quot;&gt;Button&lt;/button&gt;
+&lt;button class=&quot;button--cta&quot; disabled&gt;Button&lt;/button&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="large_quiet_button">
+          <a href="#large_quiet_button" class="component-preview__link">Large Quiet Button</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <button class="button--large--quiet" style="width: 95%; margin: 0 auto;">Button</button>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;button class=&quot;button--large--quiet&quot; style=&quot;width: 95%; margin: 0 auto;&quot;&gt;Button&lt;/button&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="large_call_to_action_button">
+          <a href="#large_call_to_action_button" class="component-preview__link">Large Call To Action Button</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <button class="button--large--cta" style="width: 95%; margin: 0 auto;">Button</button>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;button class=&quot;button--large--cta&quot; style=&quot;width: 95%; margin: 0 auto;&quot;&gt;Button&lt;/button&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="material_button">
+          <a href="#material_button" class="component-preview__link">Material Button</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <button class="button button--material">BUTTON</button>
+<button class="button button--material" disabled>DISABLED</button>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;button class=&quot;button button--material&quot;&gt;BUTTON&lt;/button&gt;
+&lt;button class=&quot;button button--material&quot; disabled&gt;DISABLED&lt;/button&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="material_flat_button">
+          <a href="#material_flat_button" class="component-preview__link">Material Flat Button</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <button class="button button--material--flat">BUTTON</button>
+<button class="button button--material--flat" disabled>DISABLED</button>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;button class=&quot;button button--material--flat&quot;&gt;BUTTON&lt;/button&gt;
+&lt;button class=&quot;button button--material--flat&quot; disabled&gt;DISABLED&lt;/button&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="button_bar">
+          <a href="#button_bar" class="component-preview__link">Button Bar</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <div class="button-bar" style="width:280px;">
+  <div class="button-bar__item">
+    <button class="button-bar__button">One</button>
+  </div>
+  <div class="button-bar__item">
+    <button class="button-bar__button">Two</button>
+  </div>
+  <div class="button-bar__item">
+    <button class="button-bar__button">Three</button>
+  </div>
+</div>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;div class=&quot;button-bar&quot; style=&quot;width:280px;&quot;&gt;
+  &lt;div class=&quot;button-bar__item&quot;&gt;
+    &lt;button class=&quot;button-bar__button&quot;&gt;One&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;button-bar__item&quot;&gt;
+    &lt;button class=&quot;button-bar__button&quot;&gt;Two&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;button-bar__item&quot;&gt;
+    &lt;button class=&quot;button-bar__button&quot;&gt;Three&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="segment">
+          <a href="#segment" class="component-preview__link">Segment</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <div class="segment" style="width: 280px; margin: 0 auto;">
+  <div class="segment__item">
+    <input type="radio" class="segment__input" name="segment-a" checked>
+    <button class="segment__button">One</button>
+  </div>
+  <div class="segment__item">
+    <input type="radio" class="segment__input" name="segment-a">
+    <button class="segment__button">Two</button>
+  </div>
+  <div class="segment__item">
+    <input type="radio" class="segment__input" name="segment-a">
+    <button class="segment__button">Three</button>
+  </div>
+</div>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;div class=&quot;segment&quot; style=&quot;width: 280px; margin: 0 auto;&quot;&gt;
+  &lt;div class=&quot;segment__item&quot;&gt;
+    &lt;input type=&quot;radio&quot; class=&quot;segment__input&quot; name=&quot;segment-a&quot; checked&gt;
+    &lt;button class=&quot;segment__button&quot;&gt;One&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;segment__item&quot;&gt;
+    &lt;input type=&quot;radio&quot; class=&quot;segment__input&quot; name=&quot;segment-a&quot;&gt;
+    &lt;button class=&quot;segment__button&quot;&gt;Two&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;segment__item&quot;&gt;
+    &lt;input type=&quot;radio&quot; class=&quot;segment__input&quot; name=&quot;segment-a&quot;&gt;
+    &lt;button class=&quot;segment__button&quot;&gt;Three&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="material_segment">
+          <a href="#material_segment" class="component-preview__link">Material Segment</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <div class="segment segment--material" style="width: 280px; margin: 0 auto;">
+  <div class="segment__item segment--material__item">
+    <input type="radio" class="segment__input segment--material__input" name="segment-b" checked>
+    <button class="segment__button segment--material__button">One</button>
+  </div>
+  <div class="segment__item segment--material__item">
+    <input type="radio" class="segment__input segment--material__input" name="segment-b">
+    <button class="segment__button segment--material__button">Two</button>
+  </div>
+  <div class="segment__item segment--material__item">
+    <input type="radio" class="segment__input segment--material__input" name="segment-b">
+    <button class="segment__button segment--material__button">Three</button>
+  </div>
+</div>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;div class=&quot;segment segment--material&quot; style=&quot;width: 280px; margin: 0 auto;&quot;&gt;
+  &lt;div class=&quot;segment__item segment--material__item&quot;&gt;
+    &lt;input type=&quot;radio&quot; class=&quot;segment__input segment--material__input&quot; name=&quot;segment-b&quot; checked&gt;
+    &lt;button class=&quot;segment__button segment--material__button&quot;&gt;One&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;segment__item segment--material__item&quot;&gt;
+    &lt;input type=&quot;radio&quot; class=&quot;segment__input segment--material__input&quot; name=&quot;segment-b&quot;&gt;
+    &lt;button class=&quot;segment__button segment--material__button&quot;&gt;Two&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;segment__item segment--material__item&quot;&gt;
+    &lt;input type=&quot;radio&quot; class=&quot;segment__input segment--material__input&quot; name=&quot;segment-b&quot;&gt;
+    &lt;button class=&quot;segment__button segment--material__button&quot;&gt;Three&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="icon_tabbar">
+          <a href="#icon_tabbar" class="component-preview__link">Icon Tabbar</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <!-- Prerequisite=This example use ionicons(http://ionicons.com) to display icons. -->
+<div class="tabbar">
+  <label class="tabbar__item">
+    <input type="radio" name="tabbar-a" checked="checked">
+    <button class="tabbar__button">
+      <i class="tabbar__icon ion-stop"></i>
+      <div class="tabbar__label">One</div>
+    </button>
+  </label>
+
+  <label class="tabbar__item">
+    <input type="radio" name="tabbar-a">
+    <button class="tabbar__button">
+      <i class="tabbar__icon ion-record"></i>
+      <div class="tabbar__label">Two</div>
+    </button>
+  </label>
+
+  <label class="tabbar__item">
+    <input type="radio" name="tabbar-a">
+    <button class="tabbar__button">
+      <i class="tabbar__icon ion-star"></i>
+      <div class="tabbar__label">Three</div>
+    </button>
+  </label>
+</div>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;!-- Prerequisite=This example use ionicons(http://ionicons.com) to display icons. --&gt;
+&lt;div class=&quot;tabbar&quot;&gt;
+  &lt;label class=&quot;tabbar__item&quot;&gt;
+    &lt;input type=&quot;radio&quot; name=&quot;tabbar-a&quot; checked=&quot;checked&quot;&gt;
+    &lt;button class=&quot;tabbar__button&quot;&gt;
+      &lt;i class=&quot;tabbar__icon ion-stop&quot;&gt;&lt;/i&gt;
+      &lt;div class=&quot;tabbar__label&quot;&gt;One&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/label&gt;
+
+  &lt;label class=&quot;tabbar__item&quot;&gt;
+    &lt;input type=&quot;radio&quot; name=&quot;tabbar-a&quot;&gt;
+    &lt;button class=&quot;tabbar__button&quot;&gt;
+      &lt;i class=&quot;tabbar__icon ion-record&quot;&gt;&lt;/i&gt;
+      &lt;div class=&quot;tabbar__label&quot;&gt;Two&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/label&gt;
+
+  &lt;label class=&quot;tabbar__item&quot;&gt;
+    &lt;input type=&quot;radio&quot; name=&quot;tabbar-a&quot;&gt;
+    &lt;button class=&quot;tabbar__button&quot;&gt;
+      &lt;i class=&quot;tabbar__icon ion-star&quot;&gt;&lt;/i&gt;
+      &lt;div class=&quot;tabbar__label&quot;&gt;Three&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/label&gt;
+&lt;/div&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="tabbar">
+          <a href="#tabbar" class="component-preview__link">Tabbar</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <div class="tabbar">
+  <label class="tabbar__item">
+    <input type="radio" name="tabbar-c" checked="checked">
+    <button class="tabbar__button">
+      <div class="tabbar__label">One</div>
+    </button>
+  </label>
+
+  <label class="tabbar__item">
+    <input type="radio" name="tabbar-c">
+    <button class="tabbar__button">
+      <div class="tabbar__label">Two</div>
+    </button>
+  </label>
+
+  <label class="tabbar__item">
+    <input type="radio" name="tabbar-c">
+    <button class="tabbar__button">
+      <div class="tabbar__label">Three</div>
+    </button>
+  </label>
+</div>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;div class=&quot;tabbar&quot;&gt;
+  &lt;label class=&quot;tabbar__item&quot;&gt;
+    &lt;input type=&quot;radio&quot; name=&quot;tabbar-c&quot; checked=&quot;checked&quot;&gt;
+    &lt;button class=&quot;tabbar__button&quot;&gt;
+      &lt;div class=&quot;tabbar__label&quot;&gt;One&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/label&gt;
+
+  &lt;label class=&quot;tabbar__item&quot;&gt;
+    &lt;input type=&quot;radio&quot; name=&quot;tabbar-c&quot;&gt;
+    &lt;button class=&quot;tabbar__button&quot;&gt;
+      &lt;div class=&quot;tabbar__label&quot;&gt;Two&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/label&gt;
+
+  &lt;label class=&quot;tabbar__item&quot;&gt;
+    &lt;input type=&quot;radio&quot; name=&quot;tabbar-c&quot;&gt;
+    &lt;button class=&quot;tabbar__button&quot;&gt;
+      &lt;div class=&quot;tabbar__label&quot;&gt;Three&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/label&gt;
+&lt;/div&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="icon_only_tabbar">
+          <a href="#icon_only_tabbar" class="component-preview__link">Icon Only Tabbar</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <!-- Prerequisite=This example use ionicons(http://ionicons.com) to display icons. -->
+<div class="tabbar">
+  <label class="tabbar__item">
+    <input type="radio" name="tabbar-b" checked="checked">
+    <button class="tabbar__button">
+      <i class="tabbar__icon ion-stop"></i>
+    </button>
+  </label>
+
+  <label class="tabbar__item">
+    <input type="radio" name="tabbar-b">
+    <button class="tabbar__button">
+      <i class="tabbar__icon ion-record"></i>
+    </button>
+  </label>
+
+  <label class="tabbar__item">
+    <input type="radio" name="tabbar-b">
+    <button class="tabbar__button">
+      <i class="tabbar__icon ion-star"></i>
+    </button>
+  </label>
+
+</div>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;!-- Prerequisite=This example use ionicons(http://ionicons.com) to display icons. --&gt;
+&lt;div class=&quot;tabbar&quot;&gt;
+  &lt;label class=&quot;tabbar__item&quot;&gt;
+    &lt;input type=&quot;radio&quot; name=&quot;tabbar-b&quot; checked=&quot;checked&quot;&gt;
+    &lt;button class=&quot;tabbar__button&quot;&gt;
+      &lt;i class=&quot;tabbar__icon ion-stop&quot;&gt;&lt;/i&gt;
+    &lt;/button&gt;
+  &lt;/label&gt;
+
+  &lt;label class=&quot;tabbar__item&quot;&gt;
+    &lt;input type=&quot;radio&quot; name=&quot;tabbar-b&quot;&gt;
+    &lt;button class=&quot;tabbar__button&quot;&gt;
+      &lt;i class=&quot;tabbar__icon ion-record&quot;&gt;&lt;/i&gt;
+    &lt;/button&gt;
+  &lt;/label&gt;
+
+  &lt;label class=&quot;tabbar__item&quot;&gt;
+    &lt;input type=&quot;radio&quot; name=&quot;tabbar-b&quot;&gt;
+    &lt;button class=&quot;tabbar__button&quot;&gt;
+      &lt;i class=&quot;tabbar__icon ion-star&quot;&gt;&lt;/i&gt;
+    &lt;/button&gt;
+  &lt;/label&gt;
+
+&lt;/div&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="top_tabbar">
+          <a href="#top_tabbar" class="component-preview__link">Top Tabbar</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <div class="tabbar tabbar--top">
+  <label class="tabbar__item">
+    <input type="radio" name="top-tabbar-a" checked="checked">
+    <button class="tabbar__button">
+      <i class="tabbar__icon ion-stop"></i>
+    </button>
+  </label>
+
+  <label class="tabbar__item">
+    <input type="radio" name="top-tabbar-a">
+    <button class="tabbar__button">
+      <i class="tabbar__icon ion-record"></i>
+    </button>
+  </label>
+
+  <label class="tabbar__item">
+    <input type="radio" name="top-tabbar-a">
+    <button class="tabbar__button">
+      <i class="tabbar__icon ion-star"></i>
+    </button>
+  </label>
+</div>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;div class=&quot;tabbar tabbar--top&quot;&gt;
+  &lt;label class=&quot;tabbar__item&quot;&gt;
+    &lt;input type=&quot;radio&quot; name=&quot;top-tabbar-a&quot; checked=&quot;checked&quot;&gt;
+    &lt;button class=&quot;tabbar__button&quot;&gt;
+      &lt;i class=&quot;tabbar__icon ion-stop&quot;&gt;&lt;/i&gt;
+    &lt;/button&gt;
+  &lt;/label&gt;
+
+  &lt;label class=&quot;tabbar__item&quot;&gt;
+    &lt;input type=&quot;radio&quot; name=&quot;top-tabbar-a&quot;&gt;
+    &lt;button class=&quot;tabbar__button&quot;&gt;
+      &lt;i class=&quot;tabbar__icon ion-record&quot;&gt;&lt;/i&gt;
+    &lt;/button&gt;
+  &lt;/label&gt;
+
+  &lt;label class=&quot;tabbar__item&quot;&gt;
+    &lt;input type=&quot;radio&quot; name=&quot;top-tabbar-a&quot;&gt;
+    &lt;button class=&quot;tabbar__button&quot;&gt;
+      &lt;i class=&quot;tabbar__icon ion-star&quot;&gt;&lt;/i&gt;
+    &lt;/button&gt;
+  &lt;/label&gt;
+&lt;/div&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="bordered_top_tabbar">
+          <a href="#bordered_top_tabbar" class="component-preview__link">Bordered Top Tabbar</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <div class="tabbar tabbar--top tabbar--top-border">
+  <label class="tabbar__item tabbar--top-border__item">
+    <input type="radio" name="top-tabbar-b" checked="checked">
+    <button class="tabbar__button tabbar--top-border__button">
+      Home
+    </button>
+  </label>
+
+  <label class="tabbar__item tabbar--top-border__item">
+    <input type="radio" name="top-tabbar-b">
+    <button class="tabbar__button tabbar--top-border__button">
+      Comments
+    </button>
+  </label>
+
+  <label class="tabbar__item tabbar--top-border__item">
+    <input type="radio" name="top-tabbar-b">
+    <button class="tabbar__button tabbar--top-border__button">
+      Activity
+    </button>
+  </label>
+</div>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;div class=&quot;tabbar tabbar--top tabbar--top-border&quot;&gt;
+  &lt;label class=&quot;tabbar__item tabbar--top-border__item&quot;&gt;
+    &lt;input type=&quot;radio&quot; name=&quot;top-tabbar-b&quot; checked=&quot;checked&quot;&gt;
+    &lt;button class=&quot;tabbar__button tabbar--top-border__button&quot;&gt;
+      Home
+    &lt;/button&gt;
+  &lt;/label&gt;
+
+  &lt;label class=&quot;tabbar__item tabbar--top-border__item&quot;&gt;
+    &lt;input type=&quot;radio&quot; name=&quot;top-tabbar-b&quot;&gt;
+    &lt;button class=&quot;tabbar__button tabbar--top-border__button&quot;&gt;
+      Comments
+    &lt;/button&gt;
+  &lt;/label&gt;
+
+  &lt;label class=&quot;tabbar__item tabbar--top-border__item&quot;&gt;
+    &lt;input type=&quot;radio&quot; name=&quot;top-tabbar-b&quot;&gt;
+    &lt;button class=&quot;tabbar__button tabbar--top-border__button&quot;&gt;
+      Activity
+    &lt;/button&gt;
+  &lt;/label&gt;
+&lt;/div&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="material_tabbar">
+          <a href="#material_tabbar" class="component-preview__link">Material Tabbar</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <div class="tabbar tabbar--top tabbar--material">
+  <label class="tabbar__item tabbar--material__item">
+    <input type="radio" name="tabbar-material-a" checked="checked">
+    <button class="tabbar__button tabbar--material__button">
+      Music
+    </button>
+  </label>
+
+  <label class="tabbar__item tabbar--material__item">
+    <input type="radio" name="tabbar-material-a">
+    <button class="tabbar__button tabbar--material__button">
+      Movies
+    </button>
+  </label>
+
+  <label class="tabbar__item tabbar--material__item">
+    <input type="radio" name="tabbar-material-a">
+    <button class="tabbar__button tabbar--material__button">
+      Books
+    </button>
+  </label>
+
+  <label class="tabbar__item tabbar--material__item">
+    <input type="radio" name="tabbar-material-a">
+    <button class="tabbar__button tabbar--material__button">
+      Games
+    </button>
+  </label>
+
+</div>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;div class=&quot;tabbar tabbar--top tabbar--material&quot;&gt;
+  &lt;label class=&quot;tabbar__item tabbar--material__item&quot;&gt;
+    &lt;input type=&quot;radio&quot; name=&quot;tabbar-material-a&quot; checked=&quot;checked&quot;&gt;
+    &lt;button class=&quot;tabbar__button tabbar--material__button&quot;&gt;
+      Music
+    &lt;/button&gt;
+  &lt;/label&gt;
+
+  &lt;label class=&quot;tabbar__item tabbar--material__item&quot;&gt;
+    &lt;input type=&quot;radio&quot; name=&quot;tabbar-material-a&quot;&gt;
+    &lt;button class=&quot;tabbar__button tabbar--material__button&quot;&gt;
+      Movies
+    &lt;/button&gt;
+  &lt;/label&gt;
+
+  &lt;label class=&quot;tabbar__item tabbar--material__item&quot;&gt;
+    &lt;input type=&quot;radio&quot; name=&quot;tabbar-material-a&quot;&gt;
+    &lt;button class=&quot;tabbar__button tabbar--material__button&quot;&gt;
+      Books
+    &lt;/button&gt;
+  &lt;/label&gt;
+
+  &lt;label class=&quot;tabbar__item tabbar--material__item&quot;&gt;
+    &lt;input type=&quot;radio&quot; name=&quot;tabbar-material-a&quot;&gt;
+    &lt;button class=&quot;tabbar__button tabbar--material__button&quot;&gt;
+      Games
+    &lt;/button&gt;
+  &lt;/label&gt;
+
+&lt;/div&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="material_tabbar_(icon_only)">
+          <a href="#material_tabbar_(icon_only)" class="component-preview__link">Material Tabbar (Icon only)</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <div class="tabbar tabbar--top tabbar--material">
+  <label class="tabbar__item tabbar--material__item">
+    <input type="radio" name="tabbar-material-a" checked="checked">
+    <button class="tabbar__button tabbar--material__button">
+      <i class="tabbar__icon tabbar--material__icon zmdi zmdi-phone"></i>
+    </button>
+  </label>
+
+  <label class="tabbar__item tabbar--material__item">
+    <input type="radio" name="tabbar-material-a">
+    <button class="tabbar__button tabbar--material__button">
+      <i class="tabbar__icon tabbar--material__icon zmdi zmdi-favorite"></i>
+    </button>
+  </label>
+
+  <label class="tabbar__item tabbar--material__item">
+    <input type="radio" name="tabbar-material-a">
+    <button class="tabbar__button tabbar--material__button">
+      <i class="tabbar__icon tabbar--material__icon zmdi zmdi-pin-account"></i>
+    </button>
+  </label>
+</div>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;div class=&quot;tabbar tabbar--top tabbar--material&quot;&gt;
+  &lt;label class=&quot;tabbar__item tabbar--material__item&quot;&gt;
+    &lt;input type=&quot;radio&quot; name=&quot;tabbar-material-a&quot; checked=&quot;checked&quot;&gt;
+    &lt;button class=&quot;tabbar__button tabbar--material__button&quot;&gt;
+      &lt;i class=&quot;tabbar__icon tabbar--material__icon zmdi zmdi-phone&quot;&gt;&lt;/i&gt;
+    &lt;/button&gt;
+  &lt;/label&gt;
+
+  &lt;label class=&quot;tabbar__item tabbar--material__item&quot;&gt;
+    &lt;input type=&quot;radio&quot; name=&quot;tabbar-material-a&quot;&gt;
+    &lt;button class=&quot;tabbar__button tabbar--material__button&quot;&gt;
+      &lt;i class=&quot;tabbar__icon tabbar--material__icon zmdi zmdi-favorite&quot;&gt;&lt;/i&gt;
+    &lt;/button&gt;
+  &lt;/label&gt;
+
+  &lt;label class=&quot;tabbar__item tabbar--material__item&quot;&gt;
+    &lt;input type=&quot;radio&quot; name=&quot;tabbar-material-a&quot;&gt;
+    &lt;button class=&quot;tabbar__button tabbar--material__button&quot;&gt;
+      &lt;i class=&quot;tabbar__icon tabbar--material__icon zmdi zmdi-pin-account&quot;&gt;&lt;/i&gt;
+    &lt;/button&gt;
+  &lt;/label&gt;
+&lt;/div&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="material_tabbar_(icon_and_label)">
+          <a href="#material_tabbar_(icon_and_label)" class="component-preview__link">Material Tabbar (Icon and Label)</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <div class="tabbar tabbar--top tabbar--material">
+  <label class="tabbar__item tabbar--material__item">
+    <input type="radio" name="tabbar-material-a" checked="checked">
+    <button class="tabbar__button tabbar--material__button">
+      <i class="tabbar__icon tabbar--material__icon zmdi zmdi-phone"></i>
+      <div class="tabbar__label tabbar--material__label">Call</div>
+    </button>
+  </label>
+
+  <label class="tabbar__item tabbar--material__item">
+    <input type="radio" name="tabbar-material-a">
+    <button class="tabbar__button tabbar--material__button">
+      <i class="tabbar__icon tabbar--material__icon zmdi zmdi-favorite"></i>
+      <div class="tabbar__label tabbar--material__label">Favorites</div>
+    </button>
+  </label>
+
+  <label class="tabbar__item tabbar--material__item">
+    <input type="radio" name="tabbar-material-a">
+    <button class="tabbar__button tabbar--material__button">
+      <i class="tabbar__icon tabbar--material__icon zmdi zmdi-delete"></i>
+      <div class="tabbar__label tabbar--material__label">Delete</div>
+    </button>
+  </label>
+</div>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;div class=&quot;tabbar tabbar--top tabbar--material&quot;&gt;
+  &lt;label class=&quot;tabbar__item tabbar--material__item&quot;&gt;
+    &lt;input type=&quot;radio&quot; name=&quot;tabbar-material-a&quot; checked=&quot;checked&quot;&gt;
+    &lt;button class=&quot;tabbar__button tabbar--material__button&quot;&gt;
+      &lt;i class=&quot;tabbar__icon tabbar--material__icon zmdi zmdi-phone&quot;&gt;&lt;/i&gt;
+      &lt;div class=&quot;tabbar__label tabbar--material__label&quot;&gt;Call&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/label&gt;
+
+  &lt;label class=&quot;tabbar__item tabbar--material__item&quot;&gt;
+    &lt;input type=&quot;radio&quot; name=&quot;tabbar-material-a&quot;&gt;
+    &lt;button class=&quot;tabbar__button tabbar--material__button&quot;&gt;
+      &lt;i class=&quot;tabbar__icon tabbar--material__icon zmdi zmdi-favorite&quot;&gt;&lt;/i&gt;
+      &lt;div class=&quot;tabbar__label tabbar--material__label&quot;&gt;Favorites&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/label&gt;
+
+  &lt;label class=&quot;tabbar__item tabbar--material__item&quot;&gt;
+    &lt;input type=&quot;radio&quot; name=&quot;tabbar-material-a&quot;&gt;
+    &lt;button class=&quot;tabbar__button tabbar--material__button&quot;&gt;
+      &lt;i class=&quot;tabbar__icon tabbar--material__icon zmdi zmdi-delete&quot;&gt;&lt;/i&gt;
+      &lt;div class=&quot;tabbar__label tabbar--material__label&quot;&gt;Delete&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/label&gt;
+&lt;/div&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="toolbar_button">
+          <a href="#toolbar_button" class="component-preview__link">Toolbar Button</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <!-- Prerequisite=This example use font-awesome(http://fortawesome.github.io/Font-Awesome/) to display icons. -->
+<button class="toolbar-button">
+  <i class="fa fa-bell" style="font-size:17px"></i> Label
+</button>
+
+<button class="toolbar-button toolbar-button--outline">
+  <i class="fa fa-bell" style="font-size:17px"></i> Label
+</button>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;!-- Prerequisite=This example use font-awesome(http://fortawesome.github.io/Font-Awesome/) to display icons. --&gt;
+&lt;button class=&quot;toolbar-button&quot;&gt;
+  &lt;i class=&quot;fa fa-bell&quot; style=&quot;font-size:17px&quot;&gt;&lt;/i&gt; Label
+&lt;/button&gt;
+
+&lt;button class=&quot;toolbar-button toolbar-button--outline&quot;&gt;
+  &lt;i class=&quot;fa fa-bell&quot; style=&quot;font-size:17px&quot;&gt;&lt;/i&gt; Label
+&lt;/button&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="checkbox">
+          <a href="#checkbox" class="component-preview__link">Checkbox</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <label class="checkbox">
+  <input type="checkbox" class="checkbox__input">
+  <div class="checkbox__checkmark"></div>
+  OFF
+</label>
+
+<label class="checkbox">
+  <input type="checkbox" class="checkbox__input" checked="checked">
+  <div class="checkbox__checkmark"></div>
+  ON
+</label>
+
+<label class="checkbox">
+  <input type="checkbox" class="checkbox__input" disabled>
+  <div class="checkbox__checkmark"></div>
+  Disabled
+</label>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;label class=&quot;checkbox&quot;&gt;
+  &lt;input type=&quot;checkbox&quot; class=&quot;checkbox__input&quot;&gt;
+  &lt;div class=&quot;checkbox__checkmark&quot;&gt;&lt;/div&gt;
+  OFF
+&lt;/label&gt;
+
+&lt;label class=&quot;checkbox&quot;&gt;
+  &lt;input type=&quot;checkbox&quot; class=&quot;checkbox__input&quot; checked=&quot;checked&quot;&gt;
+  &lt;div class=&quot;checkbox__checkmark&quot;&gt;&lt;/div&gt;
+  ON
+&lt;/label&gt;
+
+&lt;label class=&quot;checkbox&quot;&gt;
+  &lt;input type=&quot;checkbox&quot; class=&quot;checkbox__input&quot; disabled&gt;
+  &lt;div class=&quot;checkbox__checkmark&quot;&gt;&lt;/div&gt;
+  Disabled
+&lt;/label&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="no_border_checkbox">
+          <a href="#no_border_checkbox" class="component-preview__link">No border Checkbox</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <label class="checkbox--noborder">
+  <input type="checkbox" class="checkbox__input checkbox--noborder__input">
+  <div class="checkbox__checkmark checkbox--noborder__checkmark"></div>
+  OFF
+</label>
+
+<label class="checkbox--noborder">
+  <input type="checkbox" class="checkbox__input checkbox--noborder__input" checked="checked">
+  <div class="checkbox__checkmark checkbox--noborder__checkmark"></div>
+  ON
+</label>
+
+<label class="checkbox--noborder">
+  <input type="checkbox" class="checkbox__input checkbox--noborder__input" disabled checked="checked">
+  <div class="checkbox__checkmark checkbox--noborder__checkmark"></div>
+  Disabled
+</label>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;label class=&quot;checkbox--noborder&quot;&gt;
+  &lt;input type=&quot;checkbox&quot; class=&quot;checkbox__input checkbox--noborder__input&quot;&gt;
+  &lt;div class=&quot;checkbox__checkmark checkbox--noborder__checkmark&quot;&gt;&lt;/div&gt;
+  OFF
+&lt;/label&gt;
+
+&lt;label class=&quot;checkbox--noborder&quot;&gt;
+  &lt;input type=&quot;checkbox&quot; class=&quot;checkbox__input checkbox--noborder__input&quot; checked=&quot;checked&quot;&gt;
+  &lt;div class=&quot;checkbox__checkmark checkbox--noborder__checkmark&quot;&gt;&lt;/div&gt;
+  ON
+&lt;/label&gt;
+
+&lt;label class=&quot;checkbox--noborder&quot;&gt;
+  &lt;input type=&quot;checkbox&quot; class=&quot;checkbox__input checkbox--noborder__input&quot; disabled checked=&quot;checked&quot;&gt;
+  &lt;div class=&quot;checkbox__checkmark checkbox--noborder__checkmark&quot;&gt;&lt;/div&gt;
+  Disabled
+&lt;/label&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="material_checkbox">
+          <a href="#material_checkbox" class="component-preview__link">Material Checkbox</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <label class="checkbox checkbox--material">
+  <input type="checkbox" class="checkbox__input checkbox--material__input">
+  <div class="checkbox__checkmark checkbox--material__checkmark"></div>
+  OFF
+</label>
+<label class="checkbox checkbox--material">
+  <input type="checkbox" class="checkbox__input checkbox--material__input" checked="checked">
+  <div class="checkbox__checkmark checkbox--material__checkmark"></div>
+  ON
+</label>
+<label class="checkbox checkbox--material">
+  <input type="checkbox" class="checkbox__input checkbox--material__input" checked="checked" disabled>
+  <div class="checkbox__checkmark checkbox--material__checkmark"></div>
+  ON
+</label>
+<label class="checkbox checkbox--material">
+  <input type="checkbox" class="checkbox__input checkbox--material__input" disabled>
+  <div class="checkbox__checkmark checkbox--material__checkmark"></div>
+  Disabled
+</label>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;label class=&quot;checkbox checkbox--material&quot;&gt;
+  &lt;input type=&quot;checkbox&quot; class=&quot;checkbox__input checkbox--material__input&quot;&gt;
+  &lt;div class=&quot;checkbox__checkmark checkbox--material__checkmark&quot;&gt;&lt;/div&gt;
+  OFF
+&lt;/label&gt;
+&lt;label class=&quot;checkbox checkbox--material&quot;&gt;
+  &lt;input type=&quot;checkbox&quot; class=&quot;checkbox__input checkbox--material__input&quot; checked=&quot;checked&quot;&gt;
+  &lt;div class=&quot;checkbox__checkmark checkbox--material__checkmark&quot;&gt;&lt;/div&gt;
+  ON
+&lt;/label&gt;
+&lt;label class=&quot;checkbox checkbox--material&quot;&gt;
+  &lt;input type=&quot;checkbox&quot; class=&quot;checkbox__input checkbox--material__input&quot; checked=&quot;checked&quot; disabled&gt;
+  &lt;div class=&quot;checkbox__checkmark checkbox--material__checkmark&quot;&gt;&lt;/div&gt;
+  ON
+&lt;/label&gt;
+&lt;label class=&quot;checkbox checkbox--material&quot;&gt;
+  &lt;input type=&quot;checkbox&quot; class=&quot;checkbox__input checkbox--material__input&quot; disabled&gt;
+  &lt;div class=&quot;checkbox__checkmark checkbox--material__checkmark&quot;&gt;&lt;/div&gt;
+  Disabled
+&lt;/label&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="radio_button">
+          <a href="#radio_button" class="component-preview__link">Radio Button</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <label class="radio-button">
+  <input type="radio" class="radio-button__input" name="r" checked="checked">
+  <div class="radio-button__checkmark"></div>
+  Label
+</label>
+
+<label class="radio-button">
+  <input type="radio" class="radio-button__input" name="r">
+  <div class="radio-button__checkmark"></div>
+  Label
+</label>
+
+<label class="radio-button">
+  <input type="radio" class="radio-button__input" name="r">
+  <div class="radio-button__checkmark"></div>
+  Label
+</label>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;label class=&quot;radio-button&quot;&gt;
+  &lt;input type=&quot;radio&quot; class=&quot;radio-button__input&quot; name=&quot;r&quot; checked=&quot;checked&quot;&gt;
+  &lt;div class=&quot;radio-button__checkmark&quot;&gt;&lt;/div&gt;
+  Label
+&lt;/label&gt;
+
+&lt;label class=&quot;radio-button&quot;&gt;
+  &lt;input type=&quot;radio&quot; class=&quot;radio-button__input&quot; name=&quot;r&quot;&gt;
+  &lt;div class=&quot;radio-button__checkmark&quot;&gt;&lt;/div&gt;
+  Label
+&lt;/label&gt;
+
+&lt;label class=&quot;radio-button&quot;&gt;
+  &lt;input type=&quot;radio&quot; class=&quot;radio-button__input&quot; name=&quot;r&quot;&gt;
+  &lt;div class=&quot;radio-button__checkmark&quot;&gt;&lt;/div&gt;
+  Label
+&lt;/label&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="material_radio_button">
+          <a href="#material_radio_button" class="component-preview__link">Material Radio Button</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <label class="radio-button radio-button--material">
+  <input type="radio" class="radio-button__input radio-button--material__input" name="r" checked="checked">
+  <div class="radio-button__checkmark radio-button--material__checkmark"></div>
+  Label
+</label>
+<label class="radio-button radio-button--material">
+  <input type="radio" class="radio-button__input radio-button--material__input" name="r">
+  <div class="radio-button__checkmark radio-button--material__checkmark"></div>
+  Label
+</label>
+<label class="radio-button radio-button--material">
+  <input type="radio" class="radio-button__input radio-button--material__input" name="s" disabled checked>
+  <div class="radio-button__checkmark radio-button--material__checkmark"></div>
+  Label
+</label>
+<label class="radio-button radio-button--material">
+  <input type="radio" class="radio-button__input radio-button--material__input" name="s" disabled>
+  <div class="radio-button__checkmark radio-button--material__checkmark"></div>
+  Label
+</label>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;label class=&quot;radio-button radio-button--material&quot;&gt;
+  &lt;input type=&quot;radio&quot; class=&quot;radio-button__input radio-button--material__input&quot; name=&quot;r&quot; checked=&quot;checked&quot;&gt;
+  &lt;div class=&quot;radio-button__checkmark radio-button--material__checkmark&quot;&gt;&lt;/div&gt;
+  Label
+&lt;/label&gt;
+&lt;label class=&quot;radio-button radio-button--material&quot;&gt;
+  &lt;input type=&quot;radio&quot; class=&quot;radio-button__input radio-button--material__input&quot; name=&quot;r&quot;&gt;
+  &lt;div class=&quot;radio-button__checkmark radio-button--material__checkmark&quot;&gt;&lt;/div&gt;
+  Label
+&lt;/label&gt;
+&lt;label class=&quot;radio-button radio-button--material&quot;&gt;
+  &lt;input type=&quot;radio&quot; class=&quot;radio-button__input radio-button--material__input&quot; name=&quot;s&quot; disabled checked&gt;
+  &lt;div class=&quot;radio-button__checkmark radio-button--material__checkmark&quot;&gt;&lt;/div&gt;
+  Label
+&lt;/label&gt;
+&lt;label class=&quot;radio-button radio-button--material&quot;&gt;
+  &lt;input type=&quot;radio&quot; class=&quot;radio-button__input radio-button--material__input&quot; name=&quot;s&quot; disabled&gt;
+  &lt;div class=&quot;radio-button__checkmark radio-button--material__checkmark&quot;&gt;&lt;/div&gt;
+  Label
+&lt;/label&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="list">
+          <a href="#list" class="component-preview__link">List</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <ul class="list">
+  <li class="list-item">
+    <div class="list-item__center">Dog</div>
+  </li>
+  <li class="list-item">
+    <div class="list-item__center">Cat</div>
+  </li>
+  <li class="list-item">
+    <div class="list-item__center">Hamster</div>
+  </li>
+</ul>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;ul class=&quot;list&quot;&gt;
+  &lt;li class=&quot;list-item&quot;&gt;
+    &lt;div class=&quot;list-item__center&quot;&gt;Dog&lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;list-item&quot;&gt;
+    &lt;div class=&quot;list-item__center&quot;&gt;Cat&lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;list-item&quot;&gt;
+    &lt;div class=&quot;list-item__center&quot;&gt;Hamster&lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="noborder_list">
+          <a href="#noborder_list" class="component-preview__link">Noborder List</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <ul class="list list--noborder">
+  <li class="list-item list-item--noborder">
+    <div class="list-item__center">Item</div>
+  </li>
+  <li class="list-item list-item--noborder">
+    <div class="list-item__center">Item</div>
+  </li>
+</ul>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;ul class=&quot;list list--noborder&quot;&gt;
+  &lt;li class=&quot;list-item list-item--noborder&quot;&gt;
+    &lt;div class=&quot;list-item__center&quot;&gt;Item&lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;list-item list-item--noborder&quot;&gt;
+    &lt;div class=&quot;list-item__center&quot;&gt;Item&lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="category_list_header">
+          <a href="#category_list_header" class="component-preview__link">Category List Header</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <ul class="list">
+  <li class="list-header">
+    Header
+  </li>
+  <li class="list-item">
+    <div class="list-item__center">Item</div>
+  </li>
+  <li class="list-item">
+    <div class="list-item__center">Item</div>
+  </li>
+  <li class="list-item">
+    <div class="list-item__center">Item</div>
+  </li>
+</ul>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;ul class=&quot;list&quot;&gt;
+  &lt;li class=&quot;list-header&quot;&gt;
+    Header
+  &lt;/li&gt;
+  &lt;li class=&quot;list-item&quot;&gt;
+    &lt;div class=&quot;list-item__center&quot;&gt;Item&lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;list-item&quot;&gt;
+    &lt;div class=&quot;list-item__center&quot;&gt;Item&lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;list-item&quot;&gt;
+    &lt;div class=&quot;list-item__center&quot;&gt;Item&lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="tappable_list">
+          <a href="#tappable_list" class="component-preview__link">Tappable List</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <ul class="list">
+  <li class="list-item list-item--tappable">
+    <div class="list-item__center">Tappable Item</div>
+  </li>
+  <li class="list-item list-item--tappable">
+    <div class="list-item__center">Tappable Item</div>
+  </li>
+  <li class="list-item list-item--tappable">
+    <div class="list-item__center">Tappable Item</div>
+  </li>
+</ul>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;ul class=&quot;list&quot;&gt;
+  &lt;li class=&quot;list-item list-item--tappable&quot;&gt;
+    &lt;div class=&quot;list-item__center&quot;&gt;Tappable Item&lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;list-item list-item--tappable&quot;&gt;
+    &lt;div class=&quot;list-item__center&quot;&gt;Tappable Item&lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;list-item list-item--tappable&quot;&gt;
+    &lt;div class=&quot;list-item__center&quot;&gt;Tappable Item&lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="switch_in_list_item">
+          <a href="#switch_in_list_item" class="component-preview__link">Switch in List Item</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <ul class="list">
+  <li class="list-item">
+    <div class="list-item__center">
+      Label
+    </div>
+    <div class="list-item__right">
+      <label class="switch">
+        <input type="checkbox" class="switch__input" checked>
+        <div class="switch__toggle">
+          <div class="switch__handle"></div>
+        </div>
+      </label>
+    </div>
+  </li>
+  <li class="list-item">
+    <div class="list-item__center">
+      Label
+    </div>
+    <div class="list-item__right">
+      <label class="switch">
+        <input type="checkbox" class="switch__input">
+        <div class="switch__toggle">
+          <div class="switch__handle"></div>
+        </div>
+      </label>
+    </div>
+  </li>
+</ul>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;ul class=&quot;list&quot;&gt;
+  &lt;li class=&quot;list-item&quot;&gt;
+    &lt;div class=&quot;list-item__center&quot;&gt;
+      Label
+    &lt;/div&gt;
+    &lt;div class=&quot;list-item__right&quot;&gt;
+      &lt;label class=&quot;switch&quot;&gt;
+        &lt;input type=&quot;checkbox&quot; class=&quot;switch__input&quot; checked&gt;
+        &lt;div class=&quot;switch__toggle&quot;&gt;
+          &lt;div class=&quot;switch__handle&quot;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/label&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;list-item&quot;&gt;
+    &lt;div class=&quot;list-item__center&quot;&gt;
+      Label
+    &lt;/div&gt;
+    &lt;div class=&quot;list-item__right&quot;&gt;
+      &lt;label class=&quot;switch&quot;&gt;
+        &lt;input type=&quot;checkbox&quot; class=&quot;switch__input&quot;&gt;
+        &lt;div class=&quot;switch__toggle&quot;&gt;
+          &lt;div class=&quot;switch__handle&quot;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/label&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="list_item_with_chevron">
+          <a href="#list_item_with_chevron" class="component-preview__link">List Item with Chevron</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <ul class="list">
+  <li class="list-item list-item--chevron">
+    <div class="list-item__center">Item A</div>
+  </li>
+  <li class="list-item list-item--chevron">
+    <div class="list-item__center">Item B</div>
+  </li>
+</ul>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;ul class=&quot;list&quot;&gt;
+  &lt;li class=&quot;list-item list-item--chevron&quot;&gt;
+    &lt;div class=&quot;list-item__center&quot;&gt;Item A&lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;list-item list-item--chevron&quot;&gt;
+    &lt;div class=&quot;list-item__center&quot;&gt;Item B&lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="inset_list">
+          <a href="#inset_list" class="component-preview__link">Inset List</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <ul class="list list--inset">
+  <li class="list-item list--inset__item list-item--chevron list-item--tappable">
+    <div class="list-item__center">List Item with Chevron</div>
+  </li>
+  <li class="list-item list--inset__item list-item--chevron list-item--tappable">
+    <div class="list-item__center">List Item with Chevron</div>
+  </li>
+</ul>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;ul class=&quot;list list--inset&quot;&gt;
+  &lt;li class=&quot;list-item list--inset__item list-item--chevron list-item--tappable&quot;&gt;
+    &lt;div class=&quot;list-item__center&quot;&gt;List Item with Chevron&lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;list-item list--inset__item list-item--chevron list-item--tappable&quot;&gt;
+    &lt;div class=&quot;list-item__center&quot;&gt;List Item with Chevron&lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="radio_button_in_list_item">
+          <a href="#radio_button_in_list_item" class="component-preview__link">Radio Button in List Item</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <ul class="list">
+  <li class="list-item list-item--tappable">
+    <div class="list-item__left">
+      <label class="radio-button">
+        <input type="radio" id="r1" class="radio-button__input" name="r" checked="checked">
+        <div class="radio-button__checkmark"></div>
+      </label>
+    </div>
+    <label for="r1" class="list-item__center">
+      Radio Button
+    </label>
+  </li>
+  <li class="list-item list-item--tappable">
+    <div class="list-item__left">
+      <label class="radio-button">
+        <input type="radio" id="r2" class="radio-button__input" name="r">
+        <div class="radio-button__checkmark"></div>
+      </label>
+    </div>
+    <label for="r2" class="list-item__center">
+      Radio Button
+    </label>
+  </li>
+</ul>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;ul class=&quot;list&quot;&gt;
+  &lt;li class=&quot;list-item list-item--tappable&quot;&gt;
+    &lt;div class=&quot;list-item__left&quot;&gt;
+      &lt;label class=&quot;radio-button&quot;&gt;
+        &lt;input type=&quot;radio&quot; id=&quot;r1&quot; class=&quot;radio-button__input&quot; name=&quot;r&quot; checked=&quot;checked&quot;&gt;
+        &lt;div class=&quot;radio-button__checkmark&quot;&gt;&lt;/div&gt;
+      &lt;/label&gt;
+    &lt;/div&gt;
+    &lt;label for=&quot;r1&quot; class=&quot;list-item__center&quot;&gt;
+      Radio Button
+    &lt;/label&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;list-item list-item--tappable&quot;&gt;
+    &lt;div class=&quot;list-item__left&quot;&gt;
+      &lt;label class=&quot;radio-button&quot;&gt;
+        &lt;input type=&quot;radio&quot; id=&quot;r2&quot; class=&quot;radio-button__input&quot; name=&quot;r&quot;&gt;
+        &lt;div class=&quot;radio-button__checkmark&quot;&gt;&lt;/div&gt;
+      &lt;/label&gt;
+    &lt;/div&gt;
+    &lt;label for=&quot;r2&quot; class=&quot;list-item__center&quot;&gt;
+      Radio Button
+    &lt;/label&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="checkbox_in_list_item">
+          <a href="#checkbox_in_list_item" class="component-preview__link">Checkbox in List Item</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <ul class="list">
+  <li class="list-item list-item--tappable">
+    <div class="list-item__left">
+      <label class="checkbox">
+        <input type="checkbox" id="checkbox1" class="checkbox__input" name="c" checked="checked">
+        <div class="checkbox__checkmark"></div>
+      </label>
+    </div>
+    <label for="checkbox1" class="list-item__center">
+      Checkbox
+    </label>
+  </li>
+  <li class="list-item list-item--tappable">
+    <div class="list-item__left">
+      <label class="checkbox">
+        <input type="checkbox" id="checkbox2" class="checkbox__input" name="c">
+        <div class="checkbox__checkmark"></div>
+      </label>
+    </div>
+    <label for="checkbox2" class="list-item__center">
+      Checkbox
+    </label>
+  </li>
+</ul>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;ul class=&quot;list&quot;&gt;
+  &lt;li class=&quot;list-item list-item--tappable&quot;&gt;
+    &lt;div class=&quot;list-item__left&quot;&gt;
+      &lt;label class=&quot;checkbox&quot;&gt;
+        &lt;input type=&quot;checkbox&quot; id=&quot;checkbox1&quot; class=&quot;checkbox__input&quot; name=&quot;c&quot; checked=&quot;checked&quot;&gt;
+        &lt;div class=&quot;checkbox__checkmark&quot;&gt;&lt;/div&gt;
+      &lt;/label&gt;
+    &lt;/div&gt;
+    &lt;label for=&quot;checkbox1&quot; class=&quot;list-item__center&quot;&gt;
+      Checkbox
+    &lt;/label&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;list-item list-item--tappable&quot;&gt;
+    &lt;div class=&quot;list-item__left&quot;&gt;
+      &lt;label class=&quot;checkbox&quot;&gt;
+        &lt;input type=&quot;checkbox&quot; id=&quot;checkbox2&quot; class=&quot;checkbox__input&quot; name=&quot;c&quot;&gt;
+        &lt;div class=&quot;checkbox__checkmark&quot;&gt;&lt;/div&gt;
+      &lt;/label&gt;
+    &lt;/div&gt;
+    &lt;label for=&quot;checkbox2&quot; class=&quot;list-item__center&quot;&gt;
+      Checkbox
+    &lt;/label&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="no_border_checkbox_in_list_item">
+          <a href="#no_border_checkbox_in_list_item" class="component-preview__link">No border Checkbox in List Item</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <ul class="list">
+  <li class="list-item list-item--tappable">
+    <div class="list-item__left">
+      <label class="checkbox checkbox--noborder">
+        <input id="s1" type="checkbox" class="checkbox__input checkbox--noborder__input">
+        <div class="checkbox__checkmark checkbox--noborder checkbox--noborder__checkmark"></div>
+      </label>
+    </div>
+    <label for="s1" class="list-item__center">
+      Checkbox
+    </label>
+  </li>
+  <li class="list-item list-item--tappable">
+    <div class="list-item__left">
+      <label class="checkbox checkbox--noborder">
+        <input id="s2" type="checkbox" class="checkbox__input checkbox--noborder__input" checked>
+        <div class="checkbox__checkmark checkbox--noborder checkbox--noborder__checkmark"></div>
+      </label>
+    </div>
+    <label for="s2" class="list-item__center">
+      Checkbox
+    </label>
+  </li>
+</ul>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;ul class=&quot;list&quot;&gt;
+  &lt;li class=&quot;list-item list-item--tappable&quot;&gt;
+    &lt;div class=&quot;list-item__left&quot;&gt;
+      &lt;label class=&quot;checkbox checkbox--noborder&quot;&gt;
+        &lt;input id=&quot;s1&quot; type=&quot;checkbox&quot; class=&quot;checkbox__input checkbox--noborder__input&quot;&gt;
+        &lt;div class=&quot;checkbox__checkmark checkbox--noborder checkbox--noborder__checkmark&quot;&gt;&lt;/div&gt;
+      &lt;/label&gt;
+    &lt;/div&gt;
+    &lt;label for=&quot;s1&quot; class=&quot;list-item__center&quot;&gt;
+      Checkbox
+    &lt;/label&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;list-item list-item--tappable&quot;&gt;
+    &lt;div class=&quot;list-item__left&quot;&gt;
+      &lt;label class=&quot;checkbox checkbox--noborder&quot;&gt;
+        &lt;input id=&quot;s2&quot; type=&quot;checkbox&quot; class=&quot;checkbox__input checkbox--noborder__input&quot; checked&gt;
+        &lt;div class=&quot;checkbox__checkmark checkbox--noborder checkbox--noborder__checkmark&quot;&gt;&lt;/div&gt;
+      &lt;/label&gt;
+    &lt;/div&gt;
+    &lt;label for=&quot;s2&quot; class=&quot;list-item__center&quot;&gt;
+      Checkbox
+    &lt;/label&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="text_input_in_list_item">
+          <a href="#text_input_in_list_item" class="component-preview__link">Text Input in List Item</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <ul class="list">
+  <li class="list-item">
+    <div class="list-item__center">
+      <input type="text" class="text-input" placeholder="Name">
+    </div>
+  </li>
+  <li class="list-item">
+    <div class="list-item__center">
+      <input type="text" class="text-input" placeholder="Email">
+    </div>
+  </li>
+</ul>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;ul class=&quot;list&quot;&gt;
+  &lt;li class=&quot;list-item&quot;&gt;
+    &lt;div class=&quot;list-item__center&quot;&gt;
+      &lt;input type=&quot;text&quot; class=&quot;text-input&quot; placeholder=&quot;Name&quot;&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;list-item&quot;&gt;
+    &lt;div class=&quot;list-item__center&quot;&gt;
+      &lt;input type=&quot;text&quot; class=&quot;text-input&quot; placeholder=&quot;Email&quot;&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="textarea_in_list_item">
+          <a href="#textarea_in_list_item" class="component-preview__link">Textarea in List Item</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <ul class="list">
+  <li class="list-item">
+    <div class="list-item__center">
+      <textarea class="textarea textarea--transparent" placeholder="Text message"></textarea>
+    </div>
+  </li>
+</ul>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;ul class=&quot;list&quot;&gt;
+  &lt;li class=&quot;list-item&quot;&gt;
+    &lt;div class=&quot;list-item__center&quot;&gt;
+      &lt;textarea class=&quot;textarea textarea--transparent&quot; placeholder=&quot;Text message&quot;&gt;&lt;/textarea&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="right_label_in_list_item">
+          <a href="#right_label_in_list_item" class="component-preview__link">Right Label in List Item</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <ul class="list">
+  <li class="list-item">
+    <div class="list-item__center">
+      Title
+    </div>
+    <div class="list-item__right">
+      <div class="list-item__label">Label</div>
+    </div>
+  </li>
+</ul>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;ul class=&quot;list&quot;&gt;
+  &lt;li class=&quot;list-item&quot;&gt;
+    &lt;div class=&quot;list-item__center&quot;&gt;
+      Title
+    &lt;/div&gt;
+    &lt;div class=&quot;list-item__right&quot;&gt;
+      &lt;div class=&quot;list-item__label&quot;&gt;Label&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="list_item_with_subtitle">
+          <a href="#list_item_with_subtitle" class="component-preview__link">List Item with Subtitle</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <ul class="list">
+  <li class="list-item">
+    <div class="list-item__center">
+      <div class="list-item__title">
+        Title
+      </div>
+      <div class="list-item__subtitle">
+        Subtitle
+      </div>
+    </div>
+  </li>
+</ul>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;ul class=&quot;list&quot;&gt;
+  &lt;li class=&quot;list-item&quot;&gt;
+    &lt;div class=&quot;list-item__center&quot;&gt;
+      &lt;div class=&quot;list-item__title&quot;&gt;
+        Title
+      &lt;/div&gt;
+      &lt;div class=&quot;list-item__subtitle&quot;&gt;
+        Subtitle
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="list_item_with_thumbnail">
+          <a href="#list_item_with_thumbnail" class="component-preview__link">List Item with Thumbnail</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <ul class="list">
+  <li class="list-item">
+    <div class="list-item__left">
+      <img class="list-item__thumbnail" src="http://placekitten.com/g/40/40" alt="Cute kitten">
+    </div>
+
+    <div class="list-item__center">
+      <div class="list-item__title">Lily</div>
+      <div class="list-item__subtitle">Very friendly cat</div>
+    </div>
+  </li>
+
+  <li class="list-item">
+    <div class="list-item__left">
+      <img class="list-item__thumbnail" src="http://placekitten.com/g/40/40" alt="Cute kitten">
+    </div>
+
+    <div class="list-item__center">
+      <div class="list-item__title">Molly</div>
+      <div class="list-item__subtitle">Loves tuna!</div>
+    </div>
+  </li>
+</ul>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;ul class=&quot;list&quot;&gt;
+  &lt;li class=&quot;list-item&quot;&gt;
+    &lt;div class=&quot;list-item__left&quot;&gt;
+      &lt;img class=&quot;list-item__thumbnail&quot; src=&quot;http://placekitten.com/g/40/40&quot; alt=&quot;Cute kitten&quot;&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;list-item__center&quot;&gt;
+      &lt;div class=&quot;list-item__title&quot;&gt;Lily&lt;/div&gt;
+      &lt;div class=&quot;list-item__subtitle&quot;&gt;Very friendly cat&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+
+  &lt;li class=&quot;list-item&quot;&gt;
+    &lt;div class=&quot;list-item__left&quot;&gt;
+      &lt;img class=&quot;list-item__thumbnail&quot; src=&quot;http://placekitten.com/g/40/40&quot; alt=&quot;Cute kitten&quot;&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;list-item__center&quot;&gt;
+      &lt;div class=&quot;list-item__title&quot;&gt;Molly&lt;/div&gt;
+      &lt;div class=&quot;list-item__subtitle&quot;&gt;Loves tuna!&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="list_item_with_icon">
+          <a href="#list_item_with_icon" class="component-preview__link">List Item with Icon</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <ul class="list">
+  <li class="list-item">
+    <div class="list-item__left">
+      <img class="list-item__thumbnail" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAIAAAADnC86AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wwJCB8v/9zErgAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAAAvSURBVFjD7c0BDQAACAMgtX+KJzWGm4MCdJK6MHVELBaLxWKxWCwWi8VisVj8MV7qBgI2A8rYpgAAAABJRU5ErkJggg==">
+    </div>
+
+    <div class="list-item__center">
+      <div class="list-item__title">Alice</div>
+      <div class="list-item__subtitle">Description</div>
+    </div>
+
+    <div class="list-item__right">
+      <i class="ion-ios-information list-item__icon"></i>
+    </div>
+  </li>
+
+  <li class="list-item">
+    <div class="list-item__left">
+      <img class="list-item__thumbnail" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAIAAAADnC86AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wwJCB8v/9zErgAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAAAvSURBVFjD7c0BDQAACAMgtX+KJzWGm4MCdJK6MHVELBaLxWKxWCwWi8VisVj8MV7qBgI2A8rYpgAAAABJRU5ErkJggg==">
+    </div>
+
+    <div class="list-item__center">
+      <div class="list-item__title">Bob</div>
+      <div class="list-item__subtitle">Description</div>
+    </div>
+
+    <div class="list-item__right">
+      <i class="ion-ios-information list-item__icon"></i>
+    </div>
+  </li>
+</ul>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;ul class=&quot;list&quot;&gt;
+  &lt;li class=&quot;list-item&quot;&gt;
+    &lt;div class=&quot;list-item__left&quot;&gt;
+      &lt;img class=&quot;list-item__thumbnail&quot; src=&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAIAAAADnC86AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wwJCB8v/9zErgAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAAAvSURBVFjD7c0BDQAACAMgtX+KJzWGm4MCdJK6MHVELBaLxWKxWCwWi8VisVj8MV7qBgI2A8rYpgAAAABJRU5ErkJggg==&quot;&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;list-item__center&quot;&gt;
+      &lt;div class=&quot;list-item__title&quot;&gt;Alice&lt;/div&gt;
+      &lt;div class=&quot;list-item__subtitle&quot;&gt;Description&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;list-item__right&quot;&gt;
+      &lt;i class=&quot;ion-ios-information list-item__icon&quot;&gt;&lt;/i&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+
+  &lt;li class=&quot;list-item&quot;&gt;
+    &lt;div class=&quot;list-item__left&quot;&gt;
+      &lt;img class=&quot;list-item__thumbnail&quot; src=&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAIAAAADnC86AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wwJCB8v/9zErgAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAAAvSURBVFjD7c0BDQAACAMgtX+KJzWGm4MCdJK6MHVELBaLxWKxWCwWi8VisVj8MV7qBgI2A8rYpgAAAABJRU5ErkJggg==&quot;&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;list-item__center&quot;&gt;
+      &lt;div class=&quot;list-item__title&quot;&gt;Bob&lt;/div&gt;
+      &lt;div class=&quot;list-item__subtitle&quot;&gt;Description&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;list-item__right&quot;&gt;
+      &lt;i class=&quot;ion-ios-information list-item__icon&quot;&gt;&lt;/i&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="material_list">
+          <a href="#material_list" class="component-preview__link">Material List</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <ul class="list list--material">
+  <li class="list-item list-item--material">
+    <div class="list-item__center list-item--material__center">
+      <div class="list-item__title list-item--material__title">Orange</div>
+      <div class="list-item__subtitle list-item--material__subtitle">Sweet fruit that grows on trees.</div>
+    </div>
+  </li>
+  <li class="list-item list-item--material">
+    <div class="list-item__center list-item--material__center">
+      <div class="list-item__title list-item--material__title">Pear</div>
+      <div class="list-item__subtitle list-item--material__subtitle">Funny-shaped fruit.</div>
+    </div>
+  </li>
+</ul>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;ul class=&quot;list list--material&quot;&gt;
+  &lt;li class=&quot;list-item list-item--material&quot;&gt;
+    &lt;div class=&quot;list-item__center list-item--material__center&quot;&gt;
+      &lt;div class=&quot;list-item__title list-item--material__title&quot;&gt;Orange&lt;/div&gt;
+      &lt;div class=&quot;list-item__subtitle list-item--material__subtitle&quot;&gt;Sweet fruit that grows on trees.&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;list-item list-item--material&quot;&gt;
+    &lt;div class=&quot;list-item__center list-item--material__center&quot;&gt;
+      &lt;div class=&quot;list-item__title list-item--material__title&quot;&gt;Pear&lt;/div&gt;
+      &lt;div class=&quot;list-item__subtitle list-item--material__subtitle&quot;&gt;Funny-shaped fruit.&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="material_list_with_header">
+          <a href="#material_list_with_header" class="component-preview__link">Material List with Header</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <ul class="list list--material">
+  <li class="list-header list-header--material">
+    Fruits
+  </li>
+  <li class="list-item list-item--material">
+    <div class="list-item__center list-item--material__center">
+      <div class="list-item__title list-item--material__title">Orange</div>
+      <div class="list-item__subtitle list-item--material__subtitle">Sweet fruit that grows on trees.</div>
+    </div>
+  </li>
+</ul>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;ul class=&quot;list list--material&quot;&gt;
+  &lt;li class=&quot;list-header list-header--material&quot;&gt;
+    Fruits
+  &lt;/li&gt;
+  &lt;li class=&quot;list-item list-item--material&quot;&gt;
+    &lt;div class=&quot;list-item__center list-item--material__center&quot;&gt;
+      &lt;div class=&quot;list-item__title list-item--material__title&quot;&gt;Orange&lt;/div&gt;
+      &lt;div class=&quot;list-item__subtitle list-item--material__subtitle&quot;&gt;Sweet fruit that grows on trees.&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="material_list_with_checkboxes">
+          <a href="#material_list_with_checkboxes" class="component-preview__link">Material List with Checkboxes</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <ul class="list list--material">
+  <li class="list-item list-item--material">
+    <div class="list-item__left list-item--material__left">
+      <label class="checkbox checkbox--material">
+        <input type="checkbox" id="checkbox3" class="checkbox__input checkbox--material__input">
+        <div class="checkbox__checkmark checkbox--material__checkmark"></div>
+      </label>
+    </div>
+
+    <label for="checkbox3" class="list-item__center list-item--material__center">
+      <div class="list-item__title list-item--material__title">Notifications</div>
+      <div class="list-item__subtitle list-item--material__subtitle">Allow notifications</div>
+    </label>
+  </li>
+
+  <li class="list-item list-item--material">
+    <div class="list-item__left list-item--material__left">
+      <label class="checkbox checkbox--material">
+        <input type="checkbox" id="checkbox4" class="checkbox__input checkbox--material__input" checked="checked">
+        <div class="checkbox__checkmark checkbox--material__checkmark"></div>
+      </label>
+    </div>
+
+    <label for="checkbox4" class="list-item__center list-item--material__center">
+      <div class="list-item__title list-item--material__title">Sound</div>
+      <div class="list-item__subtitle list-item--material__subtitle">Hangouts message</div>
+    </label>
+  </li>
+
+</ul>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;ul class=&quot;list list--material&quot;&gt;
+  &lt;li class=&quot;list-item list-item--material&quot;&gt;
+    &lt;div class=&quot;list-item__left list-item--material__left&quot;&gt;
+      &lt;label class=&quot;checkbox checkbox--material&quot;&gt;
+        &lt;input type=&quot;checkbox&quot; id=&quot;checkbox3&quot; class=&quot;checkbox__input checkbox--material__input&quot;&gt;
+        &lt;div class=&quot;checkbox__checkmark checkbox--material__checkmark&quot;&gt;&lt;/div&gt;
+      &lt;/label&gt;
+    &lt;/div&gt;
+
+    &lt;label for=&quot;checkbox3&quot; class=&quot;list-item__center list-item--material__center&quot;&gt;
+      &lt;div class=&quot;list-item__title list-item--material__title&quot;&gt;Notifications&lt;/div&gt;
+      &lt;div class=&quot;list-item__subtitle list-item--material__subtitle&quot;&gt;Allow notifications&lt;/div&gt;
+    &lt;/label&gt;
+  &lt;/li&gt;
+
+  &lt;li class=&quot;list-item list-item--material&quot;&gt;
+    &lt;div class=&quot;list-item__left list-item--material__left&quot;&gt;
+      &lt;label class=&quot;checkbox checkbox--material&quot;&gt;
+        &lt;input type=&quot;checkbox&quot; id=&quot;checkbox4&quot; class=&quot;checkbox__input checkbox--material__input&quot; checked=&quot;checked&quot;&gt;
+        &lt;div class=&quot;checkbox__checkmark checkbox--material__checkmark&quot;&gt;&lt;/div&gt;
+      &lt;/label&gt;
+    &lt;/div&gt;
+
+    &lt;label for=&quot;checkbox4&quot; class=&quot;list-item__center list-item--material__center&quot;&gt;
+      &lt;div class=&quot;list-item__title list-item--material__title&quot;&gt;Sound&lt;/div&gt;
+      &lt;div class=&quot;list-item__subtitle list-item--material__subtitle&quot;&gt;Hangouts message&lt;/div&gt;
+    &lt;/label&gt;
+  &lt;/li&gt;
+
+&lt;/ul&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="material_list_with_thumbnails">
+          <a href="#material_list_with_thumbnails" class="component-preview__link">Material List with Thumbnails</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <ul class="list list--material">
+  <li class="list-item list-item--material">
+    <div class="list-item__left list-item--material__left">
+      <img class="list-item__thumbnail list-item--material__thumbnail" src="http://placekitten.com/g/42/41" alt="Cute kitten">
+    </div>
+
+    <div class="list-item__center list-item--material__center">
+      <div class="list-item__title list-item--material__title">Lily</div>
+      <div class="list-item__subtitle list-item--material__subtitle">Very friendly cat</div>
+    </div>
+  </li>
+
+  <li class="list-item list-item--material">
+    <div class="list-item__left list-item--material__left">
+      <img class="list-item__thumbnail list-item--material__thumbnail" src="http://placekitten.com/g/40/40" alt="Cute kitten">
+    </div>
+
+    <div class="list-item__center list-item--material__center">
+      <div class="list-item__title list-item--material__title">Molly</div>
+      <div class="list-item__subtitle list-item--material__subtitle">Loves tuna!</div>
+    </div>
+  </li>
+
+</ul>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;ul class=&quot;list list--material&quot;&gt;
+  &lt;li class=&quot;list-item list-item--material&quot;&gt;
+    &lt;div class=&quot;list-item__left list-item--material__left&quot;&gt;
+      &lt;img class=&quot;list-item__thumbnail list-item--material__thumbnail&quot; src=&quot;http://placekitten.com/g/42/41&quot; alt=&quot;Cute kitten&quot;&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;list-item__center list-item--material__center&quot;&gt;
+      &lt;div class=&quot;list-item__title list-item--material__title&quot;&gt;Lily&lt;/div&gt;
+      &lt;div class=&quot;list-item__subtitle list-item--material__subtitle&quot;&gt;Very friendly cat&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+
+  &lt;li class=&quot;list-item list-item--material&quot;&gt;
+    &lt;div class=&quot;list-item__left list-item--material__left&quot;&gt;
+      &lt;img class=&quot;list-item__thumbnail list-item--material__thumbnail&quot; src=&quot;http://placekitten.com/g/40/40&quot; alt=&quot;Cute kitten&quot;&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;list-item__center list-item--material__center&quot;&gt;
+      &lt;div class=&quot;list-item__title list-item--material__title&quot;&gt;Molly&lt;/div&gt;
+      &lt;div class=&quot;list-item__subtitle list-item--material__subtitle&quot;&gt;Loves tuna!&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+
+&lt;/ul&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="material_list_with_icons">
+          <a href="#material_list_with_icons" class="component-preview__link">Material List with Icons</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <ul class="list list--material">
+  <li class="list-item list-item--material">
+    <div class="list-item__left list-item--material__left">
+      <img class="list-item__thumbnail list-item--material__thumbnail" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAIAAAADnC86AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wwJCB8v/9zErgAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAAAvSURBVFjD7c0BDQAACAMgtX+KJzWGm4MCdJK6MHVELBaLxWKxWCwWi8VisVj8MV7qBgI2A8rYpgAAAABJRU5ErkJggg==">
+    </div>
+
+    <div class="list-item__center list-item--material__center">
+      <div class="list-item__title list-item--material__title">Alice</div>
+      <div class="list-item__subtitle list-item--material__subtitle">Description</div>
+    </div>
+
+    <div class="list-item__right list-item--material__right">
+      <i style="color:#4db6ac" class="list-item__icon list-item--material__icon zmdi zmdi-comment"></i>
+    </div>
+  </li>
+
+  <li class="list-item list-item--material">
+    <div class="list-item__left list-item--material__left">
+      <img class="list-item__thumbnail list-item--material__thumbnail" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAIAAAADnC86AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wwJCB8v/9zErgAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAAAvSURBVFjD7c0BDQAACAMgtX+KJzWGm4MCdJK6MHVELBaLxWKxWCwWi8VisVj8MV7qBgI2A8rYpgAAAABJRU5ErkJggg==">
+    </div>
+
+    <div class="list-item__center list-item--material__center">
+      <div class="list-item__title list-item--material__title">Bob</div>
+      <div class="list-item__subtitle list-item--material__subtitle">Description</div>
+    </div>
+
+    <div class="list-item__right list-item--material__right">
+      <i style="color:#4db6ac" class="list-item__icon list-item--material__icon zmdi zmdi-comment"></i>
+    </div>
+  </li>
+</ul>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;ul class=&quot;list list--material&quot;&gt;
+  &lt;li class=&quot;list-item list-item--material&quot;&gt;
+    &lt;div class=&quot;list-item__left list-item--material__left&quot;&gt;
+      &lt;img class=&quot;list-item__thumbnail list-item--material__thumbnail&quot; src=&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAIAAAADnC86AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wwJCB8v/9zErgAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAAAvSURBVFjD7c0BDQAACAMgtX+KJzWGm4MCdJK6MHVELBaLxWKxWCwWi8VisVj8MV7qBgI2A8rYpgAAAABJRU5ErkJggg==&quot;&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;list-item__center list-item--material__center&quot;&gt;
+      &lt;div class=&quot;list-item__title list-item--material__title&quot;&gt;Alice&lt;/div&gt;
+      &lt;div class=&quot;list-item__subtitle list-item--material__subtitle&quot;&gt;Description&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;list-item__right list-item--material__right&quot;&gt;
+      &lt;i style=&quot;color:#4db6ac&quot; class=&quot;list-item__icon list-item--material__icon zmdi zmdi-comment&quot;&gt;&lt;/i&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+
+  &lt;li class=&quot;list-item list-item--material&quot;&gt;
+    &lt;div class=&quot;list-item__left list-item--material__left&quot;&gt;
+      &lt;img class=&quot;list-item__thumbnail list-item--material__thumbnail&quot; src=&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAIAAAADnC86AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wwJCB8v/9zErgAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAAAvSURBVFjD7c0BDQAACAMgtX+KJzWGm4MCdJK6MHVELBaLxWKxWCwWi8VisVj8MV7qBgI2A8rYpgAAAABJRU5ErkJggg==&quot;&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;list-item__center list-item--material__center&quot;&gt;
+      &lt;div class=&quot;list-item__title list-item--material__title&quot;&gt;Bob&lt;/div&gt;
+      &lt;div class=&quot;list-item__subtitle list-item--material__subtitle&quot;&gt;Description&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;list-item__right list-item--material__right&quot;&gt;
+      &lt;i style=&quot;color:#4db6ac&quot; class=&quot;list-item__icon list-item--material__icon zmdi zmdi-comment&quot;&gt;&lt;/i&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="list_item_without_divider">
+          <a href="#list_item_without_divider" class="component-preview__link">List item without divider</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <ul class="list">
+  <li class="list-item list-item--nodivider">
+    <div class="list-item__center list-item--nodivider__center">Item</div>
+  </li>
+  <li class="list-item list-item--nodivider">
+    <div class="list-item__center list-item--nodivider__center">Item</div>
+  </li>
+</ul>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;ul class=&quot;list&quot;&gt;
+  &lt;li class=&quot;list-item list-item--nodivider&quot;&gt;
+    &lt;div class=&quot;list-item__center list-item--nodivider__center&quot;&gt;Item&lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;list-item list-item--nodivider&quot;&gt;
+    &lt;div class=&quot;list-item__center list-item--nodivider__center&quot;&gt;Item&lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="list_item_with_long_divider">
+          <a href="#list_item_with_long_divider" class="component-preview__link">List item with long divider</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <ul class="list">
+  <li class="list-item list-item--longdivider">
+    <div class="list-item__center list-item--longdivider__center">Item</div>
+  </li>
+  <li class="list-item list-item--longdivider">
+    <div class="list-item__center list-item--longdivider__center">Item</div>
+  </li>
+</ul>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;ul class=&quot;list&quot;&gt;
+  &lt;li class=&quot;list-item list-item--longdivider&quot;&gt;
+    &lt;div class=&quot;list-item__center list-item--longdivider__center&quot;&gt;Item&lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;list-item list-item--longdivider&quot;&gt;
+    &lt;div class=&quot;list-item__center list-item--longdivider__center&quot;&gt;Item&lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="list_title">
+          <a href="#list_title" class="component-preview__link">List title</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <div class="list-title">LIST TITLE</div>
+<ul class="list">
+  <li class="list-item">
+    <div class="list-item__center">Item</div>
+  </li>
+  <li class="list-item">
+    <div class="list-item__center">Item</div>
+  </li>
+</ul>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;div class=&quot;list-title&quot;&gt;LIST TITLE&lt;/div&gt;
+&lt;ul class=&quot;list&quot;&gt;
+  &lt;li class=&quot;list-item&quot;&gt;
+    &lt;div class=&quot;list-item__center&quot;&gt;Item&lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;list-item&quot;&gt;
+    &lt;div class=&quot;list-item__center&quot;&gt;Item&lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="material_list_title">
+          <a href="#material_list_title" class="component-preview__link">Material List Title</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <h3 class="list-title list-title--material">LIST TITLE</h3>
+<ul class="list list--material">
+  <li class="list-item list-item--material">
+    <div class="list-item__center list-item--material__center">Item</div>
+  </li>
+  <li class="list-item list-item--material">
+    <div class="list-item__center list-item--material__center">Item</div>
+  </li>
+</ul>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;h3 class=&quot;list-title list-title--material&quot;&gt;LIST TITLE&lt;/h3&gt;
+&lt;ul class=&quot;list list--material&quot;&gt;
+  &lt;li class=&quot;list-item list-item--material&quot;&gt;
+    &lt;div class=&quot;list-item__center list-item--material__center&quot;&gt;Item&lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;list-item list-item--material&quot;&gt;
+    &lt;div class=&quot;list-item__center list-item--material__center&quot;&gt;Item&lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="search_input">
+          <a href="#search_input" class="component-preview__link">Search Input</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <input type="search" value="" placeholder="Search" class="search-input" style="width: 280px;">
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;input type=&quot;search&quot; value=&quot;&quot; placeholder=&quot;Search&quot; class=&quot;search-input&quot; style=&quot;width: 280px;&quot;&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="material_search_input">
+          <a href="#material_search_input" class="component-preview__link">Material Search Input</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <input type="search" value="" placeholder="Search" class="search-input search-input--material" style="width: 280px;">
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;input type=&quot;search&quot; value=&quot;&quot; placeholder=&quot;Search&quot; class=&quot;search-input search-input--material&quot; style=&quot;width: 280px;&quot;&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="text_input">
+          <a href="#text_input" class="component-preview__link">Text Input</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <div><input type="text" class="text-input" placeholder="text" value=""></div>
+<div><input type="text" class="text-input" placeholder="text" value="" disabled></div>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;div&gt;&lt;input type=&quot;text&quot; class=&quot;text-input&quot; placeholder=&quot;text&quot; value=&quot;&quot;&gt;&lt;/div&gt;
+&lt;div&gt;&lt;input type=&quot;text&quot; class=&quot;text-input&quot; placeholder=&quot;text&quot; value=&quot;&quot; disabled&gt;&lt;/div&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="underbar_text_input">
+          <a href="#underbar_text_input" class="component-preview__link">Underbar Text Input</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <div><input type="text" class="text-input text-input--underbar" placeholder="text" value=""></div>
+<div><input type="text" class="text-input text-input--underbar" placeholder="text" value="" disabled></div>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;div&gt;&lt;input type=&quot;text&quot; class=&quot;text-input text-input--underbar&quot; placeholder=&quot;text&quot; value=&quot;&quot;&gt;&lt;/div&gt;
+&lt;div&gt;&lt;input type=&quot;text&quot; class=&quot;text-input text-input--underbar&quot; placeholder=&quot;text&quot; value=&quot;&quot; disabled&gt;&lt;/div&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="material_input">
+          <a href="#material_input" class="component-preview__link">Material Input</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <span>
+  <div><input class="text-input text-input--material" placeholder="Username" type="text" required></div>
+  <br />
+  <div><input class="text-input text-input--material" placeholder="Password" type="password" required></div>
+</span>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;span&gt;
+  &lt;div&gt;&lt;input class=&quot;text-input text-input--material&quot; placeholder=&quot;Username&quot; type=&quot;text&quot; required&gt;&lt;/div&gt;
+  &lt;br /&gt;
+  &lt;div&gt;&lt;input class=&quot;text-input text-input--material&quot; placeholder=&quot;Password&quot; type=&quot;password&quot; required&gt;&lt;/div&gt;
+&lt;/span&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="textarea">
+          <a href="#textarea" class="component-preview__link">Textarea</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <textarea class="textarea" rows="3" placeholder="Textarea"></textarea>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;textarea class=&quot;textarea&quot; rows=&quot;3&quot; placeholder=&quot;Textarea&quot;&gt;&lt;/textarea&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="textarea_transparent">
+          <a href="#textarea_transparent" class="component-preview__link">Textarea Transparent</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <textarea class="textarea textarea--transparent" rows="3" placeholder="Textarea"></textarea>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;textarea class=&quot;textarea textarea--transparent&quot; rows=&quot;3&quot; placeholder=&quot;Textarea&quot;&gt;&lt;/textarea&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="dialog">
+          <a href="#dialog" class="component-preview__link">Dialog</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <div class="dialog-mask"></div>
+<div class="dialog">
+  <div class="dialog-container">
+    <div class="page">
+      <p style="text-align:center;margin-top:40px;opacity:0.4;">Content</p>
+    </div>
+  </div>
+</div>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;div class=&quot;dialog-mask&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;dialog&quot;&gt;
+  &lt;div class=&quot;dialog-container&quot;&gt;
+    &lt;div class=&quot;page&quot;&gt;
+      &lt;p style=&quot;text-align:center;margin-top:40px;opacity:0.4;&quot;&gt;Content&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="material_dialog">
+          <a href="#material_dialog" class="component-preview__link">Material Dialog</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <div class="dialog-mask dialog-mask--material"></div>
+<div class="dialog dialog--material">
+  <div class="dialog dialog-container--material">
+    <p style="margin-left:24px;margin-right:24px">The quick brown fox jumps over the lazy dog.</p>
+  </div>
+</div>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;div class=&quot;dialog-mask dialog-mask--material&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;dialog dialog--material&quot;&gt;
+  &lt;div class=&quot;dialog dialog-container--material&quot;&gt;
+    &lt;p style=&quot;margin-left:24px;margin-right:24px&quot;&gt;The quick brown fox jumps over the lazy dog.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="alert_dialog">
+          <a href="#alert_dialog" class="component-preview__link">Alert Dialog</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <div class="alert-dialog-mask"></div>
+<div class="alert-dialog">
+  <div class="alert-dialog-container">
+    <div class="alert-dialog-title">Alert</div>
+
+    <div class="alert-dialog-content">
+      Hello World!
+    </div>
+
+    <div class="alert-dialog-footer">
+      <button class="alert-dialog-button alert-dialog-button--primal">OK</button>
+    </div>
+  </div>
+</div>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;div class=&quot;alert-dialog-mask&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;alert-dialog&quot;&gt;
+  &lt;div class=&quot;alert-dialog-container&quot;&gt;
+    &lt;div class=&quot;alert-dialog-title&quot;&gt;Alert&lt;/div&gt;
+
+    &lt;div class=&quot;alert-dialog-content&quot;&gt;
+      Hello World!
+    &lt;/div&gt;
+
+    &lt;div class=&quot;alert-dialog-footer&quot;&gt;
+      &lt;button class=&quot;alert-dialog-button alert-dialog-button--primal&quot;&gt;OK&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="alert_dialog_without_title">
+          <a href="#alert_dialog_without_title" class="component-preview__link">Alert Dialog without Title</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <div class="alert-dialog-mask"></div>
+<div class="alert-dialog">
+  <div class="alert-dialog-container">
+    <div class="alert-dialog-content">
+      Hello World!
+    </div>
+
+    <div class="alert-dialog-footer">
+      <button class="alert-dialog-button alert-dialog-button--primal">OK</button>
+    </div>
+  </div>
+</div>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;div class=&quot;alert-dialog-mask&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;alert-dialog&quot;&gt;
+  &lt;div class=&quot;alert-dialog-container&quot;&gt;
+    &lt;div class=&quot;alert-dialog-content&quot;&gt;
+      Hello World!
+    &lt;/div&gt;
+
+    &lt;div class=&quot;alert-dialog-footer&quot;&gt;
+      &lt;button class=&quot;alert-dialog-button alert-dialog-button--primal&quot;&gt;OK&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="alert_dialog_with_multiple_buttons">
+          <a href="#alert_dialog_with_multiple_buttons" class="component-preview__link">Alert Dialog with Multiple Buttons</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <div class="alert-dialog-mask"></div>
+<div class="alert-dialog">
+  <div class="alert-dialog-container">
+    <div class="alert-dialog-content">
+      Hello World!
+    </div>
+
+    <div class="alert-dialog-footer">
+      <button class="alert-dialog-button">Cancel</button>
+      <button class="alert-dialog-button alert-dialog-button--primal">OK</button>
+    </div>
+  </div>
+</div>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;div class=&quot;alert-dialog-mask&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;alert-dialog&quot;&gt;
+  &lt;div class=&quot;alert-dialog-container&quot;&gt;
+    &lt;div class=&quot;alert-dialog-content&quot;&gt;
+      Hello World!
+    &lt;/div&gt;
+
+    &lt;div class=&quot;alert-dialog-footer&quot;&gt;
+      &lt;button class=&quot;alert-dialog-button&quot;&gt;Cancel&lt;/button&gt;
+      &lt;button class=&quot;alert-dialog-button alert-dialog-button--primal&quot;&gt;OK&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="alert_dialog_with_multiple_buttons_2">
+          <a href="#alert_dialog_with_multiple_buttons_2" class="component-preview__link">Alert Dialog with Multiple Buttons 2</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <div class="alert-dialog-mask"></div>
+<div class="alert-dialog">
+  <div class="alert-dialog-container">
+    <div class="alert-dialog-title">Alert</div>
+
+    <div class="alert-dialog-content">
+      Hello World!
+    </div>
+
+    <div class="alert-dialog-footer alert-dialog-footer--rowfooter">
+      <button class="alert-dialog-button alert-dialog-button--rowfooter">Left</button>
+      <button class="alert-dialog-button alert-dialog-button--primal alert-dialog-button--rowfooter">Center</button>
+      <button class="alert-dialog-button alert-dialog-button--rowfooter">Right</button>
+    </div>
+  </div>
+</div>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;div class=&quot;alert-dialog-mask&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;alert-dialog&quot;&gt;
+  &lt;div class=&quot;alert-dialog-container&quot;&gt;
+    &lt;div class=&quot;alert-dialog-title&quot;&gt;Alert&lt;/div&gt;
+
+    &lt;div class=&quot;alert-dialog-content&quot;&gt;
+      Hello World!
+    &lt;/div&gt;
+
+    &lt;div class=&quot;alert-dialog-footer alert-dialog-footer--rowfooter&quot;&gt;
+      &lt;button class=&quot;alert-dialog-button alert-dialog-button--rowfooter&quot;&gt;Left&lt;/button&gt;
+      &lt;button class=&quot;alert-dialog-button alert-dialog-button--primal alert-dialog-button--rowfooter&quot;&gt;Center&lt;/button&gt;
+      &lt;button class=&quot;alert-dialog-button alert-dialog-button--rowfooter&quot;&gt;Right&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="material_alert_dialog">
+          <a href="#material_alert_dialog" class="component-preview__link">Material Alert Dialog</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <div class="alert-dialog-mask alert-dialog-mask--material"></div>
+<div class="alert-dialog alert-dialog--material">
+  <div class="alert-dialog-container alert-dialog-container--material">
+    <div class="alert-dialog-title alert-dialog-title--material">
+      Dialog title
+    </div>
+    <div class="alert-dialog-content alert-dialog-content--material">
+      Some dialog content.
+    </div>
+    <div class="alert-dialog-footer alert-dialog-footer--material">
+      <button class="alert-dialog-button alert-dialog-button--material">OK</button>
+      <button class="alert-dialog-button alert-dialog-button--material">CANCEL</button>
+    </div>
+  </div>
+</div>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;div class=&quot;alert-dialog-mask alert-dialog-mask--material&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;alert-dialog alert-dialog--material&quot;&gt;
+  &lt;div class=&quot;alert-dialog-container alert-dialog-container--material&quot;&gt;
+    &lt;div class=&quot;alert-dialog-title alert-dialog-title--material&quot;&gt;
+      Dialog title
+    &lt;/div&gt;
+    &lt;div class=&quot;alert-dialog-content alert-dialog-content--material&quot;&gt;
+      Some dialog content.
+    &lt;/div&gt;
+    &lt;div class=&quot;alert-dialog-footer alert-dialog-footer--material&quot;&gt;
+      &lt;button class=&quot;alert-dialog-button alert-dialog-button--material&quot;&gt;OK&lt;/button&gt;
+      &lt;button class=&quot;alert-dialog-button alert-dialog-button--material&quot;&gt;CANCEL&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="popover">
+          <a href="#popover" class="component-preview__link">Popover</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <div class="popover-mask"></div>
+<div class="popover popover--bottom" style="bottom: 20px; left: 65px;">
+  <div class="popover__arrow popover--bottom__arrow" style="left: 110px;"></div>
+  <div class="popover__content popover--bottom__content">
+    <div style="text-align:center;opacity:0.8;margin-top:40px">Content</div>
+  </div>
+</div>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;div class=&quot;popover-mask&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;popover popover--bottom&quot; style=&quot;bottom: 20px; left: 65px;&quot;&gt;
+  &lt;div class=&quot;popover__arrow popover--bottom__arrow&quot; style=&quot;left: 110px;&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;popover__content popover--bottom__content&quot;&gt;
+    &lt;div style=&quot;text-align:center;opacity:0.8;margin-top:40px&quot;&gt;Content&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="popover(top)">
+          <a href="#popover(top)" class="component-preview__link">Popover(top)</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <div class="popover-mask"></div>
+<div class="popover popover--top" style="top: 20px; left: 50px;">
+  <div class="popover__arrow popover--top__arrow" style="margin-left: 110px;"></div>
+  <div class="popover__content popover--top__content">
+    <div style="text-align: center; opacity: 0.8; margin-top: 40px">Content</div>
+  </div>
+</div>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;div class=&quot;popover-mask&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;popover popover--top&quot; style=&quot;top: 20px; left: 50px;&quot;&gt;
+  &lt;div class=&quot;popover__arrow popover--top__arrow&quot; style=&quot;margin-left: 110px;&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;popover__content popover--top__content&quot;&gt;
+    &lt;div style=&quot;text-align: center; opacity: 0.8; margin-top: 40px&quot;&gt;Content&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="popover(left)">
+          <a href="#popover(left)" class="component-preview__link">Popover(left)</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <div class="popover-mask"></div>
+<div class="popover popover--right" style="top: 20px; right: 20px;">
+  <div class="popover__arrow popover--right__arrow" style="bottom: 50px;"></div>
+  <div class="popover__content popover--right__content">
+    <div style="text-align: center; opacity: 0.8; margin-top: 40px">Content</div>
+  </div>
+</div>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;div class=&quot;popover-mask&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;popover popover--right&quot; style=&quot;top: 20px; right: 20px;&quot;&gt;
+  &lt;div class=&quot;popover__arrow popover--right__arrow&quot; style=&quot;bottom: 50px;&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;popover__content popover--right__content&quot;&gt;
+    &lt;div style=&quot;text-align: center; opacity: 0.8; margin-top: 40px&quot;&gt;Content&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="popover(right)">
+          <a href="#popover(right)" class="component-preview__link">Popover(right)</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <div class="popover-mask"></div>
+<div class="popover popover--left" style="top: 20px;left: 20px;">
+  <div class="popover__arrow popover--left__arrow" style="top: 50px;"></div>
+  <div class="popover__content popover--left__content">
+    <div style="text-align: center; opacity: 0.8; margin-top: 40px">Content</div>
+  </div>
+</div>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;div class=&quot;popover-mask&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;popover popover--left&quot; style=&quot;top: 20px;left: 20px;&quot;&gt;
+  &lt;div class=&quot;popover__arrow popover--left__arrow&quot; style=&quot;top: 50px;&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;popover__content popover--left__content&quot;&gt;
+    &lt;div style=&quot;text-align: center; opacity: 0.8; margin-top: 40px&quot;&gt;Content&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="material_popover">
+          <a href="#material_popover" class="component-preview__link">Material Popover</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <div class="popover-mask popover-mask--material"></div>
+<div class="popover popover--material popover--left" style="top: 50px; left: 65px;">
+  <div class="popover__arrow popover--material__arrow popover--left__arrow"></div>
+  <div class="popover__content popover--material__content popover--left__content">
+    <div style="text-align: center; opacity: 0.8; margin-top: 40px">Content</div>
+  </div>
+</div>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;div class=&quot;popover-mask popover-mask--material&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;popover popover--material popover--left&quot; style=&quot;top: 50px; left: 65px;&quot;&gt;
+  &lt;div class=&quot;popover__arrow popover--material__arrow popover--left__arrow&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;popover__content popover--material__content popover--left__content&quot;&gt;
+    &lt;div style=&quot;text-align: center; opacity: 0.8; margin-top: 40px&quot;&gt;Content&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="progress_bar">
+          <a href="#progress_bar" class="component-preview__link">Progress Bar</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <div class="progress-bar">
+  <div class="progress-bar__primary" style="width: 30%"></div>
+</div>
+<br />
+<div class="progress-bar">
+  <div class="progress-bar__primary" style="width:20%"></div>
+  <div class="progress-bar__secondary" style="width:76%"></div>
+</div>
+<br />
+<div class="progress-bar progress-bar--indeterminate">
+</div>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;div class=&quot;progress-bar&quot;&gt;
+  &lt;div class=&quot;progress-bar__primary&quot; style=&quot;width: 30%&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;br /&gt;
+&lt;div class=&quot;progress-bar&quot;&gt;
+  &lt;div class=&quot;progress-bar__primary&quot; style=&quot;width:20%&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;progress-bar__secondary&quot; style=&quot;width:76%&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;br /&gt;
+&lt;div class=&quot;progress-bar progress-bar--indeterminate&quot;&gt;
+&lt;/div&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="material_progress_bar">
+          <a href="#material_progress_bar" class="component-preview__link">Material Progress Bar</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <div class="progress-bar progress-bar--material">
+  <div class="progress-bar__primary progress-bar--material__primary" style="width: 30%"></div>
+</div>
+<br />
+<div class="progress-bar progress-bar--material">
+  <div class="progress-bar__primary progress-bar--material__primary" style="width:20%"></div>
+  <div class="progress-bar__secondary progress-bar--material__secondary" style="width:76%"></div>
+</div>
+<br />
+<div class="progress-bar progress-bar--material progress-bar--indeterminate">
+</div>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;div class=&quot;progress-bar progress-bar--material&quot;&gt;
+  &lt;div class=&quot;progress-bar__primary progress-bar--material__primary&quot; style=&quot;width: 30%&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;br /&gt;
+&lt;div class=&quot;progress-bar progress-bar--material&quot;&gt;
+  &lt;div class=&quot;progress-bar__primary progress-bar--material__primary&quot; style=&quot;width:20%&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;progress-bar__secondary progress-bar--material__secondary&quot; style=&quot;width:76%&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;br /&gt;
+&lt;div class=&quot;progress-bar progress-bar--material progress-bar--indeterminate&quot;&gt;
+&lt;/div&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="progress_circle">
+          <a href="#progress_circle" class="component-preview__link">Progress Circle</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <svg class="progress-circular progress-circular--indeterminate">
+  <circle class="progress-circular__background"/>
+  <circle class="progress-circular__primary progress-circular--indeterminate__primary"/>
+  <circle class="progress-circular__secondary progress-circular--indeterminate__secondary"/>
+</svg>
+
+<svg class="progress-circular">
+  <circle class="progress-circular__background"/>
+  <circle class="progress-circular__secondary" style="stroke-dasharray: 140%, 251.32%"/>
+  <circle class="progress-circular__primary" style="stroke-dasharray: 100%, 251.32%"/>
+</svg>
+
+<svg class="progress-circular">
+  <circle class="progress-circular__background"/>
+  <circle class="progress-circular__primary" style="stroke-dasharray: 80%, 251.32%"/>
+</svg>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;svg class=&quot;progress-circular progress-circular--indeterminate&quot;&gt;
+  &lt;circle class=&quot;progress-circular__background&quot;/&gt;
+  &lt;circle class=&quot;progress-circular__primary progress-circular--indeterminate__primary&quot;/&gt;
+  &lt;circle class=&quot;progress-circular__secondary progress-circular--indeterminate__secondary&quot;/&gt;
+&lt;/svg&gt;
+
+&lt;svg class=&quot;progress-circular&quot;&gt;
+  &lt;circle class=&quot;progress-circular__background&quot;/&gt;
+  &lt;circle class=&quot;progress-circular__secondary&quot; style=&quot;stroke-dasharray: 140%, 251.32%&quot;/&gt;
+  &lt;circle class=&quot;progress-circular__primary&quot; style=&quot;stroke-dasharray: 100%, 251.32%&quot;/&gt;
+&lt;/svg&gt;
+
+&lt;svg class=&quot;progress-circular&quot;&gt;
+  &lt;circle class=&quot;progress-circular__background&quot;/&gt;
+  &lt;circle class=&quot;progress-circular__primary&quot; style=&quot;stroke-dasharray: 80%, 251.32%&quot;/&gt;
+&lt;/svg&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="material_progress_circle">
+          <a href="#material_progress_circle" class="component-preview__link">Material Progress Circle</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <svg class="progress-circular progress-circular--material progress-circular--indeterminate">
+  <circle class="progress-circular__background progress-circular--material__background"/>
+  <circle class="progress-circular__primary progress-circular--material__primary progress-circular--indeterminate__primary"/>
+  <circle class="progress-circular__secondary progress-circular--material__secondary progress-circular--indeterminate__secondary"/>
+</svg>
+
+<svg class="progress-circular progress-circular--material">
+  <circle class="progress-circular__background progress-circular--material__background"/>
+  <circle class="progress-circular__secondary progress-circular--material__secondary" style="stroke-dasharray: 140%, 251.32%"/>
+  <circle class="progress-circular__primary progress-circular--material__primary" style="stroke-dasharray: 100%, 251.32%"/>
+</svg>
+
+<svg class="progress-circular progress-circular--material">
+  <circle class="progress-circular__background progress-circular--material__background"/>
+  <circle class="progress-circular__primary progress-circular--material__primary" style="stroke-dasharray: 80%, 251.32%"/>
+</svg>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;svg class=&quot;progress-circular progress-circular--material progress-circular--indeterminate&quot;&gt;
+  &lt;circle class=&quot;progress-circular__background progress-circular--material__background&quot;/&gt;
+  &lt;circle class=&quot;progress-circular__primary progress-circular--material__primary progress-circular--indeterminate__primary&quot;/&gt;
+  &lt;circle class=&quot;progress-circular__secondary progress-circular--material__secondary progress-circular--indeterminate__secondary&quot;/&gt;
+&lt;/svg&gt;
+
+&lt;svg class=&quot;progress-circular progress-circular--material&quot;&gt;
+  &lt;circle class=&quot;progress-circular__background progress-circular--material__background&quot;/&gt;
+  &lt;circle class=&quot;progress-circular__secondary progress-circular--material__secondary&quot; style=&quot;stroke-dasharray: 140%, 251.32%&quot;/&gt;
+  &lt;circle class=&quot;progress-circular__primary progress-circular--material__primary&quot; style=&quot;stroke-dasharray: 100%, 251.32%&quot;/&gt;
+&lt;/svg&gt;
+
+&lt;svg class=&quot;progress-circular progress-circular--material&quot;&gt;
+  &lt;circle class=&quot;progress-circular__background progress-circular--material__background&quot;/&gt;
+  &lt;circle class=&quot;progress-circular__primary progress-circular--material__primary&quot; style=&quot;stroke-dasharray: 80%, 251.32%&quot;/&gt;
+&lt;/svg&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="fab">
+          <a href="#fab" class="component-preview__link">Fab</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <button class="fab"><i class="zmdi zmdi-car"></i></button>
+<button class="fab" disabled><i class="zmdi zmdi-car"></i></button>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;button class=&quot;fab&quot;&gt;&lt;i class=&quot;zmdi zmdi-car&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+&lt;button class=&quot;fab&quot; disabled&gt;&lt;i class=&quot;zmdi zmdi-car&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="material_fab">
+          <a href="#material_fab" class="component-preview__link">Material Fab</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <button class="fab fab--material"><i class="zmdi zmdi-car"></i></button>
+<button class="fab fab--material" disabled><i class="zmdi zmdi-car"></i></button>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;button class=&quot;fab fab--material&quot;&gt;&lt;i class=&quot;zmdi zmdi-car&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+&lt;button class=&quot;fab fab--material&quot; disabled&gt;&lt;i class=&quot;zmdi zmdi-car&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="fab_mini">
+          <a href="#fab_mini" class="component-preview__link">Fab Mini</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <button class="fab fab--mini"><i class="zmdi zmdi-plus"></i></button>
+<button class="fab fab--mini" disabled><i class="zmdi zmdi-plus"></i></button>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;button class=&quot;fab fab--mini&quot;&gt;&lt;i class=&quot;zmdi zmdi-plus&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+&lt;button class=&quot;fab fab--mini&quot; disabled&gt;&lt;i class=&quot;zmdi zmdi-plus&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="material_fab_mini">
+          <a href="#material_fab_mini" class="component-preview__link">Material Fab Mini</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <button class="fab fab--material fab--mini"><i class="zmdi zmdi-plus"></i></button>
+<button class="fab fab--material fab--mini" disabled><i class="zmdi zmdi-plus"></i></button>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;button class=&quot;fab fab--material fab--mini&quot;&gt;&lt;i class=&quot;zmdi zmdi-plus&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+&lt;button class=&quot;fab fab--material fab--mini&quot; disabled&gt;&lt;i class=&quot;zmdi zmdi-plus&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="modal">
+          <a href="#modal" class="component-preview__link">Modal</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <div class="modal">
+  <div class="modal__content">
+    Message Text
+  </div>
+</div>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;div class=&quot;modal&quot;&gt;
+  &lt;div class=&quot;modal__content&quot;&gt;
+    Message Text
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="select_input">
+          <a href="#select_input" class="component-preview__link">Select Input</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <select class="select-input">
+  <option>Option 1</option>
+  <option>Option 2</option>
+  <option>Option 3</option>
+</select>
+
+&nbsp;
+
+<select class="select-input" disabled>
+  <option>Option 1</option>
+  <option>Option 2</option>
+  <option>Option 3</option>
+</select>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;select class=&quot;select-input&quot;&gt;
+  &lt;option&gt;Option 1&lt;/option&gt;
+  &lt;option&gt;Option 2&lt;/option&gt;
+  &lt;option&gt;Option 3&lt;/option&gt;
+&lt;/select&gt;
+
+&amp;nbsp;
+
+&lt;select class=&quot;select-input&quot; disabled&gt;
+  &lt;option&gt;Option 1&lt;/option&gt;
+  &lt;option&gt;Option 2&lt;/option&gt;
+  &lt;option&gt;Option 3&lt;/option&gt;
+&lt;/select&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="material_select_input">
+          <a href="#material_select_input" class="component-preview__link">Material Select Input</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <select class="select-input select-input--material">
+  <option>Option 1</option>
+  <option>Option 2</option>
+  <option>Option 3</option>
+</select>
+
+&nbsp;
+
+<select class="select-input select-input--material" disabled>
+  <option>Option 1</option>
+  <option>Option 2</option>
+  <option>Option 3</option>
+</select>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;select class=&quot;select-input select-input--material&quot;&gt;
+  &lt;option&gt;Option 1&lt;/option&gt;
+  &lt;option&gt;Option 2&lt;/option&gt;
+  &lt;option&gt;Option 3&lt;/option&gt;
+&lt;/select&gt;
+
+&amp;nbsp;
+
+&lt;select class=&quot;select-input select-input--material&quot; disabled&gt;
+  &lt;option&gt;Option 1&lt;/option&gt;
+  &lt;option&gt;Option 2&lt;/option&gt;
+  &lt;option&gt;Option 3&lt;/option&gt;
+&lt;/select&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="underbar_select_input">
+          <a href="#underbar_select_input" class="component-preview__link">Underbar Select Input</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <select class="select-input select-input--underbar">
+  <option>Option 1</option>
+  <option>Option 2</option>
+  <option>Option 3</option>
+</select>
+
+&nbsp;
+
+<select class="select-input select-input--underbar" disabled>
+  <option>Option 1</option>
+  <option>Option 2</option>
+  <option>Option 3</option>
+</select>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;select class=&quot;select-input select-input--underbar&quot;&gt;
+  &lt;option&gt;Option 1&lt;/option&gt;
+  &lt;option&gt;Option 2&lt;/option&gt;
+  &lt;option&gt;Option 3&lt;/option&gt;
+&lt;/select&gt;
+
+&amp;nbsp;
+
+&lt;select class=&quot;select-input select-input--underbar&quot; disabled&gt;
+  &lt;option&gt;Option 1&lt;/option&gt;
+  &lt;option&gt;Option 2&lt;/option&gt;
+  &lt;option&gt;Option 3&lt;/option&gt;
+&lt;/select&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="action_sheet">
+          <a href="#action_sheet" class="component-preview__link">Action Sheet</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <div class="action-sheet-mask"></div>
+<div class="action-sheet">
+  <div class="action-sheet-title">Title</div>
+  <button class="action-sheet-button">Label</button>
+  <button class="action-sheet-button">Cancel</button>
+</div>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;div class=&quot;action-sheet-mask&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;action-sheet&quot;&gt;
+  &lt;div class=&quot;action-sheet-title&quot;&gt;Title&lt;/div&gt;
+  &lt;button class=&quot;action-sheet-button&quot;&gt;Label&lt;/button&gt;
+  &lt;button class=&quot;action-sheet-button&quot;&gt;Cancel&lt;/button&gt;
+&lt;/div&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="action_sheet_with_delete_label">
+          <a href="#action_sheet_with_delete_label" class="component-preview__link">Action Sheet with Delete Label</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <div class="action-sheet-mask"></div>
+<div class="action-sheet">
+  <button class="action-sheet-button">Label</button>
+  <button class="action-sheet-button action-sheet-button--destructive">Delete Label</button>
+  <button class="action-sheet-button">Cancel</button>
+</div>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;div class=&quot;action-sheet-mask&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;action-sheet&quot;&gt;
+  &lt;button class=&quot;action-sheet-button&quot;&gt;Label&lt;/button&gt;
+  &lt;button class=&quot;action-sheet-button action-sheet-button--destructive&quot;&gt;Delete Label&lt;/button&gt;
+  &lt;button class=&quot;action-sheet-button&quot;&gt;Cancel&lt;/button&gt;
+&lt;/div&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="material_action_sheet">
+          <a href="#material_action_sheet" class="component-preview__link">Material Action Sheet</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <div class="action-sheet-mask action-sheet-mask--material"></div>
+<div class="action-sheet action-sheet--material">
+  <button class="action-sheet-button action-sheet-button--material"><i class="ion-android-checkbox-blank action-sheet-icon--material"></i>Label</button>
+  <button class="action-sheet-button action-sheet-button--material"><i class="ion-android-checkbox-blank action-sheet-icon--material"></i>Label</button>
+  <button class="action-sheet-button action-sheet-button--material"><i class="ion-android-close action-sheet-icon--material"></i>Cancel</button>
+</div>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;div class=&quot;action-sheet-mask action-sheet-mask--material&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;action-sheet action-sheet--material&quot;&gt;
+  &lt;button class=&quot;action-sheet-button action-sheet-button--material&quot;&gt;&lt;i class=&quot;ion-android-checkbox-blank action-sheet-icon--material&quot;&gt;&lt;/i&gt;Label&lt;/button&gt;
+  &lt;button class=&quot;action-sheet-button action-sheet-button--material&quot;&gt;&lt;i class=&quot;ion-android-checkbox-blank action-sheet-icon--material&quot;&gt;&lt;/i&gt;Label&lt;/button&gt;
+  &lt;button class=&quot;action-sheet-button action-sheet-button--material&quot;&gt;&lt;i class=&quot;ion-android-close action-sheet-icon--material&quot;&gt;&lt;/i&gt;Cancel&lt;/button&gt;
+&lt;/div&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="material_action_sheet_with_title">
+          <a href="#material_action_sheet_with_title" class="component-preview__link">Material Action Sheet with Title</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <div class="action-sheet-mask action-sheet-mask--material"></div>
+<div class="action-sheet action-sheet--material">
+  <div class="action-sheet-title action-sheet-title--material">Title</div>
+  <button class="action-sheet-button action-sheet-button--material"><i class="ion-android-checkbox-blank action-sheet-icon--material"></i>Label</button>
+  <button class="action-sheet-button action-sheet-button--material"><i class="ion-android-close action-sheet-icon--material"></i>Cancel</button>
+</div>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;div class=&quot;action-sheet-mask action-sheet-mask--material&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;action-sheet action-sheet--material&quot;&gt;
+  &lt;div class=&quot;action-sheet-title action-sheet-title--material&quot;&gt;Title&lt;/div&gt;
+  &lt;button class=&quot;action-sheet-button action-sheet-button--material&quot;&gt;&lt;i class=&quot;ion-android-checkbox-blank action-sheet-icon--material&quot;&gt;&lt;/i&gt;Label&lt;/button&gt;
+  &lt;button class=&quot;action-sheet-button action-sheet-button--material&quot;&gt;&lt;i class=&quot;ion-android-close action-sheet-icon--material&quot;&gt;&lt;/i&gt;Cancel&lt;/button&gt;
+&lt;/div&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="card">
+          <a href="#card" class="component-preview__link">Card</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <div style="background-color: #eee; height: 200px; padding: 1px 0 0 0;">
+  <div class="card">
+    <div class="card__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+  </div>
+</div>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;div style=&quot;background-color: #eee; height: 200px; padding: 1px 0 0 0;&quot;&gt;
+  &lt;div class=&quot;card&quot;&gt;
+    &lt;div class=&quot;card__content&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="card_with_title">
+          <a href="#card_with_title" class="component-preview__link">Card with Title</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <div style="background-color: #eee; height: 200px; padding: 1px 0 0 0;">
+  <div class="card">
+    <h2 class="card__title">Card Title</h2>
+    <div class="card__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+  </div>
+</div>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;div style=&quot;background-color: #eee; height: 200px; padding: 1px 0 0 0;&quot;&gt;
+  &lt;div class=&quot;card&quot;&gt;
+    &lt;h2 class=&quot;card__title&quot;&gt;Card Title&lt;/h2&gt;
+    &lt;div class=&quot;card__content&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="material_card">
+          <a href="#material_card" class="component-preview__link">Material Card</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <div style="background-color: #eee; height: 200px; padding: 1px 0 0 0;">
+  <div class="card card--material">
+    <div class="card__content card--material__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+  </div>
+</div>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;div style=&quot;background-color: #eee; height: 200px; padding: 1px 0 0 0;&quot;&gt;
+  &lt;div class=&quot;card card--material&quot;&gt;
+    &lt;div class=&quot;card__content card--material__content&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="material_card_with_title">
+          <a href="#material_card_with_title" class="component-preview__link">Material Card with Title</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <div style="background-color: #eee; height: 200px; padding: 1px 0 0 0;">
+  <div class="card card--material">
+    <div class="card__title card--material__title">Card Title</div>
+    <div class="card__content card--material__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+  </div>
+</div>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;div style=&quot;background-color: #eee; height: 200px; padding: 1px 0 0 0;&quot;&gt;
+  &lt;div class=&quot;card card--material&quot;&gt;
+    &lt;div class=&quot;card__title card--material__title&quot;&gt;Card Title&lt;/div&gt;
+    &lt;div class=&quot;card__content card--material__content&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="toast">
+          <a href="#toast" class="component-preview__link">Toast</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <div class="toast">
+  <div class="toast__message">Message Message Message Message Message Message</div>
+  <button class="toast__button">ACTION</button>
+</div>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;div class=&quot;toast&quot;&gt;
+  &lt;div class=&quot;toast__message&quot;&gt;Message Message Message Message Message Message&lt;/div&gt;
+  &lt;button class=&quot;toast__button&quot;&gt;ACTION&lt;/button&gt;
+&lt;/div&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="material_toast">
+          <a href="#material_toast" class="component-preview__link">Material Toast</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <div class="toast toast--material">
+  <div class="toast__message toast--material__message">Message Message Message Message Message Message</div>
+  <button class="toast__button toast--material__button">ACTION</button>
+</div>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;div class=&quot;toast toast--material&quot;&gt;
+  &lt;div class=&quot;toast__message toast--material__message&quot;&gt;Message Message Message Message Message Message&lt;/div&gt;
+  &lt;button class=&quot;toast__button toast--material__button&quot;&gt;ACTION&lt;/button&gt;
+&lt;/div&gt;
+</pre>
+      </div>
+      
+    </div>
+
+    <script>
+      var elements = document.querySelectorAll('.component-preview');
+
+      for (var i = 0; i < elements.length; i++) {
+        init(elements[i]);
+      }
+
+      function init(element) {
+        var toggle = element.querySelector('.component-preview__toggle');
+        var markup = element.querySelector('.component-preview__markup');
+        var example = element.querySelector('.component-preview__example');
+
+        toggle.addEventListener('click', function(e) {
+          if (markup.style.display) {
+            markup.style.display = null;
+            example.style.display = null;
+            toggle.textContent = 'HTML';
+          } else {
+            markup.style.display = 'block';
+            example.style.display = 'none';
+            toggle.textContent = 'Preview';
+          }
+        });
+      }
+    </script>
+
+  </body>
+</html>
