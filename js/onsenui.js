@@ -1,4 +1,4 @@
-/*! onsenui v2.7.1 - 2017-11-10 */
+/*! onsenui v2.7.2 - 2017-11-13 */
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
 		module.exports = factory();
