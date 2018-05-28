@@ -226,10 +226,10 @@ var TabbarElement = function (_BaseElement) {
 
     var _this = _possibleConstructorReturn(this, (TabbarElement.__proto__ || _Object$getPrototypeOf(TabbarElement)).call(this));
 
+    _this._loadInactive = util.defer(); // Improves #2324
     contentReady(_this, function () {
       return _this._compile();
     });
-    _this._loadInactive = util.defer(); // Improves #2324
     return _this;
   }
 

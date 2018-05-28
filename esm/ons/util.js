@@ -1,6 +1,8 @@
 import _Promise from 'babel-runtime/core-js/promise';
 import _typeof from 'babel-runtime/helpers/typeof';
 import _Object$keys from 'babel-runtime/core-js/object/keys';
+import _Array$from from 'babel-runtime/core-js/array/from';
+import _toConsumableArray from 'babel-runtime/helpers/toConsumableArray';
 /*
 Copyright 2013-2015 ASIAL CORPORATION
 
@@ -147,6 +149,18 @@ util.hasAnyComponentAsParent = function (element) {
     }
   }
   return false;
+};
+
+/**
+ * @param {Object} element
+ * @return {Array}
+ */
+util.getAllChildNodes = function (element) {
+  var _ref;
+
+  return (_ref = [element]).concat.apply(_ref, _toConsumableArray(_Array$from(element.children).map(function (childEl) {
+    return util.getAllChildNodes(childEl);
+  })));
 };
 
 /**

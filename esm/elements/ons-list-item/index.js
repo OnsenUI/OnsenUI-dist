@@ -196,10 +196,13 @@ var ListItemElement = function (_BaseElement) {
       var left = void 0,
           center = void 0,
           right = void 0,
+          top = void 0,
           expandableContent = void 0;
 
-      for (var i = 0; i < this.children.length; i++) {
-        var el = this.children[i];
+      var childEls = util.getAllChildNodes(this);
+
+      for (var i = 0; i < childEls.length; i++) {
+        var el = childEls[i];
 
         if (el.classList.contains('left')) {
           el.classList.add('list-item__left');
@@ -209,6 +212,9 @@ var ListItemElement = function (_BaseElement) {
         } else if (el.classList.contains('right')) {
           el.classList.add('list-item__right');
           right = el;
+        } else if (el.classList.contains('top')) {
+          el.classList.add('list-item__top');
+          top = el;
         } else if (el.classList.contains('expandable-content')) {
           el.classList.add('list-item__expandable-content');
           expandableContent = el;
@@ -252,7 +258,7 @@ var ListItemElement = function (_BaseElement) {
       if (expandableContent) {
         // create 'top' div
         // this holds everything except the expandable content
-        this._top = document.createElement('div');
+        this._top = top || document.createElement('div');
         this._top.classList.add('top', 'list-item__top');
         this.appendChild(this._top);
 
