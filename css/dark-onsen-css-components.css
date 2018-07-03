@@ -1164,6 +1164,12 @@ h4, h5, h6 {
   background-image: none;
   border-bottom: none;
 }
+:root {
+
+  --button::-moz-focus-inner {
+    border: 0;
+  }
+}
 /*~
   name: Button
   category: Button
@@ -3419,6 +3425,23 @@ h4, h5, h6 {
   color: #fff;
   transition: background-color 0.2s linear;
 }
+/*~
+  name: Expandable List
+  category: List
+  elements: ons-list ons-list-item
+  markup: |
+    <ul class="list">
+      <li class="list-item list-item--expandable expanded">
+        <div class="list-item__top">
+          <div class="list-item__center">Item</div>
+          <div class="list-item__right">
+            <span class="list-item__expand-chevron"></span>
+          </div>
+        </div>
+        <div class="list-item__expandable-content">Expanded content</div>
+      </li>
+    </ul>
+*/
 .list-item__top {
   display: -webkit-box;
   display: -webkit-flex;
@@ -4553,7 +4576,7 @@ h4, h5, h6 {
   padding: 0;
   margin: 0;
   width: auto;
-  font-size: 15px;
+  font-size: 16px;
   height: 31px;
   font-weight: 400;
   box-sizing: border-box;
@@ -4635,7 +4658,7 @@ h4, h5, h6 {
   padding: 0;
   margin: 0;
   width: auto;
-  font-size: 15px;
+  font-size: 16px;
   height: 31px;
   font-weight: 400;
   box-sizing: border-box;
@@ -4820,7 +4843,7 @@ h4, h5, h6 {
   resize: none;
   outline: none;
   padding: 5px 5px 5px 5px;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 400;
   border-radius: 4px;
   border: 1px solid #242424;
@@ -4876,7 +4899,7 @@ h4, h5, h6 {
   padding: 5px 5px 5px 5px;
   padding-left: 0;
   padding-right: 0;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 400;
   border-radius: 4px;
   border: none;
@@ -6836,7 +6859,7 @@ h4, h5, h6 {
   margin: 0;
   background-color: #ccc;
   border-radius: 0;
-  padding: 0 24px;
+  padding: 16px 24px;
 }
 .toast--material__message {
   font-family: 'Roboto', 'Noto', sans-serif;
