@@ -1,4 +1,4 @@
-/* onsenui v2.10.2 - 2018-07-03 */
+/* onsenui v2.10.3 - 2018-07-10 */
 
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
