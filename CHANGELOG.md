@@ -2,6 +2,20 @@
 CHANGELOG
 ====
 
+2.10.9
+---
+
+ ### Bug Fixes
+
+ * ons-tab: Show active-icon for initially active tab in Angular 2+. ([#2656](https://github.com/OnsenUI/OnsenUI/issues/2656)).
+
+ ### Misc
+
+ * Upgrade Font Awesome to v5.8.1
+ * Upgrade Ionicons to v4.5.5
+ * Upgrade Material Design icons to v2.2.0
+ * Stop fonts being included in onsenui-core.css
+
 2.10.8
 ---
 
