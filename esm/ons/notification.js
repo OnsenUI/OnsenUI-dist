@@ -221,7 +221,9 @@ notification._createAlertDialog = function () {
         if (el.input && options.isPrompt && options.autofocus) {
           var strLength = el.input.value.length;
           el.input.focus();
-          el.input.setSelectionRange(strLength, strLength);
+          if (el.input.type && ['text', 'search', 'url', 'tel', 'password'].includes(el.input.type)) {
+            el.input.setSelectionRange(strLength, strLength);
+          }
         }
       });
     });

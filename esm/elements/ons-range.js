@@ -236,6 +236,22 @@ var RangeElement = function (_BaseInputElement) {
      *   [ja][/ja]
      */
 
+    /**
+     * @method focus
+     * @signature focus()
+     * @description
+     *   [en]Focuses the range.[/en]
+     *   [ja][/ja]
+     */
+
+    /**
+     * @method blur
+     * @signature blur()
+     * @description
+     *   [en]Removes focus from the range.[/en]
+     *   [ja][/ja]
+     */
+
   }, {
     key: '_scheme',
     get: function get() {

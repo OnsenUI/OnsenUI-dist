@@ -133,6 +133,22 @@ var RadioElement = function (_BaseCheckboxElement) {
      *   [ja]無効化されている場合に`true`。[/ja]
      */
 
+    /**
+     * @method focus
+     * @signature focus()
+     * @description
+     *   [en]Focuses the radio button.[/en]
+     *   [ja][/ja]
+     */
+
+    /**
+     * @method blur
+     * @signature blur()
+     * @description
+     *   [en]Removes focus from the radio button.[/en]
+     *   [ja][/ja]
+     */
+
   }]);
 
   return RadioElement;

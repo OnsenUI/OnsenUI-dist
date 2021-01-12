@@ -185,6 +185,16 @@ var BaseInputElement = function (_BaseElement) {
       }
     }
   }, {
+    key: 'blur',
+    value: function blur() {
+      this._input.blur();
+    }
+  }, {
+    key: 'focus',
+    value: function focus() {
+      this._input.focus();
+    }
+  }, {
     key: '_defaultClassName',
     get: function get() {
       return '';
